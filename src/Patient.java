@@ -1,51 +1,50 @@
 
-public class Patient_class {
+public class Patient {
 
 	private Doctor assignedDoctor;
 	private Nurse assignedNurse;
-	private Consultation consultationRecord ;
+	private Consultation[] consultationRecord ;
 	private Appointment nextAppointment;
 	private Insurance insurance;
 	private Prescription prescription;
-	private Pharmacy prefferedPharmacy;
+	private Pharmacy preferredPharmacy;
 	
-	
-		public Doctor getDoctor()
-		{
-			return assignedDoctor;
-		}
-	
+
+	// Getters
+	public Doctor getDoctor()
+	{
+		return this.assignedDoctor;
+	}
+
+    public Consultation[] getRecord()
+    {
+        return this.consultationRecord;
+    }
+
+    public Insurance getInsurance()
+    {
+        return this.insurance;
+    }
+
+    public Prescription getPrescription()
+    {
+        return this.prescription;
+    }
+
+    public Pharmacy getPharmacy()
+    {
+        return this.prefferedPharmacy;
+    }
+
 	public void setDoctor(Doctor doctor)
 	{
 		this.assignedDoctor = doctor;
-	}
-	
-	
-	public Consultation getRecord()
-	{
-		return this.consultationRecord;
-	}
-	
-	public Insurance getInsurance()
-	{
-		return this.insurance;
 	}
 	
 	public void setInsurance(String insuranceCompany, string claimsAddress)
 	{
 		this.insurance.insuranceCompany =  insuranceCompany;
 		this.insurance.claimAddress = claimsAddress;
-	}
-	
-	public void newConsultation()
-	{
-		Consultation consultation = new Consultation();
-		
-	}
-	
-	public Prescription getPrescription()
-	{
-		return this.prescription;
 	}
 	
 	public void setPrescription(String Medicine, int timespermonth, int dosageAmount)
@@ -55,14 +54,17 @@ public class Patient_class {
 		this.prescription.dosageAmount = dosageAmount;
 	}
 	
-	public Pharmacy getPharmacy()
-	{
-		return this.prefferedPharmacy;
-	}
-	
 	public void setPharmacy(String pharmacyCompany, String pharmacyAddress, String city, String state, int zipcode , long phoneNumber, String emailAddress)
 	{
 		Pharmacy pharmacy = new Pharmacy(pharmacyCompany,pharmacyAddress,city,state,zipcode,phoneNumber,emailAddress);
+	}
+
+	// Functionality
+
+	public void newConsultation()
+	{
+		Consultation consultation = new Consultation();
+
 	}
 
 }
