@@ -12,7 +12,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="503.0" prefWidth="703.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="502.0" prefWidth="706.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
   <tabs>
     <Tab text="Home">
       <content>
@@ -56,6 +56,7 @@
                         <TextField layoutX="82.0" layoutY="117.0" AnchorPane.leftAnchor="82.0" AnchorPane.topAnchor="117.0" />
                         <TextField layoutX="82.0" layoutY="154.0" AnchorPane.leftAnchor="82.0" AnchorPane.topAnchor="153.0" />
                         <TextField layoutX="82.0" layoutY="187.0" AnchorPane.leftAnchor="82.0" />
+                        <Button layoutX="364.0" layoutY="411.0" mnemonicParsing="false" text="Select" AnchorPane.bottomAnchor="9.799999999999976" AnchorPane.rightAnchor="14.200000000000045" />
                      </children>
                   </AnchorPane>
                </children></AnchorPane>
