@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="439.0" prefWidth="698.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
   <tabs>
     <Tab text="Home">
       <content>
@@ -27,7 +30,30 @@
     </Tab>
     <Tab text="Patient List">
       <content>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="762.0">
+               <children>
+                  <ListView layoutX="14.0" layoutY="34.0" prefHeight="418.0" prefWidth="234.0" AnchorPane.bottomAnchor="14.800000000000011" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="34.0" />
+                  <Label layoutX="14.0" layoutY="14.0" text="Patients" />
+                  <AnchorPane layoutX="259.0" layoutY="14.0" prefHeight="459.0" prefWidth="483.0" style="-fx-border-color: grey;" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="259.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
+                     <children>
+                        <Label layoutX="14.0" layoutY="14.0" text="Address" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0" />
+                        <TextField layoutX="61.0" layoutY="10.0" prefHeight="26.0" prefWidth="230.0" AnchorPane.leftAnchor="102.00000000000003" AnchorPane.topAnchor="10.0" />
+                        <Label layoutX="14.0" layoutY="45.0" text="Phone Number" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="45.0" />
+                        <TextField layoutX="102.0" layoutY="41.0" prefHeight="26.0" prefWidth="213.0" AnchorPane.leftAnchor="102.0" AnchorPane.topAnchor="41.0" />
+                        <Label layoutX="14.0" layoutY="80.0" text="Birthday" />
+                        <DatePicker layoutX="102.0" layoutY="76.0" AnchorPane.leftAnchor="102.0" AnchorPane.topAnchor="76.0" />
+                        <ListView layoutX="14.0" layoutY="215.0" prefHeight="115.0" prefWidth="200.0" AnchorPane.bottomAnchor="13.799999999999997" AnchorPane.leftAnchor="14.0" />
+                        <Label layoutX="14.0" layoutY="227.0" text="Upcoming Appointments" AnchorPane.bottomAnchor="134.0" AnchorPane.leftAnchor="14.0" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f4f4f4" height="110.0" layoutX="15.0" layoutY="111.0" stroke="GREY" strokeType="INSIDE" width="307.0" />
+                        <Label layoutX="24.0" layoutY="122.0" prefHeight="17.0" prefWidth="65.0" text="Insurance" AnchorPane.bottomAnchor="245.0" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="337.0" AnchorPane.topAnchor="121.0" />
+                        <Label layoutX="25.0" layoutY="154.0" prefHeight="23.0" prefWidth="46.0" text="Policy ID" AnchorPane.leftAnchor="22.0" />
+                        <Label layoutX="25.0" layoutY="191.0" text="Group #" AnchorPane.leftAnchor="25.0" />
+                        <TextField layoutX="82.0" layoutY="117.0" AnchorPane.bottomAnchor="240.79999999999998" AnchorPane.leftAnchor="82.0" AnchorPane.rightAnchor="194.79999999999998" AnchorPane.topAnchor="117.0" />
+                        <TextField layoutX="82.0" layoutY="154.0" AnchorPane.bottomAnchor="202.79999999999998" AnchorPane.leftAnchor="82.0" AnchorPane.topAnchor="153.0" />
+                        <TextField layoutX="82.0" layoutY="187.0" AnchorPane.leftAnchor="82.0" />
+                     </children>
+                  </AnchorPane>
+               </children></AnchorPane>
       </content>
     </Tab>
   </tabs>
