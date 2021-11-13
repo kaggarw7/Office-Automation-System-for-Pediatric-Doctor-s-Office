@@ -57,7 +57,7 @@
                               <TextField fx:id="patientHomePatientPhoneNumber" editable="false" layoutX="92.0" prefHeight="25.0" prefWidth="176.0" />
                            </children>
                         </Pane>
-                        <Button fx:id="patientHomeEditPatientPersonalInfoButton" layoutX="250.0" layoutY="204.0" mnemonicParsing="false" text="Edit" />
+                        <Button fx:id="patientHomeEditPatientPersonalInfoButton" layoutX="250.0" layoutY="204.0" mnemonicParsing="false" onAction="#handleEditPersonalInformationButton" text="Edit" />
                      </children>
                   </Pane>
                   <Pane layoutX="497.0" layoutY="348.0" prefHeight="95.0" prefWidth="228.0" style="-fx-border-color: grey;" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0">

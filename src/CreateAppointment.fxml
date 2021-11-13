@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
@@ -88,5 +89,6 @@
             <TextField fx:id="createAppointmentMinute" layoutX="214.0" promptText="0-59" />
          </children>
       </Pane>
+      <Button fx:id="createAppointmentCreateButton" layoutX="534.0" layoutY="361.0" mnemonicParsing="false" onAction="#handleCreateAppointment" text="Create" />
    </children>
 </AnchorPane>

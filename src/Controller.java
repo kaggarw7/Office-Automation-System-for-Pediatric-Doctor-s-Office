@@ -1,9 +1,11 @@
+import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -81,6 +83,7 @@ public class Controller {
     @FXML private TextField createAppointmentHour;
     @FXML private TextField createAppointmentMinute;
     @FXML private TextField createAppointmentDoctorID;
+    @FXML private Button createAppointmentCreateButton;
 
     // Nurse Patient Info screen
     @FXML private TextField nursePatientInfoFirstName;
@@ -136,10 +139,68 @@ public class Controller {
     }
 
     @FXML
-    public void handleCloseWindow() {
-        Stage stage = (Stage) errorButton.getScene().getWindow();
-        stage.close();
+    public void handleSignInButton() {
+        //TODO: This needs to check the username and password for a matching pair in the database, then open a home page corresponding to that user.
 
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("PatientHome.fxml"));
+            Stage primaryStage = (Stage) signInSignInButton.getScene().getWindow();
+            primaryStage.setScene(new Scene(root, 700, 500));
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void handleCreateAccountButton() {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("SignUp.fxml"));
+            Stage primaryStage = (Stage) signInCreateAccountButton.getScene().getWindow();
+            primaryStage.setScene(new Scene(root, 700, 500));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void handleOpenNewAppointment() {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("CreateAppointment.fxml"));
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void handleCreateAppointment() {
+        //TODO: Actually create an appointment and put it in the database
+
+        Stage stage = (Stage) createAppointmentCreateButton.getScene().getWindow();
+        stage.close();
+    }
+
+    @FXML
+    public void handleEditPersonalInformationButton() {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("EditPatientInfo.fxml"));
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void handleEditPersonalInformation() {
+        //TODO: This has to save the data entered over the current patient's information, replacing it
+
+        Stage stage = (Stage) editPersonalInformationConfirmButton.getScene().getWindow();
+        stage.close();
     }
 
     // This is an example function to show how to get data from the UI fields.

@@ -68,6 +68,6 @@
             <TextField fx:id="editPersonalInformationAddress" layoutX="112.0" prefHeight="25.0" prefWidth="247.0" promptText="627 North Glebe Road, Arlington, VA 22203" />
          </children>
       </Pane>
-      <Button fx:id="editPersonalInformationConfirmButton" layoutX="611.0" layoutY="366.0" mnemonicParsing="false" text="Confirm" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0" />
+      <Button fx:id="editPersonalInformationConfirmButton" layoutX="611.0" layoutY="366.0" mnemonicParsing="false" onAction="#handleEditPersonalInformation" text="Confirm" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0" />
    </children>
 </AnchorPane>
