@@ -6,16 +6,16 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
    <children>
-      <Label alignment="TOP_CENTER" layoutX="258.0" layoutY="82.0" prefHeight="38.0" prefWidth="84.0" text="Sign In" textAlignment="CENTER">
+      <Label alignment="TOP_CENTER" layoutX="258.0" layoutY="101.0" prefHeight="38.0" prefWidth="84.0" text="Sign In" textAlignment="CENTER" AnchorPane.leftAnchor="258.0" AnchorPane.rightAnchor="258.0" AnchorPane.topAnchor="101.0">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <TextField fx:id="signInPageUsernameTextBox" layoutX="225.0" layoutY="147.0" promptText="Username" />
-      <TextField fx:id="signInPagePasswordTextBox" layoutX="225.0" layoutY="187.0" promptText="Password" />
-      <Button fx:id="signInPageSignInButton" layoutX="271.0" layoutY="226.0" mnemonicParsing="false" text="Sign In" />
+      <TextField fx:id="signInUsername" layoutX="226.0" layoutY="156.0" promptText="Username" AnchorPane.leftAnchor="226.0" AnchorPane.rightAnchor="225.0" AnchorPane.topAnchor="156.0" />
+      <TextField fx:id="signInPassword" layoutX="226.0" layoutY="188.0" promptText="Password" AnchorPane.leftAnchor="226.0" AnchorPane.rightAnchor="225.0" AnchorPane.topAnchor="188.0" />
+      <Button fx:id="signInSignInButton" layoutX="274.0" layoutY="227.0" mnemonicParsing="false" text="Sign In" AnchorPane.leftAnchor="274.0" AnchorPane.rightAnchor="273.0" AnchorPane.topAnchor="227.0" />
+      <Button fx:id="signInCreateAccountButton" layoutX="248.0" layoutY="260.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="104.0" text="Create Account" AnchorPane.leftAnchor="248.0" AnchorPane.rightAnchor="248.0" AnchorPane.topAnchor="260.0" />
    </children>
 </AnchorPane>

@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="502.0" prefWidth="776.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="502.0" prefWidth="776.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
   <tabs>
     <Tab text="Home">
       <content>
@@ -21,7 +21,7 @@
                <children>
                   <Pane layoutX="14.0" layoutY="237.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0">
                      <children>
-                        <ListView fx:id="patientUpcomingAppointments" layoutY="22.0" prefHeight="200.0" prefWidth="200.0" />
+                        <ListView fx:id="patientHomeUpcomingAppointments" layoutY="22.0" prefHeight="200.0" prefWidth="200.0" />
                         <Label text="Upcoming Appointments" />
                      </children>
                   </Pane>
@@ -29,35 +29,35 @@
                      <children>
                         <Pane layoutX="85.0" layoutY="14.0">
                            <children>
-                              <TextField fx:id="patientFirstName" editable="false" layoutX="60.0" />
+                              <TextField fx:id="patientHomePatientFirstName" editable="false" layoutX="60.0" />
                               <Label layoutY="4.0" text="First Name" />
                            </children>
                         </Pane>
                         <Pane layoutX="85.0" layoutY="47.0">
                            <children>
-                              <TextField fx:id="patientLastName" editable="false" layoutX="60.0" />
+                              <TextField fx:id="patientHomePatientLastName" editable="false" layoutX="60.0" />
                               <Label layoutY="4.0" text="Last Name" />
                            </children>
                         </Pane>
                         <Pane layoutX="85.0" layoutY="80.0">
                            <children>
                               <Label layoutY="4.0" text="Birthday" />
-                              <DatePicker fx:id="patientBirthday" editable="false" layoutX="59.0" prefHeight="25.0" prefWidth="150.0" />
+                              <DatePicker fx:id="patientHomePatientBirthday" editable="false" layoutX="59.0" prefHeight="25.0" prefWidth="150.0" />
                            </children>
                         </Pane>
                         <Pane layoutX="21.0" layoutY="113.0">
                            <children>
                               <Label layoutY="4.0" text="Address" />
-                              <TextField fx:id="patientAddress" editable="false" layoutX="64.0" prefHeight="25.0" prefWidth="208.0" />
+                              <TextField fx:id="patientHomePatientAddress" editable="false" layoutX="64.0" prefHeight="25.0" prefWidth="208.0" />
                            </children>
                         </Pane>
                         <Pane layoutX="25.0" layoutY="148.0">
                            <children>
                               <Label fx:id="patientPhoneNumber" layoutY="4.0" text="Phone Number" />
-                              <TextField editable="false" layoutX="92.0" prefHeight="25.0" prefWidth="176.0" />
+                              <TextField fx:id="patientHomePatientPhoneNumber" editable="false" layoutX="92.0" prefHeight="25.0" prefWidth="176.0" />
                            </children>
                         </Pane>
-                        <Button fx:id="editPatientPersonalInfo" layoutX="250.0" layoutY="204.0" mnemonicParsing="false" text="Edit" />
+                        <Button fx:id="patientHomeEditPatientPersonalInfoButton" layoutX="250.0" layoutY="204.0" mnemonicParsing="false" text="Edit" />
                      </children>
                   </Pane>
                   <Pane layoutX="497.0" layoutY="348.0" prefHeight="95.0" prefWidth="228.0" style="-fx-border-color: grey;" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0">
@@ -65,13 +65,13 @@
                         <Pane layoutX="14.0" layoutY="14.0">
                            <children>
                               <Label layoutY="4.0" text="Doctor" />
-                              <TextField editable="false" layoutX="46.0" />
+                              <TextField fx:id="patientHomeDoctorName" editable="false" layoutX="46.0" />
                            </children>
                         </Pane>
                         <Pane layoutX="15.0" layoutY="56.0">
                            <children>
                               <Label layoutY="4.0" text="Nurse" />
-                              <TextField editable="false" layoutX="44.0" />
+                              <TextField fx:id="patientHomeNurseName" editable="false" layoutX="44.0" />
                            </children>
                         </Pane>
                      </children>
@@ -90,15 +90,15 @@
                      </font>
                   </Label>
                   <Separator layoutY="66.0" prefHeight="0.0" prefWidth="776.0" />
-                  <TextArea fx:id="medicalInformationPageYourMedicalInfoTextFeild" layoutX="14.0" layoutY="128.0" prefHeight="337.0" prefWidth="198.0" />
+                  <TextArea fx:id="patientHomePatientMedicalInfo" layoutX="14.0" layoutY="128.0" prefHeight="337.0" prefWidth="198.0" />
                   <Label alignment="TOP_CENTER" layoutX="34.0" layoutY="87.0" text="Your Medical Information">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <TextArea fx:id="medicalInformationPagePrescriptionTextFeild" layoutX="288.0" layoutY="128.0" prefHeight="338.0" prefWidth="200.0" />
-                  <TextArea fx:id="medicalInformationPageInstructionsTextFeild" layoutX="562.0" layoutY="128.0" prefHeight="338.0" prefWidth="200.0" />
-                  <Label alignment="TOP_CENTER" layoutX="351.0" layoutY="87.0" text="Prescription">
+                  <TextArea fx:id="patientHomePatientPrescriptions" layoutX="288.0" layoutY="128.0" prefHeight="338.0" prefWidth="200.0" />
+                  <TextArea fx:id="patientHomePatientInstructions" layoutX="562.0" layoutY="128.0" prefHeight="338.0" prefWidth="200.0" />
+                  <Label alignment="TOP_CENTER" layoutX="348.0" layoutY="87.0" text="Prescriptions">
                      <font>
                         <Font size="14.0" />
                      </font>

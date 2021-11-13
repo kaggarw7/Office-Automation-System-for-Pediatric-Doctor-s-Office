@@ -37,20 +37,19 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
    <children>
-      <Button fx:id="loginPatient" layoutX="139.0" layoutY="227.0" mnemonicParsing="false" text="Patient">
+      <Button fx:id="accountTypePatient" layoutX="139.0" layoutY="227.0" mnemonicParsing="false" text="Patient">
          <font>
             <Font size="24.0" />
          </font>
       </Button>
-      <Button fx:id="loginNurse" layoutX="274.0" layoutY="227.0" mnemonicParsing="false" text="Nurse">
+      <Button fx:id="accountTypeNurse" layoutX="274.0" layoutY="227.0" mnemonicParsing="false" text="Nurse">
          <font>
             <Font size="24.0" />
          </font>
       </Button>
-      <Button fx:id="loginDoctor" layoutX="397.0" layoutY="227.0" mnemonicParsing="false" text="Doctor">
+      <Button fx:id="accountTypeDoctor" layoutX="397.0" layoutY="227.0" mnemonicParsing="false" text="Doctor">
          <font>
             <Font size="24.0" />
          </font>
@@ -60,6 +59,6 @@
             <Font size="45.0" />
          </font>
       </Label>
-      <Button fx:id="loginCreateAccount" layoutX="273.0" layoutY="310.0" mnemonicParsing="false" text="Create Account" />
+      <Button fx:id="accountTypeCreateAccount" layoutX="273.0" layoutY="310.0" mnemonicParsing="false" text="Create Account" />
    </children>
 </AnchorPane>

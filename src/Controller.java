@@ -10,15 +10,45 @@ import java.io.IOException;
 import java.time.LocalDate;
 
 public class Controller {
+    /*
+    // Account Type screen
+    @FXML private Button accountTypePatient;
+    @FXML private Button accountTypeNurse;
+    @FXML private Button accountTypeDoctor;
+    @FXML private Button accountTypeCreateAccount;
+    */
+
+    // Sign In screen
+    @FXML private TextField signInUsername;
+    @FXML private TextField signInPassword;
+    @FXML private Button signInSignInButton;
+    @FXML private Button signInCreateAccountButton;
+
     // Sign up screen
-    @FXML private TextField firstName;
-    @FXML private TextField lastName;
-    @FXML private DatePicker birthday;
-    @FXML private TextField username;
-    @FXML private PasswordField password;
-    @FXML private RadioButton radioPatient;
-    @FXML private RadioButton radioNurse;
-    @FXML private RadioButton radioDoctor;
+    @FXML private TextField signUpFirstName;
+    @FXML private TextField signUpLastName;
+    @FXML private DatePicker signUpBirthday;
+    @FXML private TextField signUpUsername;
+    @FXML private PasswordField signUpPassword;
+    @FXML private RadioButton signUpRadioPatient;
+    @FXML private RadioButton signUpRadioNurse;
+    @FXML private RadioButton signUpRadioDoctor;
+
+    // Patient Home screen
+    // Home tab
+    @FXML private ListView patientHomeUpcomingAppointments;
+    @FXML private TextField patientHomeDoctorName;
+    @FXML private TextField patientHomeNurseName;
+    @FXML private TextField patientHomePatientFirstName;
+    @FXML private TextField patientHomePatientLastName;
+    @FXML private DatePicker patientHomePatientBirthday;
+    @FXML private TextField patientHomePatientAddress;
+    @FXML private TextField patientHomePatientPhoneNumber;
+    @FXML private Button patientHomeEditPatientPersonalInfoButton;
+    // Medical Record tab
+    @FXML private TextArea patientHomePatientMedicalInfo;
+    @FXML private TextArea patientHomePatientPrescriptions;
+    @FXML private TextArea patientHomePatientInstructions;
 
     // Error box
     @FXML private Button errorButton;
@@ -46,18 +76,18 @@ public class Controller {
     // This is an example function to show how to get data from the UI fields.
     public void handleAddUser() {
         try {
-            String firstNameEntry = firstName.getText();
-            String lastNameEntry = lastName.getText();
-            LocalDate birthdayEntry = birthday.getValue();
-            String usernameEntry = username.getText();
-            String passwordEntry = password.getText();
+            String firstNameEntry = signUpFirstName.getText();
+            String lastNameEntry = signUpLastName.getText();
+            LocalDate birthdayEntry = signUpBirthday.getValue();
+            String usernameEntry = signUpUsername.getText();
+            String passwordEntry = signUpPassword.getText();
 
             String personType = "NULL";
-            if (radioPatient.isSelected()) {
+            if (signUpRadioPatient.isSelected()) {
                 personType = "Patient";
-            } else if (radioNurse.isSelected()) {
+            } else if (signUpRadioNurse.isSelected()) {
                 personType = "Nurse";
-            } else if (radioDoctor.isSelected()) {
+            } else if (signUpRadioDoctor.isSelected()) {
                 personType = "Doctor";
             }
 
@@ -77,12 +107,12 @@ public class Controller {
             e.getStackTrace();
             errorDialogue();
 
-            firstName.clear();
-            lastName.clear();
-            birthday.setValue(LocalDate.EPOCH); // No good way to clear this as far as I can tell.
-            username.clear();
-            password.clear();
-            radioPatient.setSelected(true);
+            signUpFirstName.clear();
+            signUpLastName.clear();
+            signUpBirthday.setValue(LocalDate.EPOCH); // No good way to clear this as far as I can tell.
+            signUpUsername.clear();
+            signUpPassword.clear();
+            signUpRadioPatient.setSelected(true);
         }
     }
 }

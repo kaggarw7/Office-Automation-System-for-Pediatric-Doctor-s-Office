@@ -23,7 +23,7 @@
       <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
    </rowConstraints>
    <children>
-      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="634.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Sign Up" textAlignment="CENTER">
                <font>
@@ -35,12 +35,12 @@
             </Text>
             <HBox alignment="CENTER" fillHeight="false" VBox.vgrow="NEVER">
                <children>
-                  <TextField fx:id="firstName" promptText="First name">
+                  <TextField fx:id="signUpFirstName" promptText="First name">
                      <HBox.margin>
                         <Insets right="5.0" />
                      </HBox.margin>
                   </TextField>
-                  <TextField fx:id="lastName" prefWidth="154.0" promptText="Last name">
+                  <TextField fx:id="signUpLastName" prefWidth="154.0" promptText="Last name">
                      <HBox.margin>
                         <Insets left="5.0" />
                      </HBox.margin>
@@ -50,24 +50,24 @@
                   <Insets bottom="20.0" top="20.0" />
                </VBox.margin>
             </HBox>
-            <DatePicker fx:id="birthday" promptText="Birthday">
+            <DatePicker fx:id="signUpBirthday" promptText="Birthday">
                <VBox.margin>
                   <Insets bottom="20.0" left="225.0" right="225.0" />
                </VBox.margin>
             </DatePicker>
-            <TextField fx:id="username" promptText="Username">
+            <TextField fx:id="signUpUsername" promptText="Username">
                <VBox.margin>
                   <Insets bottom="20.0" left="225.0" right="225.0" />
                </VBox.margin>
             </TextField>
-            <PasswordField fx:id="password" promptText="Password">
+            <PasswordField fx:id="signUpPassword" promptText="Password">
                <VBox.margin>
                   <Insets bottom="10.0" left="225.0" right="225.0" />
                </VBox.margin>
             </PasswordField>
             <HBox alignment="CENTER">
                <children>
-                  <RadioButton fx:id="radioPatient" mnemonicParsing="false" selected="true" text="Patient">
+                  <RadioButton fx:id="signUpRadioPatient" mnemonicParsing="false" selected="true" text="Patient">
                      <toggleGroup>
                         <ToggleGroup fx:id="signUpUserType" />
                      </toggleGroup>
@@ -75,12 +75,12 @@
                         <Insets left="5.0" right="5.0" />
                      </HBox.margin>
                   </RadioButton>
-                  <RadioButton fx:id="radioNurse" mnemonicParsing="false" text="Nurse" toggleGroup="$signUpUserType">
+                  <RadioButton fx:id="signUpRadioNurse" mnemonicParsing="false" text="Nurse" toggleGroup="$signUpUserType">
                      <HBox.margin>
                         <Insets left="5.0" right="5.0" />
                      </HBox.margin>
                   </RadioButton>
-                  <RadioButton fx:id="radioDoctor" mnemonicParsing="false" text="Doctor" toggleGroup="$signUpUserType">
+                  <RadioButton fx:id="signUpRadioDoctor" mnemonicParsing="false" text="Doctor" toggleGroup="$signUpUserType">
                      <HBox.margin>
                         <Insets left="5.0" right="5.0" />
                      </HBox.margin>
@@ -92,7 +92,7 @@
             </HBox>
             <HBox alignment="CENTER">
                <children>
-                  <Button fx:id="signUpButton" mnemonicParsing="false" onAction="#handleAddUser" text="Sign Up" />
+                  <Button mnemonicParsing="false" onAction="#handleAddUser" text="Sign Up" />
                </children>
                <VBox.margin>
                   <Insets top="20.0" />
