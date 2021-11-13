@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="502.0" prefWidth="706.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+  <tabs>
+    <Tab text="Home">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="718.0">
+               <children>
+                  <Pane layoutX="14.0" layoutY="237.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0">
+                     <children>
+                        <ListView fx:id="patientUpcomingAppointments" layoutY="22.0" prefHeight="200.0" prefWidth="200.0" />
+                        <Label text="Upcoming Appointments" />
+                     </children>
+                  </Pane>
+                  <Pane layoutX="377.0" layoutY="14.0" prefHeight="243.0" prefWidth="300.0" style="-fx-border-color: grey;" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
+                     <children>
+                        <Pane layoutX="85.0" layoutY="14.0">
+                           <children>
+                              <TextField editable="false" layoutX="60.0" />
+                              <Label layoutY="4.0" text="First Name" />
+                           </children>
+                        </Pane>
+                        <Pane layoutX="85.0" layoutY="47.0">
+                           <children>
+                              <TextField editable="false" layoutX="60.0" />
+                              <Label layoutY="4.0" text="Last Name" />
+                           </children>
+                        </Pane>
+                        <Pane layoutX="85.0" layoutY="80.0">
+                           <children>
+                              <Label layoutY="4.0" text="Birthday" />
+                              <DatePicker editable="false" layoutX="59.0" prefHeight="25.0" prefWidth="150.0" />
+                           </children>
+                        </Pane>
+                        <Pane layoutX="21.0" layoutY="113.0">
+                           <children>
+                              <Label layoutY="4.0" text="Address" />
+                              <TextField editable="false" layoutX="64.0" prefHeight="25.0" prefWidth="208.0" />
+                           </children>
+                        </Pane>
+                        <Pane layoutX="25.0" layoutY="148.0">
+                           <children>
+                              <Label layoutY="4.0" text="Phone Number" />
+                              <TextField editable="false" layoutX="92.0" prefHeight="25.0" prefWidth="176.0" />
+                           </children>
+                        </Pane>
+                        <Button fx:id="editPatientPersonalInfo" layoutX="250.0" layoutY="204.0" mnemonicParsing="false" text="Edit" />
+                     </children>
+                  </Pane>
+               </children></AnchorPane>
+      </content>
+    </Tab>
+    <Tab text="Medical Record">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="762.0" />
+      </content>
+    </Tab>
+  </tabs>
+</TabPane>
