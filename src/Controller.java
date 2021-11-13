@@ -50,6 +50,58 @@ public class Controller {
     @FXML private TextArea patientHomePatientPrescriptions;
     @FXML private TextArea patientHomePatientInstructions;
 
+    // Nurse Home screen
+    // Home tab
+    @FXML private ListView nurseHomeAppointmentList;
+    @FXML private Button nurseHomeNewAppointmentButton;
+    // Patient List tab
+    @FXML private ListView nurseHomePatientList;
+    @FXML private TextField nurseHomePatientListPatientAddress;
+    @FXML private TextField nurseHomePatientListPatientPhoneNumber;
+    @FXML private DatePicker nurseHomePatientListPatientBirthday;
+    @FXML private TextField nurseHomePatientListPatientInsuranceName;
+    @FXML private TextField nurseHomePatientListPatientInsurancePolicyID;
+    @FXML private TextField nurseHomePatientListPatientInsuranceGroupNumber;
+    @FXML private ListView nurseHomePatientListPatientUpcomingAppointments;
+    @FXML private Button nurseHomePatientListSelectPatientButton;
+
+    // Create Appointment screen
+    @FXML private TextField createAppointmentFirstName;
+    @FXML private TextField createAppointmentLastName;
+    @FXML private TextField createAppointmentPatientIDNumber;
+    @FXML private DatePicker createAppointmentDate;
+    @FXML private TextField createAppointmentHour;
+    @FXML private TextField createAppointmentMinute;
+    @FXML private TextField createAppointmentDoctorID;
+
+    // Doctor Patient Info screen
+    @FXML private TextField doctorPatientInfoFirstName;
+    @FXML private TextField doctorPatientInfoLastName;
+    @FXML private TextField doctorPatientInfoAge;
+    @FXML private TextField doctorPatientInfoWeight;
+    @FXML private TextField doctorPatientInfoHeight;
+    @FXML private TextField doctorPatientInfoBloodType;
+    @FXML private TextArea doctorPatientInfoPrescriptions;
+    @FXML private TextArea doctorPatientInfoNotes;
+    @FXML private Button doctorPatientInfoCloseButton;
+    @FXML private Button doctorPatientInfoSaveButton;
+
+    // Doctor Home screen
+    // Home tab
+    @FXML private ListView doctorHomeAppointmentList;
+    // Patient List tab
+    @FXML private ListView doctorHomePatientList;
+    @FXML private TextField doctorHomePatientListPatientAddress;
+    @FXML private TextField doctorHomePatientListPatientPhoneNumber;
+    @FXML private DatePicker doctorHomePatientListPatientBirthday;
+    @FXML private TextField doctorHomePatientListPatientInsuranceName;
+    @FXML private TextField doctorHomePatientListPatientInsurancePolicyID;
+    @FXML private TextField doctorHomePatientListPatientInsuranceGroupNumber;
+    @FXML private ListView doctorHomePatientListPatientUpcomingAppointments;
+    @FXML private Button doctorHomePatientListSelectPatientButton;
+
+
+
     // Error box
     @FXML private Button errorButton;
 
