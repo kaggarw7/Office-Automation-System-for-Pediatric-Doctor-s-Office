@@ -1,14 +1,15 @@
+import java.util;
 
-public class Nurse(){
+public class Nurse{
 
-    
+    private Doctor assignedDoctor;
+    private Patient assignedPatient[];
 
-    Doctor get_doctor(){
-
+    public Doctor getAssignedDoctor(){
+        return this.assignedDoctor;
     }
-   
-   void set_Doctor(){
 
-   } 
-
+    public Patient getAssignedDoctor(int index){
+        return this.assignedPatient[index];
+    }
 }
