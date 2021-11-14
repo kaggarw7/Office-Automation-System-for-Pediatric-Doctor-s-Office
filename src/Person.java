@@ -1,99 +1,75 @@
-import java.util.*;
+import java.time.LocalDate;
+import java.time.Period;
+
 public class Person {
-	
 	private String firstName;
 	private String lastName;
+
 	private int id;
-	private int birthDay;
-	private int birthMonth;
-	private int birthYear;
-	private String address;
-	private long phoneNumber;
-	
-	public String getFirstName()
-	{
-		return this.firstName;
-	}
-	
-	public String getLastName()
-	{
-		return this.lastName;
-	}
-	
-	public int getId()
-	{
-		return this.id;
-	}
-	
-	public int getBirthDay()
-	{
-		return this.birthDay;
-	}
-	
-	public int getBirthMonth()
-	{
-		return this.birthMonth;
-	}
-	
-	public int getBirthYear()
-	{
-		return this.birthYear;
-	}
-	
-	public String getAddress()
-	{
-		return this.address;
-	}
-	
-	public long getPhoneNumber()
-	{
-		return this.phoneNumber;
-	}
-	
-	void setFirstName(String firstName)
-	{
-		this.firstName = firstName;
-	}
-	
-	void setLastName(String lastName)
-	{
-		this.lastName = lastName;
-	}
-	
-	void setId (int id)
-	{
-		this.id = id;
-	}
-	
-	void setBirthDay (int birthDay)
-	{
-		this.birthDay = birthDay;
-	}
-	
-	void setBirthMonth(int birthMonth)
-	{
-		this.birthMonth = birthMonth;
-	}
-	
-	void setBirthYear(int birthYear)
-	{
-		this.birthYear = birthYear;
-	}
-	
-	void setAddress(String address)
-	{
-		this.address = address;
-	}
-	
-	void setPhoneNumber(long phoneNumber)
-	{
-		this.phoneNumber = phoneNumber;
-	}
-	
-	public int getAge()
-	{
-		Date date = new Date();
-		int year = date.getYear();
-		return (year - this.birthYear);
-	}
+
+	private LocalDate birthday;
+
+	// Constructor
+
+    public Person() {
+        firstName = null;
+        lastName = null;
+
+        id = -1;
+
+        birthday = null;
+    }
+
+    public Person(String firstName, String lastName, int id, LocalDate birthday) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+
+        this.id = id;
+
+        this.birthday = birthday;
+    }
+
+    // Getters
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public LocalDate getBirthday() {
+        return birthday;
+    }
+
+    public int getAge() {
+        LocalDate today = LocalDate.now();
+
+        Period birthToToday = Period.between(this.birthday, today);
+        return birthToToday.getYears();
+    }
+
+    // Setters
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setBirthday(LocalDate birthday) {
+        this.birthday = birthday;
+    }
+
 }
