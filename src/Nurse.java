@@ -1,15 +1,32 @@
-import java.util;
+import java.time.LocalDate;
+import java.util.ArrayList;
 
-public class Nurse{
+public class Nurse extends Person {
+    private ArrayList<Doctor> assignedDoctors;
 
-    private Doctor assignedDoctor;
-    private Patient assignedPatient[];
+    // Constructor
 
-    public Doctor getAssignedDoctor(){
-        return this.assignedDoctor;
+    public Nurse(String firstName, String lastName, LocalDate birthday) {
+        super(firstName, lastName, birthday);
     }
 
-    public Patient getAssignedDoctor(int index){
-        return this.assignedPatient[index];
+    // Getters
+
+    public ArrayList<Doctor> getAssignedDoctors() {
+        return assignedDoctors;
+    }
+
+    // Functionality
+
+    public void addAssignedDoctor(Doctor doctor) {
+        assignedDoctors.add(doctor);
+    }
+
+    public void removeAssignedDoctor(Doctor doctor) {
+        if (assignedDoctors.contains(doctor)) {
+            assignedDoctors.remove(doctor);
+        } else {
+            System.out.println("This Doctor is not assigned to this Nurse.");
+        }
     }
 }
