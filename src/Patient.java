@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Patient {
+public class Patient extends Person {
 
 	private Doctor assignedDoctor;
 	private Nurse assignedNurse;
@@ -9,53 +9,16 @@ public class Patient {
 	private Insurance insurance;
 	private Prescription prescription;
 	private Pharmacy preferredPharmacy;
-	
+
+	// Constructor
+
+    public Patient(Doctor assignedDoctor, Nurse assignedNurse, Insurance insurance) {
+
+    }
 
 	// Getters
-	public Doctor getDoctor()
-	{
-		return this.assignedDoctor;
-	}
 
-    public ArrayList<Consultation> getRecord()
-    {
-        return this.consultationRecord;
-    }
-
-    public Insurance getInsurance()
-    {
-        return this.insurance;
-    }
-
-    public Prescription getPrescription()
-    {
-        return this.prescription;
-    }
-
-    public Pharmacy getPharmacy()
-    {
-        return this.prefferedPharmacy;
-    }
-
-	public void setDoctor(Doctor doctor)
-	{
-		this.assignedDoctor = doctor;
-	}
-	
-	public void setInsurance(Insurance insurance)
-	{
-		this.insurance = insurance;
-	}
-	
-	public void setPrescription(Prescription prescription)
-	{
-		this.prescription = prescription;
-	}
-	
-	public void setPharmacy(Pharmacy pharmacy)
-	{
-		preferredPharmacy = pharmacy;
-	}
+    // Setters
 
 	// Functionality
 
