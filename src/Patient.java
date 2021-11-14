@@ -1,9 +1,10 @@
+import java.util.ArrayList;
 
 public class Patient {
 
 	private Doctor assignedDoctor;
 	private Nurse assignedNurse;
-	private Consultation[] consultationRecord ;
+	private ArrayList<Consultation> consultationRecord ;
 	private Appointment nextAppointment;
 	private Insurance insurance;
 	private Prescription prescription;
@@ -16,7 +17,7 @@ public class Patient {
 		return this.assignedDoctor;
 	}
 
-    public Consultation[] getRecord()
+    public ArrayList<Consultation> getRecord()
     {
         return this.consultationRecord;
     }
@@ -41,30 +42,26 @@ public class Patient {
 		this.assignedDoctor = doctor;
 	}
 	
-	public void setInsurance(String insuranceCompany, string claimsAddress)
+	public void setInsurance(Insurance insurance)
 	{
-		this.insurance.insuranceCompany =  insuranceCompany;
-		this.insurance.claimAddress = claimsAddress;
+		this.insurance = insurance;
 	}
 	
-	public void setPrescription(String Medicine, int timespermonth, int dosageAmount)
+	public void setPrescription(Prescription prescription)
 	{
-		this.prescription.medicine = Medicine;
-		this.prescription.timespermonth = timespermonth;
-		this.prescription.dosageAmount = dosageAmount;
+		this.prescription = prescription;
 	}
 	
-	public void setPharmacy(String pharmacyCompany, String pharmacyAddress, String city, String state, int zipcode , long phoneNumber, String emailAddress)
+	public void setPharmacy(Pharmacy pharmacy)
 	{
-		Pharmacy pharmacy = new Pharmacy(pharmacyCompany,pharmacyAddress,city,state,zipcode,phoneNumber,emailAddress);
+		preferredPharmacy = pharmacy;
 	}
 
 	// Functionality
 
-	public void newConsultation()
+	public void newConsultation(Consultation consultation)
 	{
-		Consultation consultation = new Consultation();
+		consultationRecord.add(consultation);
 
 	}
-
 }
