@@ -20,13 +20,13 @@ public class Person {
         birthday = null;
     }
 
-    public Person(String firstName, String lastName, int id, LocalDate birthday) {
+    public Person(String firstName, String lastName, LocalDate birthday) {
         this.firstName = firstName;
         this.lastName = lastName;
 
-        this.id = id;
-
         this.birthday = birthday;
+
+        //TODO: id needs to be assigned according to what the database shows is the latest used ID plus 1.
     }
 
     // Getters
