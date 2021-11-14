@@ -56,7 +56,7 @@
                         <TextField fx:id="nurseHomePatientListPatientInsuranceName" layoutX="82.0" layoutY="117.0" AnchorPane.leftAnchor="82.0" AnchorPane.topAnchor="117.0" />
                         <TextField fx:id="nurseHomePatientListPatientInsurancePolicyID" layoutX="82.0" layoutY="154.0" AnchorPane.leftAnchor="82.0" AnchorPane.topAnchor="153.0" />
                         <TextField fx:id="nurseHomePatientListPatientInsuranceGroupNumber" layoutX="82.0" layoutY="187.0" AnchorPane.leftAnchor="82.0" />
-                        <Button fx:id="nurseHomePatientListSelectPatientButton" layoutX="364.0" layoutY="411.0" mnemonicParsing="false" text="Select" AnchorPane.bottomAnchor="9.799999999999976" AnchorPane.rightAnchor="14.200000000000045" />
+                        <Button fx:id="nurseHomePatientListSelectPatientButton" layoutX="364.0" layoutY="411.0" mnemonicParsing="false" onAction="#handleNursePatientListSelectPatientButton" text="Select" AnchorPane.bottomAnchor="9.799999999999976" AnchorPane.rightAnchor="14.200000000000045" />
                      </children>
                   </AnchorPane>
                </children></AnchorPane>

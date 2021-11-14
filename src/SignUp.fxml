@@ -92,7 +92,7 @@
             </HBox>
             <HBox alignment="CENTER">
                <children>
-                  <Button mnemonicParsing="false" onAction="#handleAddUser" text="Sign Up" />
+                  <Button fx:id="signUpSignUpButton" mnemonicParsing="false" onAction="#handleAddUser" text="Sign Up" />
                </children>
                <VBox.margin>
                   <Insets top="20.0" />

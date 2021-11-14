@@ -22,8 +22,8 @@
          </children>
       </Pane>
       <TextArea fx:id="doctorPatientInfoPrescriptions" layoutX="646.0" layoutY="55.0" prefHeight="200.0" prefWidth="200.0" promptText="Prescriptions" AnchorPane.rightAnchor="24.0" AnchorPane.topAnchor="55.0" />
-      <Button fx:id="doctorPatientInfoCloseButton" layoutX="755.0" layoutY="377.0" mnemonicParsing="false" text="Close" textFill="#e11010" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="70.0" />
-      <Button fx:id="doctorPatientInfoSaveButton" layoutX="815.0" layoutY="377.0" mnemonicParsing="false" text="Save" textFill="#210be5" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="14.0" />
+      <Button fx:id="doctorPatientInfoCloseButton" layoutX="755.0" layoutY="377.0" mnemonicParsing="false" onAction="#handleCloseStage" text="Close" textFill="#e11010" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="70.0" />
+      <Button fx:id="doctorPatientInfoSaveButton" layoutX="815.0" layoutY="377.0" mnemonicParsing="false" onAction="#handleDoctorPatientInfoSave" text="Save" textFill="#210be5" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="14.0" />
       <Pane layoutX="24.0" layoutY="20.0" AnchorPane.leftAnchor="24.0" AnchorPane.topAnchor="20.0">
          <children>
             <Label fx:id="firstName_lable" accessibleText="Age" layoutY="2.0" text="First Name">
