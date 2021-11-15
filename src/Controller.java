@@ -27,15 +27,30 @@ public class Controller {
     @FXML private Button signInCreateAccountButton;
 
     // Sign up screen
-    @FXML private TextField signUpFirstName;
-    @FXML private TextField signUpLastName;
-    @FXML private DatePicker signUpBirthday;
-    @FXML private TextField signUpUsername;
-    @FXML private PasswordField signUpPassword;
-    @FXML private RadioButton signUpRadioPatient;
-    @FXML private RadioButton signUpRadioNurse;
-    @FXML private RadioButton signUpRadioDoctor;
-    @FXML private Button signUpSignUpButton;
+
+    @FXML private TextField signUpPageFirstNameTextBox;
+    @FXML private TextField signUpPageLastNameTexBox;
+    @FXML private DatePicker signUpPageBirthdayCalander;
+    @FXML private TextField signUpPageAddressTextBox;
+    @FXML private TextField signUpPagePhoneNumberTextBox;
+    @FXML private TextField signUpPagePhoneNumberText;
+    @FXML private TextField signUpPageInsuranceIdTextBox;
+    @FXML private TextField signUpPageUserNameTextBox;
+    @FXML private PasswordField signUpPagePasswordTextBox;
+    @FXML private TextField signUpPagePharmacyAddressTextBox;
+    @FXML private RadioButton signUpPagePatientRadioButton;
+    @FXML private RadioButton signUpPageDoctorRadioButton;
+    @FXML private RadioButton signUpPageNurseRadioButton;
+    @FXML private Button signUpPageSignUpButton;
+    //@FXML private TextField signUpFirstName;
+    //@FXML private TextField signUpLastName;
+    //@FXML private DatePicker signUpBirthday;
+    //@FXML private TextField signUpUsername;
+    //@FXML private PasswordField signUpPassword;
+    //@FXML private RadioButton signUpRadioPatient;
+    //@FXML private RadioButton signUpRadioNurse;
+    //@FXML private RadioButton signUpRadioDoctor;
+    //@FXML private Button signUpSignUpButton;
 
     // Patient Home screen
     // Home tab
