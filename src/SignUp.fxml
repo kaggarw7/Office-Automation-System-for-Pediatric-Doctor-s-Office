@@ -24,7 +24,7 @@
       <TextField fx:id="signUpPageAddressTextBox" layoutX="301.0" layoutY="146.0" promptText="Address" />
       <DatePicker fx:id="signUpPageBirthdayCalander" layoutX="301.0" layoutY="118.0" promptText="Birthday" />
       <TextField fx:id="signUpPageUserNameTextBox" layoutX="301.0" layoutY="230.0" promptText="Username" />
-      <TextField fx:id="signUpPageInsuranceIdTextBox" layoutX="301.0" layoutY="202.0" promptText="0000 0000-A" />
+      <TextField fx:id="signUpPageInsuranceIdTextBox" layoutX="301.0" layoutY="202.0" promptText="ABC000000000" />
       <TextField fx:id="signUpPagePasswordTextBox" layoutX="301.0" layoutY="258.0" promptText="Password" />
       <Separator layoutX="-1.0" layoutY="46.0" prefHeight="6.0" prefWidth="600.0" />
       <Label layoutX="167.0" layoutY="64.0" text="First Name:">
