@@ -11,7 +11,6 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane fx:id="signUpPagePharmacyAggressTexBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
    <children>
       <Label layoutX="276.0" layoutY="13.0" text="Sign Up">
@@ -69,7 +68,7 @@
             </Label>
          </children>
       </Pane>
-      <Pane layoutX="167.0" layoutY="230.0">
+      <Pane layoutX="167.0" layoutY="202.0">
          <children>
             <TextField fx:id="signUpPageUserNameTextBox" layoutX="134.0" promptText="Username" />
             <Label layoutY="3.0" text="Username:">
@@ -79,7 +78,7 @@
             </Label>
          </children>
       </Pane>
-      <Pane layoutX="167.0" layoutY="202.0">
+      <Pane fx:id="signUpInsurancePane" layoutX="167.0" layoutY="258.0">
          <children>
             <TextField fx:id="signUpPageInsuranceIdTextBox" layoutX="134.0" promptText="ABC000000000" />
             <Label layoutY="3.0" text="Insurance ID:">
@@ -89,7 +88,7 @@
             </Label>
          </children>
       </Pane>
-      <Pane layoutX="167.0" layoutY="258.0">
+      <Pane layoutX="167.0" layoutY="230.0">
          <children>
             <TextField fx:id="signUpPagePasswordTextBox" layoutX="134.0" promptText="Password" />
             <Label layoutY="3.0" text="Password:">
@@ -103,17 +102,17 @@
       <Label layoutX="97.0" layoutY="117.0" />
       <Pane layoutX="167.0" layoutY="329.0">
          <children>
-            <RadioButton fx:id="signUpPageDoctorRadioButton" layoutX="113.0" mnemonicParsing="false" text="Doctor">
+            <RadioButton fx:id="signUpPageDoctorRadioButton" layoutX="113.0" mnemonicParsing="false" onAction="#handleToggleChange" text="Doctor">
                <toggleGroup>
                   <ToggleGroup fx:id="signUpUserType" />
                </toggleGroup>
             </RadioButton>
-            <RadioButton fx:id="signUpPagePatientRadioButton" mnemonicParsing="false" text="Patient" toggleGroup="$signUpUserType" />
-            <RadioButton fx:id="signUpPageNurseRadioButton" layoutX="228.0" layoutY="1.0" mnemonicParsing="false" text="Nurse" toggleGroup="$signUpUserType" />
+            <RadioButton fx:id="signUpPagePatientRadioButton" mnemonicParsing="false" onAction="#handleToggleChange" selected="true" text="Patient" toggleGroup="$signUpUserType" />
+            <RadioButton fx:id="signUpPageNurseRadioButton" layoutX="228.0" layoutY="1.0" mnemonicParsing="false" onAction="#handleToggleChange" text="Nurse" toggleGroup="$signUpUserType" />
          </children>
       </Pane>
       <Button fx:id="signUpPageSignUpButton" layoutX="279.0" layoutY="362.0" mnemonicParsing="false" text="Sign Up" />
-      <Pane layoutX="169.0" layoutY="286.0">
+      <Pane fx:id="signUpPharmacyPane" layoutX="169.0" layoutY="286.0">
          <children>
             <TextField fx:id="signUpPagePharmacyAddressTextBox" layoutX="132.0" promptText="Pharmacy Address" />
             <Label layoutY="4.0" text="Pharmacy Address:">

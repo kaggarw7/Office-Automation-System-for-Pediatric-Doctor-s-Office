@@ -1,4 +1,6 @@
 import javafx.application.Platform;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -6,6 +8,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -36,12 +39,16 @@ public class Controller {
     @FXML private TextField signUpPagePhoneNumberText;
     @FXML private TextField signUpPageInsuranceIdTextBox;
     @FXML private TextField signUpPageUserNameTextBox;
-    @FXML private PasswordField signUpPagePasswordTextBox;
+    @FXML private TextField signUpPagePasswordTextBox;
     @FXML private TextField signUpPagePharmacyAddressTextBox;
     @FXML private RadioButton signUpPagePatientRadioButton;
     @FXML private RadioButton signUpPageDoctorRadioButton;
     @FXML private RadioButton signUpPageNurseRadioButton;
+    @FXML private ToggleGroup signUpUserType;
     @FXML private Button signUpPageSignUpButton;
+
+    @FXML private Pane signUpInsurancePane;
+    @FXML private Pane signUpPharmacyPane;
     //@FXML private TextField signUpFirstName;
     //@FXML private TextField signUpLastName;
     //@FXML private DatePicker signUpBirthday;
@@ -51,6 +58,8 @@ public class Controller {
     //@FXML private RadioButton signUpRadioNurse;
     //@FXML private RadioButton signUpRadioDoctor;
     //@FXML private Button signUpSignUpButton;
+
+
 
     // Patient Home screen
     // Home tab
@@ -154,6 +163,19 @@ public class Controller {
         stage.close();
     }
 
+    @FXML
+    public void handleToggleChange() {
+        if (signUpUserType.getSelectedToggle() != signUpPagePatientRadioButton) {
+            signUpInsurancePane.setVisible(false);
+            signUpPharmacyPane.setVisible(false);
+        }
+
+        if (signUpUserType.getSelectedToggle() == signUpPagePatientRadioButton) {
+            signUpInsurancePane.setVisible(true);
+            signUpPharmacyPane.setVisible(true);
+        }
+    }
+
     /*********************************
      * Error Handlers
      *
@@ -179,6 +201,7 @@ public class Controller {
      * Handler functions for everything related to accounts, whether signing into an account, creating an account, or adjacent.
      ********************************/
 
+    /*
     // This is an example function to show how to get data from the UI fields.
     public void handleAddUser() {
         try {
@@ -228,6 +251,7 @@ public class Controller {
             signUpRadioPatient.setSelected(true);
         }
     }
+    */
 
     @FXML
     public void handleSignInButton() {
