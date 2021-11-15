@@ -8,79 +8,120 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane fx:id="signUpPagePharmacyAggressTexBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+<AnchorPane fx:id="signUpPagePharmacyAggressTexBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label layoutX="276.0" layoutY="13.0" text="Sign Up">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="signUpPageFirstNameTextBox" layoutX="301.0" layoutY="61.0" promptText="First Name" />
-      <TextField fx:id="signUpPageLastNameTextBox" layoutX="301.0" layoutY="90.0" promptText="Last Name" />
-      <TextField fx:id="signUpPagePhoneNumberTextBox" layoutX="301.0" layoutY="174.0" promptText="0000000000" />
-      <TextField fx:id="signUpPageAddressTextBox" layoutX="301.0" layoutY="146.0" promptText="Address" />
-      <DatePicker fx:id="signUpPageBirthdayCalander" layoutX="301.0" layoutY="118.0" promptText="Birthday" />
-      <TextField fx:id="signUpPageUserNameTextBox" layoutX="301.0" layoutY="230.0" promptText="Username" />
-      <TextField fx:id="signUpPageInsuranceIdTextBox" layoutX="301.0" layoutY="202.0" promptText="ABC000000000" />
-      <TextField fx:id="signUpPagePasswordTextBox" layoutX="301.0" layoutY="258.0" promptText="Password" />
+      <Pane layoutX="167.0" layoutY="61.0">
+         <children>
+            <TextField fx:id="signUpPageFirstNameTextBox" layoutX="134.0" promptText="First Name" />
+            <Label layoutY="3.0" text="First Name:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="167.0" layoutY="90.0">
+         <children>
+            <TextField fx:id="signUpPageLastNameTextBox" layoutX="134.0" promptText="Last Name" />
+            <Label layoutY="3.0" text="Last Name:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="167.0" layoutY="174.0">
+         <children>
+            <TextField fx:id="signUpPagePhoneNumberTextBox" layoutX="134.0" promptText="0000000000" />
+            <Label layoutY="3.0" text="Phone Number:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="169.0" layoutY="146.0">
+         <children>
+            <TextField fx:id="signUpPageAddressTextBox" layoutX="132.0" promptText="Address" />
+            <Label layoutY="3.0" text="Address:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="167.0" layoutY="118.0">
+         <children>
+            <DatePicker fx:id="signUpPageBirthdayCalander" layoutX="134.0" promptText="Birthday" />
+            <Label layoutY="3.0" text="Birthday:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="167.0" layoutY="230.0">
+         <children>
+            <TextField fx:id="signUpPageUserNameTextBox" layoutX="134.0" promptText="Username" />
+            <Label layoutY="3.0" text="Username:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="167.0" layoutY="202.0">
+         <children>
+            <TextField fx:id="signUpPageInsuranceIdTextBox" layoutX="134.0" promptText="ABC000000000" />
+            <Label layoutY="3.0" text="Insurance ID:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="167.0" layoutY="258.0">
+         <children>
+            <TextField fx:id="signUpPagePasswordTextBox" layoutX="134.0" promptText="Password" />
+            <Label layoutY="3.0" text="Password:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
       <Separator layoutX="-1.0" layoutY="46.0" prefHeight="6.0" prefWidth="600.0" />
-      <Label layoutX="167.0" layoutY="64.0" text="First Name:">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Label layoutX="167.0" layoutY="93.0" text="Last Name:">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
       <Label layoutX="97.0" layoutY="117.0" />
-      <Label layoutX="167.0" layoutY="121.0" text="Birthday:">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Label layoutX="167.0" layoutY="233.0" text="Username:">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Label layoutX="167.0" layoutY="261.0" text="Password:">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Label layoutX="169.0" layoutY="149.0" text="Address:">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Label layoutX="167.0" layoutY="177.0" text="Phone Number:">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Label layoutX="167.0" layoutY="205.0" text="Insurance ID:">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <RadioButton fx:id="signUpPageDoctorRadioButton" layoutX="280.0" layoutY="329.0" mnemonicParsing="false" text="Doctor">
-         <toggleGroup>
-            <ToggleGroup fx:id="signUpUserType" />
-         </toggleGroup>
-      </RadioButton>
-      <RadioButton fx:id="signUpPagePatientRadioButton" layoutX="167.0" layoutY="329.0" mnemonicParsing="false" text="Patient" toggleGroup="$signUpUserType" />
-      <RadioButton fx:id="signUpPageNurseRadioButton" layoutX="395.0" layoutY="330.0" mnemonicParsing="false" text="Nurse" toggleGroup="$signUpUserType" />
+      <Pane layoutX="167.0" layoutY="329.0">
+         <children>
+            <RadioButton fx:id="signUpPageDoctorRadioButton" layoutX="113.0" mnemonicParsing="false" text="Doctor">
+               <toggleGroup>
+                  <ToggleGroup fx:id="signUpUserType" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="signUpPagePatientRadioButton" mnemonicParsing="false" text="Patient" toggleGroup="$signUpUserType" />
+            <RadioButton fx:id="signUpPageNurseRadioButton" layoutX="228.0" layoutY="1.0" mnemonicParsing="false" text="Nurse" toggleGroup="$signUpUserType" />
+         </children>
+      </Pane>
       <Button fx:id="signUpPageSignUpButton" layoutX="279.0" layoutY="362.0" mnemonicParsing="false" text="Sign Up" />
-      <TextField layoutX="301.0" layoutY="286.0" promptText="Pharmacy Address" />
-      <Label layoutX="169.0" layoutY="290.0" text="Pharmacy Address:">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
+      <Pane layoutX="169.0" layoutY="286.0">
+         <children>
+            <TextField fx:id="signUpPagePharmacyAddressTextBox" layoutX="132.0" promptText="Pharmacy Address" />
+            <Label layoutY="4.0" text="Pharmacy Address:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>
