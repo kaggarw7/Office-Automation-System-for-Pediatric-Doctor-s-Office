@@ -5,20 +5,22 @@ public class Patient extends Person {
 
 	private Doctor assignedDoctor;
 	private Nurse assignedNurse;
-	private ArrayList<Consultation> consultationRecord ;
-	private Appointment nextAppointment;
-	private Insurance insurance;
-	private Prescription prescription;
-	private Pharmacy preferredPharmacy;
+	private String insuranceID;
+	private String pharmacyAddress;
+
+    private Prescription prescription;
+    private ArrayList<Consultation> consultationRecord ;
+    private Appointment nextAppointment;
 
 	// Constructor
 
-    public Patient(String firstName, String lastName, LocalDate birthday, Doctor assignedDoctor, Insurance insurance) {
-        super(firstName, lastName, birthday);
+    public Patient(String firstName, String lastName, LocalDate birthday, String address, long phoneNumber, String username, String password, Doctor assignedDoctor, String insuranceID, String pharmacyAddress) {
+        super(firstName, lastName, birthday, address, phoneNumber, username, password);
 
         this.assignedDoctor = assignedDoctor;
         this.assignedNurse = assignedDoctor.getAssignedNurse();
-        this.insurance = insurance;
+        this.insuranceID = insuranceID;
+        this.pharmacyAddress = pharmacyAddress;
     }
 
 	// Getters
@@ -39,16 +41,16 @@ public class Patient extends Person {
         return nextAppointment;
     }
 
-    public Insurance getInsurance() {
-        return insurance;
+    public String getInsuranceID() {
+        return insuranceID;
     }
 
     public Prescription getPrescription() {
         return prescription;
     }
 
-    public Pharmacy getPreferredPharmacy() {
-        return preferredPharmacy;
+    public String getPharmacyAddress() {
+        return pharmacyAddress;
     }
 
     // Setters
@@ -65,16 +67,16 @@ public class Patient extends Person {
         this.nextAppointment = nextAppointment;
     }
 
-    public void setInsurance(Insurance insurance) {
-        this.insurance = insurance;
+    public void setInsuranceID(String insuranceID) {
+        this.insuranceID = insuranceID;
     }
 
     public void setPrescription(Prescription prescription) {
         this.prescription = prescription;
     }
 
-    public void setPreferredPharmacy(Pharmacy preferredPharmacy) {
-        this.preferredPharmacy = preferredPharmacy;
+    public void setPharmacyAddress(String pharmacyAddress) {
+        this.pharmacyAddress = pharmacyAddress;
     }
 
     // Functionality

@@ -5,9 +5,13 @@ public class Person {
 	private String firstName;
 	private String lastName;
 
-	private int id;
-
 	private LocalDate birthday;
+
+	private String address;
+	private long phoneNumber;
+
+	private String username;
+	private String password;
 
 	// Constructor
 
@@ -15,18 +19,26 @@ public class Person {
         firstName = null;
         lastName = null;
 
-        id = -1;
-
         birthday = null;
+
+        address = null;
+        phoneNumber = -1;
+
+        username = null;
+        password = null;
     }
 
-    public Person(String firstName, String lastName, LocalDate birthday) {
+    public Person(String firstName, String lastName, LocalDate birthday, String address, long phoneNumber, String username, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
 
         this.birthday = birthday;
 
-        //TODO: id needs to be assigned according to what the database shows is the latest used ID plus 1.
+        this.address = address;
+        this.phoneNumber = phoneNumber;
+
+        this.username = username;
+        this.password = password;
     }
 
     // Getters
@@ -39,12 +51,24 @@ public class Person {
         return lastName;
     }
 
-    public int getId() {
-        return id;
-    }
-
     public LocalDate getBirthday() {
         return birthday;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public long getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getPassword() {
+        return password;
     }
 
     public int getAge() {
@@ -64,12 +88,23 @@ public class Person {
         this.lastName = lastName;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public void setBirthday(LocalDate birthday) {
         this.birthday = birthday;
     }
 
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public void setPhoneNumber(long phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }
