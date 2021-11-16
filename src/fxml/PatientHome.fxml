@@ -25,39 +25,51 @@
                         <Label text="Upcoming Appointments" />
                      </children>
                   </Pane>
-                  <Pane layoutX="377.0" layoutY="14.0" prefHeight="243.0" prefWidth="300.0" style="-fx-border-color: grey;" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
+                  <Pane layoutX="377.0" layoutY="14.0" prefHeight="300.0" prefWidth="330.0" style="-fx-border-color: grey;" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
                      <children>
-                        <Pane layoutX="85.0" layoutY="14.0">
+                        <Pane layoutX="107.0" layoutY="14.0">
                            <children>
                               <TextField fx:id="patientHomePatientFirstName" editable="false" layoutX="60.0" />
                               <Label layoutY="4.0" text="First Name" />
                            </children>
                         </Pane>
-                        <Pane layoutX="85.0" layoutY="47.0">
+                        <Pane layoutX="107.0" layoutY="47.0">
                            <children>
                               <TextField fx:id="patientHomePatientLastName" editable="false" layoutX="60.0" />
                               <Label layoutY="4.0" text="Last Name" />
                            </children>
                         </Pane>
-                        <Pane layoutX="85.0" layoutY="80.0">
+                        <Pane layoutX="107.0" layoutY="82.0">
                            <children>
                               <Label layoutY="4.0" text="Birthday" />
                               <DatePicker fx:id="patientHomePatientBirthday" editable="false" layoutX="59.0" prefHeight="25.0" prefWidth="150.0" />
                            </children>
                         </Pane>
-                        <Pane layoutX="21.0" layoutY="113.0">
+                        <Pane layoutX="44.0" layoutY="114.0">
                            <children>
                               <Label layoutY="4.0" text="Address" />
                               <TextField fx:id="patientHomePatientAddress" editable="false" layoutX="64.0" prefHeight="25.0" prefWidth="208.0" />
                            </children>
                         </Pane>
-                        <Pane layoutX="25.0" layoutY="148.0">
+                        <Pane layoutX="48.0" layoutY="150.0">
                            <children>
-                              <Label fx:id="patientPhoneNumber" layoutY="4.0" text="Phone Number" />
+                              <Label layoutY="4.0" text="Phone Number" />
                               <TextField fx:id="patientHomePatientPhoneNumber" editable="false" layoutX="92.0" prefHeight="25.0" prefWidth="176.0" />
                            </children>
                         </Pane>
-                        <Button fx:id="patientHomeEditPatientPersonalInfoButton" layoutX="250.0" layoutY="204.0" mnemonicParsing="false" onAction="#handleEditPersonalInformationButton" text="Edit" />
+                        <Button fx:id="patientHomeEditPatientPersonalInfoButton" layoutX="278.0" layoutY="261.0" mnemonicParsing="false" onAction="#handleEditPersonalInformationButton" text="Edit" />
+                        <Pane layoutX="48.0" layoutY="185.0">
+                           <children>
+                              <Label layoutY="4.0" text="Insurance ID" />
+                              <TextField fx:id="patientHomePatientInsuranceID" editable="false" layoutX="92.0" prefHeight="25.0" prefWidth="176.0" />
+                           </children>
+                        </Pane>
+                        <Pane layoutX="41.0" layoutY="217.0" prefHeight="25.0" prefWidth="274.0">
+                           <children>
+                              <Label layoutX="-13.0" layoutY="4.0" text="Pharmacy Address" />
+                              <TextField fx:id="patientHomePatientPharmacyAddress" editable="false" layoutX="95.0" prefHeight="25.0" prefWidth="180.0" />
+                           </children>
+                        </Pane>
                      </children>
                   </Pane>
                   <Pane layoutX="497.0" layoutY="348.0" prefHeight="95.0" prefWidth="228.0" style="-fx-border-color: grey;" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0">
