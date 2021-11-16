@@ -13,14 +13,7 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 
 public class Controller {
-    /*
-    // Account Type screen
-    @FXML private Button accountTypePatient;
-    @FXML private Button accountTypeNurse;
-    @FXML private Button accountTypeDoctor;
-    @FXML private Button accountTypeCreateAccount;
-    */
-
+    
     // Sign In screen
     @FXML private TextField signInUsername;
     @FXML private TextField signInPassword;
