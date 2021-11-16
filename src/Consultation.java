@@ -1,8 +1,10 @@
 import java.time.LocalDate;
 
 public class Consultation {
+    // Patient Hook
+    private String patientUsername;
+
     // Consultation Record
-    private int id;
     private LocalDate date;
 
     // Vitals
@@ -10,13 +12,14 @@ public class Consultation {
     private double height;
     private double bloodPressure;
 
-    private Prescription prescribedMedicine;
+    private String prescribedMedicine;
     private String notes;
 
     // Constructor
 
-    public Consultation(int id, LocalDate date, double weight, double height, double bloodPressure, Prescription prescribedMedicine, String notes) {
-        this.id = id;
+    public Consultation(String patientUsername, LocalDate date, double weight, double height, double bloodPressure, String prescribedMedicine, String notes) {
+        this.patientUsername = patientUsername;
+
         this.date = date;
 
         this.weight = weight;
@@ -29,8 +32,9 @@ public class Consultation {
 
     // Getters
 
-    public int getId() {
-        return id;
+
+    public String getPatientUsername() {
+        return patientUsername;
     }
 
     public LocalDate getDate() {
@@ -49,7 +53,7 @@ public class Consultation {
         return bloodPressure;
     }
 
-    public Prescription getPrescribedMedicine() {
+    public String getPrescribedMedicine() {
         return prescribedMedicine;
     }
 
