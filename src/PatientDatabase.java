@@ -1,8 +1,7 @@
 import java.sql.*;
 
 
-class Database
-{   
+public class PatientDatabase {
 	static String url = "jdbc:mysql://localhost:3306/office_automation";
 	static String uname = "root";
 	static String pass = "Chinu@1998";
@@ -103,7 +102,7 @@ class Database
 	}
 	
 	
-	public static void getPatientPhoneNumber(String user_name) throws Exception
+	public static long getPatientPhoneNumber(String user_name) throws Exception
 	{
 		String query = "SELECT Phone_number FROM Patient where patient_username = \"" + user_name + "\"";
 	    Class.forName("com.mysql.cj.jdbc.Driver");
@@ -111,10 +110,11 @@ class Database
 	    Statement st = con.createStatement();  
 	    ResultSet rs = st.executeQuery(query);
 	    rs.next();
-	    String pnumber = rs.getString("Phone_number");
-	    System.out.println(pnumber);
+	    long phoneNumber = rs.getLong("Phone_number");
+	    System.out.println(phoneNumber);
 	    st.close();
 	    con.close();
+	    return phoneNumber;
 	}
 	
 	
@@ -276,9 +276,9 @@ class Database
     }
 	
 	
-	public static void setPatientPhoneNumber(String user_name, String pnumber) throws ClassNotFoundException, SQLException
+	public static void setPatientPhoneNumber(String user_name, long phoneNumber) throws ClassNotFoundException, SQLException
     {
-        String query = "UPDATE PATIENT SET Phone_number = \"" + pnumber + "\"  WHERE patient_username = \"" + user_name + "\"";
+        String query = "UPDATE PATIENT SET Phone_number = \"" + phoneNumber + "\"  WHERE patient_username = \"" + user_name + "\"";
         Class.forName("com.mysql.cj.jdbc.Driver");
         try(Connection con = DriverManager.getConnection(url, uname, pass);
                 Statement st = con.createStatement();) {
@@ -336,9 +336,10 @@ class Database
 	
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	
-	
+	/*
 	public static void main(String args[]) throws Exception
 	{
 		Database.setPatientPassword("kartikaggarwal", "No password");
 	}
+	*/
 }

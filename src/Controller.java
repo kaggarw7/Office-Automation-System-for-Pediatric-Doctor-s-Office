@@ -1,6 +1,3 @@
-import javafx.application.Platform;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,6 +9,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.time.LocalDate;
 
 public class Controller {
@@ -70,9 +68,10 @@ public class Controller {
     // Edit Patient Info
     @FXML private TextField editPersonalInformationFirstName;
     @FXML private TextField editPersonalInformationLastName;
-    @FXML private DatePicker editPersonalInformationBirthday;
     @FXML private TextField editPersonalInformationPhoneNumber;
     @FXML private TextField editPersonalInformationAddress;
+    @FXML private TextField editPersonalInformationInsuranceID;
+    @FXML private TextField editPersonalInformationPharmacyAddress;
     @FXML private Button editPersonalInformationConfirmButton;
 
     // Nurse Home screen
@@ -333,8 +332,25 @@ public class Controller {
     }
 
     @FXML
-    public void handleEditPersonalInformation() {
+    public void handleEditPersonalInformation() throws ClassNotFoundException, SQLException {
         //TODO: This has to save the data entered over the current patient's information, replacing it
+        String newFirstName = editPersonalInformationFirstName.getText();
+        PatientDatabase.setPatientFirstName(Main.getCurrentUser(), newFirstName);
+
+        String newLastName = editPersonalInformationLastName.getText();
+        PatientDatabase.setPatientLastName(Main.getCurrentUser(), newLastName);
+
+        long newPhoneNumber = Long.parseLong(editPersonalInformationPhoneNumber.getText().replaceAll("-", ""));
+        PatientDatabase.setPatientPhoneNumber(Main.getCurrentUser(), newPhoneNumber);
+
+        String newAddress = editPersonalInformationAddress.getText();
+        PatientDatabase.setPatientAddress(Main.getCurrentUser(), newAddress);
+
+        String newInsuranceID = editPersonalInformationInsuranceID.getText();
+        // Need insuranceID variable in database
+
+        String newPharmacyAddress = editPersonalInformationPharmacyAddress.getText();
+        // Need pharmacyAddress variable in database
 
         Stage stage = (Stage) editPersonalInformationConfirmButton.getScene().getWindow();
         stage.close();

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
@@ -28,17 +27,7 @@
             <TextField fx:id="editPersonalInformationLastName" layoutX="115.0" promptText="Last Name" />
          </children>
       </Pane>
-      <Pane layoutX="27.0" layoutY="178.0" AnchorPane.leftAnchor="28.0" AnchorPane.topAnchor="178.0">
-         <children>
-            <Label alignment="TOP_CENTER" layoutY="2.0" text="Birthday">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-            <DatePicker fx:id="editPersonalInformationBirthday" layoutX="115.0" prefHeight="25.0" prefWidth="149.0" promptText="1/1/1970" />
-         </children>
-      </Pane>
-      <Pane layoutX="28.0" layoutY="223.0" AnchorPane.leftAnchor="28.0" AnchorPane.topAnchor="223.0">
+      <Pane layoutX="27.0" layoutY="178.0" AnchorPane.leftAnchor="27.0" AnchorPane.topAnchor="178.0">
          <children>
             <Label alignment="TOP_CENTER" layoutY="2.0" text="Phone Number">
                <font>
@@ -58,7 +47,7 @@
             <TextField fx:id="editPersonalInformationFirstName" layoutX="116.0" promptText="First Name" />
          </children>
       </Pane>
-      <Pane layoutX="30.0" layoutY="271.0" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="271.0">
+      <Pane layoutX="27.0" layoutY="222.0" AnchorPane.leftAnchor="27.0" AnchorPane.topAnchor="222.0">
          <children>
             <Label alignment="TOP_CENTER" layoutY="2.0" text="Address">
                <font>
@@ -69,5 +58,25 @@
          </children>
       </Pane>
       <Button fx:id="editPersonalInformationConfirmButton" layoutX="611.0" layoutY="366.0" mnemonicParsing="false" onAction="#handleEditPersonalInformation" text="Confirm" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0" />
+      <Pane layoutX="27.0" layoutY="260.0">
+         <children>
+            <Label alignment="TOP_CENTER" layoutY="2.0" text="Insurance ID">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="editPersonalInformationInsuranceID" layoutX="110.0" promptText="ABC000000000" />
+         </children>
+      </Pane>
+      <Pane layoutX="26.0" layoutY="301.0">
+         <children>
+            <Label alignment="TOP_CENTER" layoutY="2.0" text="Pharmacy Address">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="editPersonalInformationPharmacyAddress" layoutX="130.0" prefHeight="25.0" prefWidth="247.0" promptText="Pharmacy Address" />
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

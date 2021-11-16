@@ -6,7 +6,7 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 
-    private String currentUser;
+    private static String currentUser;
 
     public static void main(String[] args) {
         launch(args);
@@ -21,11 +21,11 @@ public class Main extends Application {
         primaryStage.show();
     }
 
-    public String getCurrentUser() {
+    public static String getCurrentUser() {
         return currentUser;
     }
 
-    public void setCurrentUser(String currentUser) {
-        this.currentUser = currentUser;
+    public static void setCurrentUser(String username) {
+        currentUser = username;
     }
 }
