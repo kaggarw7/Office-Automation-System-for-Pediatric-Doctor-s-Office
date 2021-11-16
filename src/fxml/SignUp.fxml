@@ -111,7 +111,7 @@
             <RadioButton fx:id="signUpNurseRadio" layoutX="228.0" layoutY="1.0" mnemonicParsing="false" onAction="#handleToggleChange" text="Nurse" toggleGroup="$signUpUserType" />
          </children>
       </Pane>
-      <Button fx:id="signUpSignUpButton" layoutX="279.0" layoutY="362.0" mnemonicParsing="false" text="Sign Up" AnchorPane.bottomAnchor="13.0" AnchorPane.leftAnchor="279.0" />
+      <Button fx:id="signUpSignUpButton" layoutX="279.0" layoutY="362.0" mnemonicParsing="false" onAction="#handleAddUser" text="Sign Up" AnchorPane.bottomAnchor="13.0" AnchorPane.leftAnchor="279.0" />
       <Pane fx:id="signUpPharmacyPane" layoutX="169.0" layoutY="286.0" AnchorPane.leftAnchor="167.0" AnchorPane.topAnchor="286.0">
          <children>
             <TextField fx:id="signUpPharmacyAddress" layoutX="132.0" promptText="Pharmacy Address" />

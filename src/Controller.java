@@ -205,15 +205,6 @@ public class Controller {
             String insuranceID = signUpInsuranceId.getText();
             String pharmacyAddress = signUpPharmacyAddress.getText();
 
-            String personType = "NULL";
-            if (signUpPatientRadio.isSelected()) {
-                personType = "Patient";
-            } else if (signUpNurseRadio.isSelected()) {
-                personType = "Nurse";
-            } else if (signUpDoctorRadio.isSelected()) {
-                personType = "Doctor";
-            }
-
             if (firstName.isEmpty() || lastName.isEmpty() || address.isEmpty() || phoneNumber == 0 || username.isEmpty() || password.isEmpty()) {
                 throw new Exception();
             }
@@ -240,8 +231,12 @@ public class Controller {
             signUpFirstName.clear();
             signUpLastName.clear();
             signUpBirthday.setValue(LocalDate.EPOCH); // No good way to clear this as far as I can tell.
+            signUpAddress.clear();
+            signUpPhoneNumber.clear();
             signUpUsername.clear();
             signUpPassword.clear();
+            signUpInsuranceId.clear();
+            signUpPharmacyAddress.clear();
             signUpPatientRadio.setSelected(true);
         }
     }
