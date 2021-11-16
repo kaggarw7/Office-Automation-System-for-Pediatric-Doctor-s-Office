@@ -202,7 +202,7 @@ public class Controller {
             int birthYear = signUpBirthday.getValue().getYear();
 
             String address = signUpAddress.getText();
-            String phoneNumber = signUpPhoneNumber.getText();
+            long phoneNumber = Long.parseLong(signUpPhoneNumber.getText().replaceAll("-", ""));
 
             String username = signUpUsername.getText();
             String password = signUpPassword.getText();
@@ -219,7 +219,7 @@ public class Controller {
                 personType = "Doctor";
             }
 
-            if (firstName.isEmpty() || lastName.isEmpty() || address.isEmpty() || phoneNumber.isEmpty() || username.isEmpty() || password.isEmpty()) {
+            if (firstName.isEmpty() || lastName.isEmpty() || address.isEmpty() || phoneNumber == 0 || username.isEmpty() || password.isEmpty()) {
                 throw new Exception();
             }
 
@@ -228,9 +228,9 @@ public class Controller {
             } else if (signUpNurseRadio.isSelected()) {
                 NurseDatabase.InsertNurse(firstName, lastName, birthDay, birthMonth, birthYear, address, phoneNumber, username, password);
             } else if (signUpDoctorRadio.isSelected()) {
-                DoctorDatabase.InsertDoctor(firstName, lastName, birthDay, birthMonth, birthYear, address, phoneNumber, username, password);
+                DoctorDatabase.InsertDoctor(firstName, lastName, birthDay, birthMonth, birthYear, address, phoneNumber, username, password, null);
             }
-            
+
             try {
                 Parent root = FXMLLoader.load(getClass().getResource("SignIn.fxml"));
                 Stage primaryStage = (Stage) signUpSignUpButton.getScene().getWindow();
