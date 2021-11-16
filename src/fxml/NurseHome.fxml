@@ -9,7 +9,6 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="502.0" prefWidth="706.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
@@ -37,26 +36,43 @@
                   <Label layoutX="14.0" layoutY="14.0" text="Patients" />
                   <AnchorPane layoutX="259.0" layoutY="14.0" prefHeight="459.0" prefWidth="483.0" style="-fx-border-color: grey;" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="259.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
                      <children>
-                        <Label layoutX="14.0" layoutY="14.0" text="Address" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0" />
-                        <TextField fx:id="nurseHomePatientListPatientAddress" layoutX="61.0" layoutY="10.0" prefHeight="26.0" prefWidth="230.0" AnchorPane.leftAnchor="102.00000000000003" AnchorPane.topAnchor="10.0" />
-                        <Label layoutX="14.0" layoutY="45.0" text="Phone Number" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="45.0" />
-                        <TextField fx:id="nurseHomePatientListPatientPhoneNumber" layoutX="102.0" layoutY="41.0" prefHeight="26.0" prefWidth="213.0" AnchorPane.leftAnchor="102.0" AnchorPane.topAnchor="41.0" />
-                        <Label layoutX="14.0" layoutY="80.0" text="Birthday" />
-                        <DatePicker fx:id="nurseHomePatientListPatientBirthday" layoutX="102.0" layoutY="76.0" AnchorPane.leftAnchor="102.0" AnchorPane.topAnchor="76.0" />
+                        <Pane layoutX="15.0" layoutY="11.0" AnchorPane.leftAnchor="16.0" AnchorPane.topAnchor="11.0">
+                           <children>
+                              <Label layoutY="4.0" text="Address" />
+                              <TextField fx:id="nurseHomePatientListPatientAddress" layoutX="88.0" prefHeight="26.0" prefWidth="230.0" />
+                           </children>
+                        </Pane>
+                        <Pane layoutX="15.0" layoutY="42.0" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="42.0">
+                           <children>
+                              <Label layoutY="4.0" text="Phone Number" />
+                              <TextField fx:id="nurseHomePatientListPatientPhoneNumber" layoutX="88.0" prefHeight="26.0" prefWidth="213.0" />
+                           </children>
+                        </Pane>
+                        <Pane layoutX="14.0" layoutY="77.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="77.0">
+                           <children>
+                              <Label layoutY="3.0" text="Birthday" />
+                              <DatePicker fx:id="nurseHomePatientListPatientBirthday" layoutX="89.0" />
+                           </children>
+                        </Pane>
                         <Pane layoutX="15.0" layoutY="282.0" AnchorPane.bottomAnchor="21.99999999999997" AnchorPane.leftAnchor="15.0">
                            <children>
                               <ListView fx:id="nurseHomePatientListPatientUpcomingAppointments" layoutY="22.600006103515625" prefHeight="115.0" prefWidth="200.0" />
                               <Label text="Upcoming Appointments" />
                            </children>
                         </Pane>
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f4f4f4" height="134.0" layoutX="15.0" layoutY="111.0" stroke="GREY" strokeType="INSIDE" width="238.0" />
-                        <Label layoutX="24.0" layoutY="122.0" prefHeight="17.0" prefWidth="65.0" text="Insurance" AnchorPane.leftAnchor="23.0" AnchorPane.topAnchor="121.0" />
-                        <Label layoutX="25.0" layoutY="154.0" prefHeight="23.0" prefWidth="46.0" text="Policy ID" AnchorPane.leftAnchor="22.0" />
-                        <Label layoutX="25.0" layoutY="191.0" text="Group #" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="191.0" />
-                        <TextField fx:id="nurseHomePatientListPatientInsuranceName" layoutX="82.0" layoutY="117.0" AnchorPane.leftAnchor="82.0" AnchorPane.topAnchor="117.0" />
-                        <TextField fx:id="nurseHomePatientListPatientInsurancePolicyID" layoutX="82.0" layoutY="154.0" AnchorPane.leftAnchor="82.0" AnchorPane.topAnchor="153.0" />
-                        <TextField fx:id="nurseHomePatientListPatientInsuranceGroupNumber" layoutX="82.0" layoutY="187.0" AnchorPane.leftAnchor="82.0" />
                         <Button fx:id="nurseHomePatientListSelectPatientButton" layoutX="364.0" layoutY="411.0" mnemonicParsing="false" onAction="#handleNursePatientListSelectPatientButton" text="Select" AnchorPane.bottomAnchor="9.799999999999976" AnchorPane.rightAnchor="14.200000000000045" />
+                        <Pane layoutX="14.0" layoutY="114.0" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="114.0">
+                           <children>
+                              <TextField fx:id="nurseHomePatientListPatientInsuranceID" layoutX="89.0" />
+                              <Label layoutY="4.0" text="Insurance ID" />
+                           </children>
+                        </Pane>
+                        <Pane layoutX="14.0" layoutY="153.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="153.0">
+                           <children>
+                              <TextField fx:id="nurseHomePatientListPatientPharmacyAddress" layoutX="111.0" prefHeight="25.0" prefWidth="191.0" />
+                              <Label layoutY="4.0" text="Pharmacy Address" />
+                           </children>
+                        </Pane>
                      </children>
                   </AnchorPane>
                </children></AnchorPane>
