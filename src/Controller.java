@@ -101,8 +101,12 @@ public class Controller {
     @FXML private TextField nursePatientInfoWeight;
     @FXML private TextField nursePatientInfoHeight;
     @FXML private TextField nursePatientInfoBloodType;
-    @FXML private TextArea nursePatientInfoPrescriptions;
     @FXML private TextArea nursePatientInfoNotes;
+
+    @FXML private TextField nursePatientInfoPrescriptionName;
+    @FXML private TextField nursePatientInfoPrescriptionDosageAmount;
+    @FXML private TextField nursePatientInfoPrescriptionTimesPerMonth;
+
     @FXML private Button nursePatientInfoCloseButton;
 
     // Doctor Home screen
@@ -123,8 +127,12 @@ public class Controller {
     @FXML private TextField doctorPatientInfoWeight;
     @FXML private TextField doctorPatientInfoHeight;
     @FXML private TextField doctorPatientInfoBloodType;
-    @FXML private TextArea doctorPatientInfoPrescriptions;
     @FXML private TextArea doctorPatientInfoNotes;
+
+    @FXML private TextField doctorPatientInfoPrescriptionName;
+    @FXML private TextField doctorPatientInfoPrescriptionDosageAmount;
+    @FXML private TextField doctorPatientInfoPrescriptionTimesPerMonth;
+
     @FXML private Button doctorPatientInfoCloseButton;
     @FXML private Button doctorPatientInfoSaveButton;
 

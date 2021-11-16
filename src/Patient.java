@@ -8,7 +8,7 @@ public class Patient extends Person {
 	private String insuranceID;
 	private String pharmacyAddress;
 
-    private Prescription prescription;
+    private ArrayList<Prescription> prescriptions;
     private ArrayList<Consultation> consultationRecord ;
     private Appointment nextAppointment;
 
@@ -33,24 +33,24 @@ public class Patient extends Person {
         return assignedNurse;
     }
 
+    public String getInsuranceID() {
+        return insuranceID;
+    }
+
+    public String getPharmacyAddress() {
+        return pharmacyAddress;
+    }
+
+    public ArrayList<Prescription> getPrescriptions() {
+        return prescriptions;
+    }
+
     public ArrayList<Consultation> getConsultationRecord() {
         return consultationRecord;
     }
 
     public Appointment getNextAppointment() {
         return nextAppointment;
-    }
-
-    public String getInsuranceID() {
-        return insuranceID;
-    }
-
-    public Prescription getPrescription() {
-        return prescription;
-    }
-
-    public String getPharmacyAddress() {
-        return pharmacyAddress;
     }
 
     // Setters
@@ -71,19 +71,21 @@ public class Patient extends Person {
         this.insuranceID = insuranceID;
     }
 
-    public void setPrescription(Prescription prescription) {
-        this.prescription = prescription;
-    }
-
     public void setPharmacyAddress(String pharmacyAddress) {
         this.pharmacyAddress = pharmacyAddress;
     }
 
     // Functionality
 
-	public void newConsultation(Consultation consultation)
-	{
+	public void newConsultation(Consultation consultation) {
 		consultationRecord.add(consultation);
-
 	}
+
+	public void newPrescription(Prescription prescription) {
+        prescriptions.add(prescription);
+    }
+
+    public void removePrescription(Prescription prescription) {
+        prescriptions.remove(prescription);
+    }
 }

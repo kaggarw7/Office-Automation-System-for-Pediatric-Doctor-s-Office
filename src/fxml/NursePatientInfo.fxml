@@ -21,11 +21,10 @@
             <TextField fx:id="nursePatientInfoBloodType" accessibleText="Age" editable="false" layoutX="89.0" prefHeight="25.0" prefWidth="62.0" promptText="A+" />
          </children>
       </Pane>
-      <TextArea fx:id="nursePatientInfoPrescriptions" editable="false" layoutX="646.0" layoutY="55.0" prefHeight="200.0" prefWidth="200.0" promptText="Prescriptions" AnchorPane.rightAnchor="24.0" AnchorPane.topAnchor="55.0" />
       <Button fx:id="nursePatientInfoCloseButton" layoutX="784.0" layoutY="362.0" mnemonicParsing="false" onAction="#handleCloseStage" text="Close" textFill="#e11010" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0" />
       <Pane layoutX="24.0" layoutY="20.0" AnchorPane.leftAnchor="24.0" AnchorPane.topAnchor="20.0">
          <children>
-            <Label fx:id="firstName_lable" accessibleText="Age" layoutY="2.0" text="Patient Username">
+            <Label accessibleText="Age" layoutY="2.0" text="Patient Username">
                <font>
                   <Font size="15.0" />
                </font>
@@ -36,7 +35,7 @@
       <Pane layoutX="24.0" layoutY="55.0" AnchorPane.leftAnchor="24.0" AnchorPane.topAnchor="55.0" />
       <Pane layoutX="24.0" layoutY="55.0" AnchorPane.leftAnchor="24.0" AnchorPane.topAnchor="55.0">
          <children>
-            <Label fx:id="weight_lable" accessibleText="Age" layoutY="2.0" text="Weight(lb)">
+            <Label accessibleText="Age" layoutY="2.0" text="Weight(lb)">
                <font>
                   <Font size="15.0" />
                </font>
@@ -46,12 +45,46 @@
       </Pane>
       <Pane layoutX="24.0" layoutY="92.0" AnchorPane.leftAnchor="24.0" AnchorPane.topAnchor="92.0">
          <children>
-            <Label fx:id="height_lable" accessibleText="Age" layoutY="2.0" text="Height (cm)">
+            <Label accessibleText="Age" layoutY="2.0" text="Height (cm)">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
             <TextField fx:id="nursePatientInfoHeight" accessibleText="Age" editable="false" layoutX="131.0" promptText="160" />
+         </children>
+      </Pane>
+      <Pane layoutX="536.0" layoutY="55.0" prefHeight="124.0" prefWidth="293.0" style="-fx-border-color: grey;" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="55.0">
+         <children>
+            <Pane layoutX="7.0" layoutY="14.0">
+               <children>
+                  <Label accessibleText="Age" layoutY="2.0" text="Prescription Name">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="nursePatientInfoPrescriptionName" accessibleText="Age" editable="false" layoutX="131.0" promptText="Atorvastatin" />
+               </children>
+            </Pane>
+            <Pane layoutX="7.0" layoutY="47.0">
+               <children>
+                  <Label accessibleText="Age" layoutY="2.0" text="Dosage Amount">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="nursePatientInfoPrescriptionDosageAmount" accessibleText="Age" editable="false" layoutX="131.0" promptText="40g" />
+               </children>
+            </Pane>
+            <Pane layoutX="7.0" layoutY="81.0">
+               <children>
+                  <Label accessibleText="Age" layoutY="2.0" text="Times Per Month">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="nursePatientInfoPrescriptionTimesPerMonth" accessibleText="Age" editable="false" layoutX="131.0" promptText="30" />
+               </children>
+            </Pane>
          </children>
       </Pane>
    </children>
