@@ -59,6 +59,8 @@ public class Controller {
     @FXML private DatePicker patientHomePatientBirthday;
     @FXML private TextField patientHomePatientAddress;
     @FXML private TextField patientHomePatientPhoneNumber;
+    @FXML private TextField patientHomePatientInsuranceID;
+    @FXML private TextField patientHomePatientPharmacyAddress;
     @FXML private Button patientHomeEditPatientPersonalInfoButton;
     // Medical Record tab
     @FXML private TextArea patientHomePatientMedicalInfo;
