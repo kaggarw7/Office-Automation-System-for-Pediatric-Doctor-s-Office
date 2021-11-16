@@ -13,7 +13,7 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 
 public class Controller {
-    
+
     // Sign In screen
     @FXML private TextField signInUsername;
     @FXML private TextField signInPassword;
@@ -131,8 +131,10 @@ public class Controller {
     @FXML private Button doctorPatientInfoCloseButton;
     @FXML private Button doctorPatientInfoSaveButton;
 
-    // Error box
+    // Error boxes
     @FXML private Button errorButton;
+
+    @FXML private Button usernameTakenButton;
 
     /*********************************
      * General Handlers
