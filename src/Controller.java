@@ -219,12 +219,18 @@ public class Controller {
                 personType = "Doctor";
             }
 
-
             if (firstName.isEmpty() || lastName.isEmpty() || address.isEmpty() || phoneNumber.isEmpty() || username.isEmpty() || password.isEmpty()) {
                 throw new Exception();
             }
 
-
+            if (signUpPatientRadio.isSelected()) {
+                // There is currently no insertPatient function
+            } else if (signUpNurseRadio.isSelected()) {
+                NurseDatabase.InsertNurse(firstName, lastName, birthDay, birthMonth, birthYear, address, phoneNumber, username, password);
+            } else if (signUpDoctorRadio.isSelected()) {
+                DoctorDatabase.InsertDoctor(firstName, lastName, birthDay, birthMonth, birthYear, address, phoneNumber, username, password);
+            }
+            
             try {
                 Parent root = FXMLLoader.load(getClass().getResource("SignIn.fxml"));
                 Stage primaryStage = (Stage) signUpSignUpButton.getScene().getWindow();
