@@ -83,20 +83,17 @@ public class Controller {
     @FXML private TextField nurseHomePatientListPatientAddress;
     @FXML private TextField nurseHomePatientListPatientPhoneNumber;
     @FXML private DatePicker nurseHomePatientListPatientBirthday;
-    @FXML private TextField nurseHomePatientListPatientInsuranceName;
-    @FXML private TextField nurseHomePatientListPatientInsurancePolicyID;
-    @FXML private TextField nurseHomePatientListPatientInsuranceGroupNumber;
+    @FXML private TextField nurseHomePatientListPatientInsuranceID;
+    @FXML private TextField nurseHomePatientListPatientPharmacyAddress;
     @FXML private ListView nurseHomePatientListPatientUpcomingAppointments;
     @FXML private Button nurseHomePatientListSelectPatientButton;
 
     // Create Appointment screen
-    @FXML private TextField createAppointmentFirstName;
-    @FXML private TextField createAppointmentLastName;
-    @FXML private TextField createAppointmentPatientIDNumber;
+    @FXML private TextField createAppointmentPatientUsername;
     @FXML private DatePicker createAppointmentDate;
     @FXML private TextField createAppointmentHour;
     @FXML private TextField createAppointmentMinute;
-    @FXML private TextField createAppointmentDoctorID;
+    @FXML private TextField createAppointmentDoctorUsername;
     @FXML private Button createAppointmentCreateButton;
 
     // Nurse Patient Info screen
@@ -118,9 +115,8 @@ public class Controller {
     @FXML private TextField doctorHomePatientListPatientAddress;
     @FXML private TextField doctorHomePatientListPatientPhoneNumber;
     @FXML private DatePicker doctorHomePatientListPatientBirthday;
-    @FXML private TextField doctorHomePatientListPatientInsuranceName;
-    @FXML private TextField doctorHomePatientListPatientInsurancePolicyID;
-    @FXML private TextField doctorHomePatientListPatientInsuranceGroupNumber;
+    @FXML private TextField doctorHomePatientListPatientInsuranceID;
+    @FXML private TextField doctorHomePatientListPatientPharmacyAddress;
     @FXML private ListView doctorHomePatientListPatientUpcomingAppointments;
     @FXML private Button doctorHomePatientListSelectPatientButton;
 
