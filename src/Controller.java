@@ -97,9 +97,7 @@ public class Controller {
     @FXML private Button createAppointmentCreateButton;
 
     // Nurse Patient Info screen
-    @FXML private TextField nursePatientInfoFirstName;
-    @FXML private TextField nursePatientInfoLastName;
-    @FXML private TextField nursePatientInfoAge;
+    @FXML private TextField nursePatientInfoPatientUsername;
     @FXML private TextField nursePatientInfoWeight;
     @FXML private TextField nursePatientInfoHeight;
     @FXML private TextField nursePatientInfoBloodType;
@@ -121,9 +119,7 @@ public class Controller {
     @FXML private Button doctorHomePatientListSelectPatientButton;
 
     // Doctor Patient Info screen
-    @FXML private TextField doctorPatientInfoFirstName;
-    @FXML private TextField doctorPatientInfoLastName;
-    @FXML private TextField doctorPatientInfoAge;
+    @FXML private TextField doctorPatientInfoPatientUsername;
     @FXML private TextField doctorPatientInfoWeight;
     @FXML private TextField doctorPatientInfoHeight;
     @FXML private TextField doctorPatientInfoBloodType;
