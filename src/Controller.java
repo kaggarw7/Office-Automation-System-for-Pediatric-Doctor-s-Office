@@ -31,35 +31,25 @@ public class Controller {
 
     // Sign up screen
 
-    @FXML private TextField signUpPageFirstNameTextBox;
-    @FXML private TextField signUpPageLastNameTexBox;
-    @FXML private DatePicker signUpPageBirthdayCalander;
-    @FXML private TextField signUpPageAddressTextBox;
-    @FXML private TextField signUpPagePhoneNumberTextBox;
-    @FXML private TextField signUpPagePhoneNumberText;
-    @FXML private TextField signUpPageInsuranceIdTextBox;
-    @FXML private TextField signUpPageUserNameTextBox;
-    @FXML private TextField signUpPagePasswordTextBox;
-    @FXML private TextField signUpPagePharmacyAddressTextBox;
-    @FXML private RadioButton signUpPagePatientRadioButton;
-    @FXML private RadioButton signUpPageDoctorRadioButton;
-    @FXML private RadioButton signUpPageNurseRadioButton;
+    @FXML private TextField signUpFirstName;
+    @FXML private TextField signUpLastName;
+    @FXML private DatePicker signUpBirthday;
+    @FXML private TextField signUpAddress;
+    @FXML private TextField signUpPhoneNumber;
+    @FXML private TextField signUpUsername;
+    @FXML private TextField signUpPassword;
+    @FXML private TextField signUpInsuranceId;
+    @FXML private TextField signUpPharmacyAddress;
+
+    @FXML private RadioButton signUpPatientRadio;
+    @FXML private RadioButton signUpDoctorRadio;
+    @FXML private RadioButton signUpNurseRadio;
     @FXML private ToggleGroup signUpUserType;
-    @FXML private Button signUpPageSignUpButton;
+
+    @FXML private Button signUpSignUpButton;
 
     @FXML private Pane signUpInsurancePane;
     @FXML private Pane signUpPharmacyPane;
-    //@FXML private TextField signUpFirstName;
-    //@FXML private TextField signUpLastName;
-    //@FXML private DatePicker signUpBirthday;
-    //@FXML private TextField signUpUsername;
-    //@FXML private PasswordField signUpPassword;
-    //@FXML private RadioButton signUpRadioPatient;
-    //@FXML private RadioButton signUpRadioNurse;
-    //@FXML private RadioButton signUpRadioDoctor;
-    //@FXML private Button signUpSignUpButton;
-
-
 
     // Patient Home screen
     // Home tab
@@ -165,12 +155,12 @@ public class Controller {
 
     @FXML
     public void handleToggleChange() {
-        if (signUpUserType.getSelectedToggle() != signUpPagePatientRadioButton) {
+        if (signUpUserType.getSelectedToggle() != signUpPatientRadio) {
             signUpInsurancePane.setVisible(false);
             signUpPharmacyPane.setVisible(false);
         }
 
-        if (signUpUserType.getSelectedToggle() == signUpPagePatientRadioButton) {
+        if (signUpUserType.getSelectedToggle() == signUpPatientRadio) {
             signUpInsurancePane.setVisible(true);
             signUpPharmacyPane.setVisible(true);
         }
@@ -201,36 +191,39 @@ public class Controller {
      * Handler functions for everything related to accounts, whether signing into an account, creating an account, or adjacent.
      ********************************/
 
-    /*
     // This is an example function to show how to get data from the UI fields.
     public void handleAddUser() {
         try {
-            String firstNameEntry = signUpFirstName.getText();
-            String lastNameEntry = signUpLastName.getText();
-            LocalDate birthdayEntry = signUpBirthday.getValue();
-            String usernameEntry = signUpUsername.getText();
-            String passwordEntry = signUpPassword.getText();
+            String firstName = signUpFirstName.getText();
+            String lastName = signUpLastName.getText();
+
+            int birthDay = signUpBirthday.getValue().getDayOfMonth();
+            int birthMonth = signUpBirthday.getValue().getMonthValue();
+            int birthYear = signUpBirthday.getValue().getYear();
+
+            String address = signUpAddress.getText();
+            String phoneNumber = signUpPhoneNumber.getText();
+
+            String username = signUpUsername.getText();
+            String password = signUpPassword.getText();
+
+            String insuranceID = signUpInsuranceId.getText();
+            String pharmacyAddress = signUpPharmacyAddress.getText();
 
             String personType = "NULL";
-            if (signUpRadioPatient.isSelected()) {
+            if (signUpPatientRadio.isSelected()) {
                 personType = "Patient";
-            } else if (signUpRadioNurse.isSelected()) {
+            } else if (signUpNurseRadio.isSelected()) {
                 personType = "Nurse";
-            } else if (signUpRadioDoctor.isSelected()) {
+            } else if (signUpDoctorRadio.isSelected()) {
                 personType = "Doctor";
             }
 
 
-            if (firstNameEntry.isEmpty() || lastNameEntry.isEmpty() || usernameEntry.isEmpty() || passwordEntry.isEmpty()) {
+            if (firstName.isEmpty() || lastName.isEmpty() || address.isEmpty() || phoneNumber.isEmpty() || username.isEmpty() || password.isEmpty()) {
                 throw new Exception();
             }
 
-            System.out.println("First Name: " + firstNameEntry);
-            System.out.println("Last Name: " + lastNameEntry);
-            System.out.println("Birthday: " + birthdayEntry.toString());
-            System.out.println("Username: " + usernameEntry);
-            System.out.println("Password: " + passwordEntry);
-            System.out.println("User Type: " + personType);
 
             try {
                 Parent root = FXMLLoader.load(getClass().getResource("SignIn.fxml"));
@@ -248,10 +241,9 @@ public class Controller {
             signUpBirthday.setValue(LocalDate.EPOCH); // No good way to clear this as far as I can tell.
             signUpUsername.clear();
             signUpPassword.clear();
-            signUpRadioPatient.setSelected(true);
+            signUpPatientRadio.setSelected(true);
         }
     }
-    */
 
     @FXML
     public void handleSignInButton() {

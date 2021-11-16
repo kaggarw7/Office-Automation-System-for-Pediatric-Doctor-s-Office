@@ -12,7 +12,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("SignIn.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("SignUp.fxml"));
 
         primaryStage.setTitle("Group 12 Clinic Manager");
         primaryStage.setScene(new Scene(root, 700, 500));
