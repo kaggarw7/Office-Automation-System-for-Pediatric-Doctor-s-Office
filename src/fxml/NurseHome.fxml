@@ -39,19 +39,19 @@
                         <Pane layoutX="15.0" layoutY="11.0" AnchorPane.leftAnchor="16.0" AnchorPane.topAnchor="11.0">
                            <children>
                               <Label layoutY="4.0" text="Address" />
-                              <TextField fx:id="nurseHomePatientListPatientAddress" layoutX="88.0" prefHeight="26.0" prefWidth="230.0" />
+                              <TextField fx:id="nurseHomePatientListPatientAddress" editable="false" layoutX="88.0" prefHeight="26.0" prefWidth="230.0" />
                            </children>
                         </Pane>
                         <Pane layoutX="15.0" layoutY="42.0" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="42.0">
                            <children>
                               <Label layoutY="4.0" text="Phone Number" />
-                              <TextField fx:id="nurseHomePatientListPatientPhoneNumber" layoutX="88.0" prefHeight="26.0" prefWidth="213.0" />
+                              <TextField fx:id="nurseHomePatientListPatientPhoneNumber" editable="false" layoutX="88.0" prefHeight="26.0" prefWidth="213.0" />
                            </children>
                         </Pane>
                         <Pane layoutX="14.0" layoutY="77.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="77.0">
                            <children>
                               <Label layoutY="3.0" text="Birthday" />
-                              <DatePicker fx:id="nurseHomePatientListPatientBirthday" layoutX="89.0" />
+                              <DatePicker fx:id="nurseHomePatientListPatientBirthday" editable="false" layoutX="89.0" />
                            </children>
                         </Pane>
                         <Pane layoutX="15.0" layoutY="282.0" AnchorPane.bottomAnchor="21.99999999999997" AnchorPane.leftAnchor="15.0">
@@ -63,13 +63,13 @@
                         <Button fx:id="nurseHomePatientListSelectPatientButton" layoutX="364.0" layoutY="411.0" mnemonicParsing="false" onAction="#handleNursePatientListSelectPatientButton" text="Select" AnchorPane.bottomAnchor="9.799999999999976" AnchorPane.rightAnchor="14.200000000000045" />
                         <Pane layoutX="14.0" layoutY="114.0" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="114.0">
                            <children>
-                              <TextField fx:id="nurseHomePatientListPatientInsuranceID" layoutX="89.0" />
+                              <TextField fx:id="nurseHomePatientListPatientInsuranceID" editable="false" layoutX="89.0" />
                               <Label layoutY="4.0" text="Insurance ID" />
                            </children>
                         </Pane>
                         <Pane layoutX="14.0" layoutY="153.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="153.0">
                            <children>
-                              <TextField fx:id="nurseHomePatientListPatientPharmacyAddress" layoutX="111.0" prefHeight="25.0" prefWidth="191.0" />
+                              <TextField fx:id="nurseHomePatientListPatientPharmacyAddress" editable="false" layoutX="111.0" prefHeight="25.0" prefWidth="191.0" />
                               <Label layoutY="4.0" text="Pharmacy Address" />
                            </children>
                         </Pane>
