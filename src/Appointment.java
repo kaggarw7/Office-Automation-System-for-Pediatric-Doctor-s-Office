@@ -5,18 +5,18 @@ public class Appointment {
     private int hour;
     private int minute;
 
-    private Patient patient;
-    private Doctor doctor;
+    private String patientUsername;
+    private String doctorUsername;
 
     // Constructor
 
-    public Appointment(LocalDate date, int hour, int minute, Patient patient, Doctor doctor) {
+    public Appointment(LocalDate date, int hour, int minute, String patientUsername, String doctorUsername) {
         this.date = date;
         this.hour = hour;
         this.minute = minute;
 
-        this.patient = patient;
-        this.doctor = doctor;
+        this.patientUsername = patientUsername;
+        this.doctorUsername = doctorUsername;
     }
 
     // Getters
@@ -33,12 +33,12 @@ public class Appointment {
         return minute;
     }
 
-    public Patient getPatient() {
-        return patient;
+    public String getPatientUsername() {
+        return patientUsername;
     }
 
-    public Doctor getDoctor() {
-        return doctor;
+    public String getDoctorUsername() {
+        return doctorUsername;
     }
 
     // Setters
