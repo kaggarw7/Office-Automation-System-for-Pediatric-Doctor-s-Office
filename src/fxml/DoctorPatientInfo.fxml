@@ -54,7 +54,7 @@
             <TextField fx:id="doctorPatientInfoHeight" accessibleText="Age" layoutX="131.0" promptText="160" />
          </children>
       </Pane>
-      <Pane layoutX="526.0" layoutY="57.0" prefHeight="124.0" prefWidth="293.0" style="-fx-border-color: grey;">
+      <Pane layoutX="526.0" layoutY="57.0" prefHeight="124.0" prefWidth="293.0" style="-fx-border-color: grey;" AnchorPane.rightAnchor="24.0" AnchorPane.topAnchor="57.0">
          <children>
             <Pane layoutX="7.0" layoutY="14.0">
                <children>
