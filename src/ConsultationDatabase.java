@@ -14,7 +14,6 @@ public class ConsultationDatabase {
 	// Main
 	public static void main(String[] args) throws Exception
 	{
-		// NurseDatabase.InsertNurse("Aryan", "Aggarwal", 20, 96, 2021, "CITY", 789456123, "kagg", "123456");
 		
 		// String temp = ConsultationDatabase.getAllergy("kagg45");
 		// System.out.println(temp);
