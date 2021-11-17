@@ -1,7 +1,7 @@
 import java.sql.*;
 
 
-public class PrescriptionDatabase {
+public class Prescription {
 	static String url = "jdbc:mysql://database-1.cazevb7vwbyn.us-east-2.rds.amazonaws.com";
 	static String uname = "admin";
 	static String pass = "CSETeam12";
@@ -21,7 +21,6 @@ public class PrescriptionDatabase {
 		con.close();
 		return (medicine);
 		}
-		
 		
 		public static String getFrequency(String user_name) throws Exception
 		{
@@ -85,7 +84,7 @@ public class PrescriptionDatabase {
 	    }
 		
 		
-		public static void setDosage(String user_name, String dosage) throws ClassNotFoundException, SQLException
+		public static void setDosage(String user_name, int dosage) throws ClassNotFoundException, SQLException
 	    {
 	        String query = "UPDATE OfficeAutomation.Prescription SET Dosage = \"" + dosage + "\"  WHERE patient_username = \"" + user_name + "\"";
 	        Class.forName("com.mysql.cj.jdbc.Driver");
@@ -102,7 +101,7 @@ public class PrescriptionDatabase {
 		
 		///////////////////////////////// ------------- ////////////////////////////////////
 				
-		public static void InsertPrescription(String Medicine, int frequency, String dosage) throws ClassNotFoundException, SQLException
+		public static void InsertPatient(String Medicine, int frequency, int dosage) throws ClassNotFoundException, SQLException
 		{
 		String query = "INSERT INTO OfficeAutomation.Patient VALUES(?,?,?)";
 		Class.forName("com.mysql.cj.jdbc.Driver");
@@ -111,12 +110,11 @@ public class PrescriptionDatabase {
 		
 		st.setString(1, Medicine);
 		st.setInt(2, frequency);
-		st.setString(3, dosage);
+		st.setInt(3, dosage);
 		st.executeUpdate();
 		
 		System.out.println("Inserted successfully ");
 		st.close();
 		con.close();
 		}
-
 }
