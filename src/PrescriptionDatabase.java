@@ -1,7 +1,7 @@
 import java.sql.*;
 
 
-public class Prescription {
+public class PrescriptionDatabase {
 	static String url = "jdbc:mysql://database-1.cazevb7vwbyn.us-east-2.rds.amazonaws.com";
 	static String uname = "admin";
 	static String pass = "CSETeam12";
