@@ -49,23 +49,6 @@ public class PrescriptionDatabase {
 		con.close();
 		return (dosage);
 		}
-		
-		
-		public static String getDosage(String user_name) throws Exception
-		{
-		String query = "SELECT Dosage FROM OfficeAutomation.Prescription where patient_username = \"" + user_name + "\"";
-		Class.forName("com.mysql.cj.jdbc.Driver");
-		Connection con = DriverManager.getConnection(url, uname, pass);
-		Statement st = con.createStatement();  
-		ResultSet rs = st.executeQuery(query);
-		rs.next();
-		String dosage = rs.getString("Dosage"); 
-		st.close();
-		con.close();
-		return (dosage);
-		}
-		
-		
 
 		public static String getPatientUsername(String user_name) throws Exception
 		{
@@ -134,7 +117,7 @@ public class PrescriptionDatabase {
 		
 		///////////////////////////////// ------------- ////////////////////////////////////
 				
-		public static void InsertPatient(String Medicine, int frequency, String dosage, String patient_username) throws ClassNotFoundException, SQLException
+		public static void InsertPrescription(String Medicine, int frequency, String dosage, String patient_username) throws ClassNotFoundException, SQLException
 		{
 		String query = "INSERT INTO OfficeAutomation.Patient VALUES(?,?,?,?)";
 		Class.forName("com.mysql.cj.jdbc.Driver");

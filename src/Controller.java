@@ -259,10 +259,6 @@ public class Controller {
                 throw new ClassCircularityError();
             }
 
-            // TODO: Check if a username is already in use. If so, throw an exception
-
-
-
             // TODO: Someway of selecting a doctor username when creating a patient, and a way of selecting a nurse when creating a doctor
 
             String doctorUsername = "";
