@@ -107,7 +107,7 @@ public class DoctorDatabase {
 		return address;
 	}
 	
-	public static long getDoctorPhoneNumber(String user_name) throws ClassNotFoundException, SQLException
+	public static String getDoctorPhoneNumber(String user_name) throws ClassNotFoundException, SQLException
 	{
 		String query = "SELECT Phone_number FROM Doctor WHERE Doctor_username = \"" + user_name + "\"";
 		Class.forName("com.mysql.cj.jdbc.Driver");
@@ -115,7 +115,7 @@ public class DoctorDatabase {
 		Statement st = con.createStatement();
 		ResultSet rs = st.executeQuery(query);
 		rs.next();
-		long phone_number = rs.getLong("Phone_number");
+		String phone_number = rs.getString("Phone_number");
 		st.close();
 		con.close();
 		return phone_number;
@@ -236,7 +236,7 @@ public class DoctorDatabase {
 	    }	
 	}
 	
-	public static void setDoctorPhoneNumber(String user_name, long phone_number) throws ClassNotFoundException, SQLException
+	public static void setDoctorPhoneNumber(String user_name, String phone_number) throws ClassNotFoundException, SQLException
 	{
 		String query = "UPDATE Doctor SET Phone_number = \"" + phone_number + "\"  WHERE Doctor_username = \"" + user_name + "\"";
 		Class.forName("com.mysql.cj.jdbc.Driver");
