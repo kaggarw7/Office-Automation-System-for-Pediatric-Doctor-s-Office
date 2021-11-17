@@ -372,6 +372,18 @@ public class Controller {
     public void handleCreateAppointment() {
         //TODO: Actually create an appointment and put it in the database
 
+        String patientUsername = createAppointmentPatientUsername.getText();
+        String doctorUsername = createAppointmentDoctorUsername.getText();
+
+        int appointmentYear = createAppointmentDate.getValue().getYear();
+        int appointmentMonth = createAppointmentDate.getValue().getMonthValue();
+        int appointmentDay = createAppointmentDate.getValue().getDayOfMonth();
+
+        int appointmentHour = Integer.parseInt(createAppointmentHour.getText());
+        int appointmentMinute = Integer.parseInt(createAppointmentMinute.getText());
+
+        AppointmentDatabase.InsertAppointment(appointmentYear, appointmentMonth, appointmentDay, appointmentHour, appointmentMinute, patientUsername, doctorUsername);
+
         Stage stage = (Stage) createAppointmentCreateButton.getScene().getWindow();
         stage.close();
     }

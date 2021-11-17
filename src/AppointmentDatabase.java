@@ -9,7 +9,7 @@ public class AppointmentDatabase {
 	
 	///////////////////////////////// Getter Functions  ////////////////////////////////////
 	
-	public static String getDate(String user_name) throws Exception
+	public static String getDate(String user_name) throws ClassNotFoundException, SQLException
 	{
 		String query = "SELECT Date FROM OfficeAutomation.Appointment where patient_username = \"" + user_name + "\"";
 	    Class.forName("com.mysql.cj.jdbc.Driver");
@@ -25,7 +25,7 @@ public class AppointmentDatabase {
 	
 	
 	
-	public static int getHours(String user_name) throws Exception
+	public static int getHours(String user_name) throws ClassNotFoundException, SQLException
 	{
 		String query = "SELECT Hours FROM OfficeAutomation.Appointment where patient_username = \"" + user_name + "\"";
 	    Class.forName("com.mysql.cj.jdbc.Driver");
@@ -40,7 +40,7 @@ public class AppointmentDatabase {
 	}
 	
 	
-	public static int getMinutes(String user_name) throws Exception
+	public static int getMinutes(String user_name) throws ClassNotFoundException, SQLException
 	{
 		String query = "SELECT Minutes FROM OfficeAutomation.Appointment where patient_username = \"" + user_name + "\"";
 	    Class.forName("com.mysql.cj.jdbc.Driver");
@@ -55,7 +55,7 @@ public class AppointmentDatabase {
 	}
 	
 	
-	public static String getDoctorUserName(String user_name) throws Exception
+	public static String getDoctorUserName(String user_name) throws ClassNotFoundException, SQLException
 	{
 		String query = "SELECT Doctor_username FROM OfficeAutomation.Appointment where patient_username = \"" + user_name + "\"";
 	    Class.forName("com.mysql.cj.jdbc.Driver");
@@ -137,7 +137,7 @@ public class AppointmentDatabase {
 	
 	///////////////////////////////// ------------- ////////////////////////////////////
 	
-	public static void InsertPatient(String date, int hours, int minutes, String pname, String dname) throws ClassNotFoundException, SQLException
+	public static void InsertAppointment(String date, int hours, int minutes, String pname, String dname) throws ClassNotFoundException, SQLException
 	{
 		String query = "INSERT INTO OfficeAutomation.Patient VALUES(?,?,?,?,?)";
 		Class.forName("com.mysql.cj.jdbc.Driver");
