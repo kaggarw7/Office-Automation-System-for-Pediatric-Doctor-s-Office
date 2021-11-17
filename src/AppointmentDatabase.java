@@ -193,7 +193,7 @@ public class AppointmentDatabase {
 	
 	///////////////////////////////// ------------- ////////////////////////////////////
 	
-	public static void InsertAoopintment(int year, int month, int day, int hour, int minute, String patientUsername, String doctorUsername) throws ClassNotFoundException, SQLException
+	public static void InsertAppointment(int year, int month, int day, int hour, int minute, String patientUsername, String doctorUsername) throws ClassNotFoundException, SQLException
 	{
 		String query = "INSERT INTO OfficeAutomation.Patient VALUES(?,?,?,?,?,?,?)";
 		Class.forName("com.mysql.cj.jdbc.Driver");
