@@ -1,7 +1,7 @@
 import java.sql.*;
 
 
-class Database
+class PatientDatabase
 {   
 	static String url = "jdbc:mysql://database-1.cazevb7vwbyn.us-east-2.rds.amazonaws.com";
 	static String uname = "admin";
@@ -427,8 +427,10 @@ class Database
 	
 	public static void main(String args[]) throws Exception
 	{
+	    /*
 		Database.InsertPatient("Aryan","Bisht", 11, 10, 2001, "Arizona", 998789978, "kartik", "aditya", "RandomInsurance1234556", "Downtown-tempe-cvs",
 				"abis", "helloRocket");
 		System.out.println(Database.getPatientPassword(""));
+		*/
 	}
 }
