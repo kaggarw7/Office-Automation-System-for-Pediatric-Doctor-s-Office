@@ -79,7 +79,7 @@ public class Patient extends Person {
 
     public Appointment getNextAppointment() throws ClassNotFoundException, SQLException {
         LocalDate appointmentDate = LocalDate.of(AppointmentDatabase.getYear(this.getUsername()), AppointmentDatabase.getMonth(this.getUsername()), AppointmentDatabase.getDay(this.getUsername()));
-        return new Appointment(appointmentDate, AppointmentDatabase.getHours(this.getUsername()), AppointmentDatabase.getMinutes(this.getUsername()), this.getUsername(), AppointmentDatabase.getDoctorUserName(this.getUsername()));
+        return new Appointment(appointmentDate, AppointmentDatabase.getHour(this.getUsername()), AppointmentDatabase.getMinute(this.getUsername()), this.getUsername(), AppointmentDatabase.getDoctorUserName(this.getUsername()));
     }
 
     // Setters

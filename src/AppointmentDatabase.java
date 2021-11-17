@@ -9,7 +9,7 @@ public class AppointmentDatabase {
 	
 	///////////////////////////////// Getter Functions  ////////////////////////////////////
 	
-	public static String getYear(String user_name) throws Exception
+	public static String getYear(String user_name) throws ClassNotFoundException, SQLException
 	{
 		String query = "SELECT Year FROM OfficeAutomation.Appointment where patient_username = \"" + user_name + "\"";
 	    Class.forName("com.mysql.cj.jdbc.Driver");
@@ -23,7 +23,7 @@ public class AppointmentDatabase {
 	    return (year);
 	}
 	
-	public static String getMonth(String user_name) throws Exception
+	public static String getMonth(String user_name) throws ClassNotFoundException, SQLException
 	{
 		String query = "SELECT Month FROM OfficeAutomation.Appointment where patient_username = \"" + user_name + "\"";
 	    Class.forName("com.mysql.cj.jdbc.Driver");
@@ -38,7 +38,7 @@ public class AppointmentDatabase {
 	}
 	
 	
-	public static String getDay(String user_name) throws Exception
+	public static String getDay(String user_name) throws ClassNotFoundException, SQLException
 	{
 		String query = "SELECT Day FROM OfficeAutomation.Appointment where patient_username = \"" + user_name + "\"";
 	    Class.forName("com.mysql.cj.jdbc.Driver");
@@ -55,7 +55,7 @@ public class AppointmentDatabase {
 	
 	
 	
-	public static int getHour(String user_name) throws Exception
+	public static int getHour(String user_name) throws ClassNotFoundException, SQLException
 	{
 		String query = "SELECT Hour FROM OfficeAutomation.Appointment where patient_username = \"" + user_name + "\"";
 	    Class.forName("com.mysql.cj.jdbc.Driver");
@@ -70,7 +70,7 @@ public class AppointmentDatabase {
 	}
 	
 	
-	public static int getMinute(String user_name) throws Exception
+	public static int getMinute(String user_name) throws ClassNotFoundException, SQLException
 	{
 		String query = "SELECT Minute FROM OfficeAutomation.Appointment where patient_username = \"" + user_name + "\"";
 	    Class.forName("com.mysql.cj.jdbc.Driver");
@@ -85,7 +85,7 @@ public class AppointmentDatabase {
 	}
 	
 	
-	public static String getDoctorUserName(String user_name) throws Exception
+	public static String getDoctorUserName(String user_name) throws ClassNotFoundException, SQLException
 	{
 		String query = "SELECT Doctor_username FROM OfficeAutomation.Appointment where patient_username = \"" + user_name + "\"";
 	    Class.forName("com.mysql.cj.jdbc.Driver");
