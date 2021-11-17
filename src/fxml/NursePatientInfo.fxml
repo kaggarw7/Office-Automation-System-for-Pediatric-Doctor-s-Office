@@ -2,13 +2,14 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="401.0" prefWidth="843.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#populateNursePatientInfo" prefHeight="401.0" prefWidth="843.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
    <children>
       <TextArea fx:id="nursePatientInfoNotes" editable="false" layoutX="14.0" layoutY="209.0" prefHeight="200.0" prefWidth="435.0" promptText="Notes" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="14.0" />
       <Button fx:id="nursePatientInfoCloseButton" layoutX="784.0" layoutY="362.0" mnemonicParsing="false" onAction="#handleCloseStage" text="Close" textFill="#e11010" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0" />
@@ -43,40 +44,6 @@
             <TextField fx:id="nursePatientInfoHeight" accessibleText="Age" editable="false" layoutX="131.0" promptText="160" />
          </children>
       </Pane>
-      <Pane layoutX="536.0" layoutY="20.0" prefHeight="124.0" prefWidth="293.0" style="-fx-border-color: grey;" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="20.0">
-         <children>
-            <Pane layoutX="7.0" layoutY="14.0">
-               <children>
-                  <Label accessibleText="Age" layoutY="2.0" text="Prescription Name">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="nursePatientInfoPrescriptionName" accessibleText="Age" editable="false" layoutX="131.0" promptText="Atorvastatin" />
-               </children>
-            </Pane>
-            <Pane layoutX="7.0" layoutY="47.0">
-               <children>
-                  <Label accessibleText="Age" layoutY="2.0" text="Dosage Amount">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="nursePatientInfoPrescriptionDosageAmount" accessibleText="Age" editable="false" layoutX="131.0" promptText="40g" />
-               </children>
-            </Pane>
-            <Pane layoutX="7.0" layoutY="81.0">
-               <children>
-                  <Label accessibleText="Age" layoutY="2.0" text="Times Per Month">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="nursePatientInfoPrescriptionTimesPerMonth" accessibleText="Age" editable="false" layoutX="131.0" promptText="30" />
-               </children>
-            </Pane>
-         </children>
-      </Pane>
       <Pane layoutX="24.0" layoutY="125.0">
          <children>
             <Label accessibleText="Age" layoutY="2.0" text="Blood Pressure">
@@ -85,6 +52,12 @@
                </font>
             </Label>
             <TextField fx:id="nursePatientInfoBloodPressure" accessibleText="Age" layoutX="131.0" promptText="120/80" />
+         </children>
+      </Pane>
+      <Pane layoutX="536.0" layoutY="14.0">
+         <children>
+            <ListView fx:id="nursePatientInfoCurrentPrescriptions" layoutY="23.0" prefHeight="141.0" prefWidth="293.0" />
+            <Label layoutX="1.0" text="Current Prescriptions" />
          </children>
       </Pane>
    </children>

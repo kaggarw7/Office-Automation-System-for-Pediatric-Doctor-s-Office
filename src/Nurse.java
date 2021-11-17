@@ -1,3 +1,4 @@
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -8,6 +9,10 @@ public class Nurse extends Person {
 
     public Nurse(String firstName, String lastName, LocalDate birthday, String address, String phoneNumber, String username, String password) {
         super(firstName, lastName, birthday, address, phoneNumber, username, password);
+    }
+
+    public Nurse(String username) throws ClassNotFoundException, SQLException {
+        super(NurseDatabase.getNurseFirstName(username), NurseDatabase.getNurseLastName(username), LocalDate.of(NurseDatabase.getNurseBirthDay(username), NurseDatabase.getNurseBirthMonth(username), NurseDatabase.getNurseBirthYear(username)), NurseDatabase.getNurseAddress(username), NurseDatabase.getNursePhoneNumber(username), username, null);
     }
 
     // Getters

@@ -25,4 +25,11 @@ public class Prescription {
         return timesPerMonth;
     }
 
+    // Functionality
+
+    @Override
+    public String toString() {
+        return this.medicine + " / " + this.dosageAmount + " / " + this.timesPerMonth;
+    }
+
 }

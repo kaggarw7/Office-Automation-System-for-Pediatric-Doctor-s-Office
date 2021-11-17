@@ -101,9 +101,7 @@ public class Controller {
     @FXML private TextField nursePatientInfoBloodPressure;
     @FXML private TextArea nursePatientInfoNotes;
 
-    @FXML private TextField nursePatientInfoPrescriptionName;
-    @FXML private TextField nursePatientInfoPrescriptionDosageAmount;
-    @FXML private TextField nursePatientInfoPrescriptionTimesPerMonth;
+    @FXML private ListView nursePatientInfoCurrentPrescriptions;
 
     @FXML private Button nursePatientInfoCloseButton;
 
@@ -126,6 +124,8 @@ public class Controller {
     @FXML private TextField doctorPatientInfoHeight;
     @FXML private TextField doctorPatientInfoBloodPressure;
     @FXML private TextArea doctorPatientInfoNotes;
+
+    @FXML private ListView doctorPatientInfoCurrentPrescriptions;
 
     @FXML private TextField doctorPatientInfoPrescriptionName;
     @FXML private TextField doctorPatientInfoPrescriptionDosageAmount;
@@ -314,12 +314,31 @@ public class Controller {
             stage.setScene(new Scene(root));
             stage.show();
 
-            Patient selectedPatient = (Patient) nurseHomePatientList.getSelectionModel().getSelectedItem();
+            //populateNursePatientInfo();
 
-            nursePatientInfoPatientUsername.setText(selectedPatient.getUsername());
-            nursePatientInfoWeight.setText(selectedPatient.);
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void populateNursePatientInfo() {
+        Patient selectedPatient = new Patient()
+        System.out.println(selectedPatient.getUsername());
+
+        nursePatientInfoPatientUsername.setText(selectedPatient.getUsername());
+
+        if (selectedPatient.getConsultationRecord() != null) {
+            nursePatientInfoWeight.setText(Double.toString(selectedPatient.getLastConsultation().getWeight()));
+            nursePatientInfoHeight.setText(Double.toString(selectedPatient.getLastConsultation().getHeight()));
+            nursePatientInfoBloodPressure.setText(selectedPatient.getLastConsultation().getBloodPressure());
+            //nursePatientInfoNotes.setText(selectedPatient.getLastConsultation().getNotes());
+        }
+
+        if (selectedPatient.getPrescriptions() != null) {
+            ObservableList<Prescription> currentPrescriptions = FXCollections.observableArrayList();
+            currentPrescriptions.setAll(selectedPatient.getPrescriptions());
+            nursePatientInfoCurrentPrescriptions.setItems(currentPrescriptions);
         }
     }
 

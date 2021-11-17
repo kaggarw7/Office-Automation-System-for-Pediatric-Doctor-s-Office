@@ -1,3 +1,4 @@
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -11,6 +12,12 @@ public class Doctor extends Person {
         super(firstName, lastName, birthday, address, phoneNumber, username, password);
 
         this.assignedNurse = assignedNurse;
+    }
+
+    public Doctor(String username) throws ClassNotFoundException, SQLException {
+        super(DoctorDatabase.getDoctorFirstName(username), DoctorDatabase.getDoctorLastName(username), LocalDate.of(DoctorDatabase.getDoctorBirthDay(username), DoctorDatabase.getDoctorBirthMonth(username), DoctorDatabase.getDoctorBirthYear(username)), DoctorDatabase.getDoctorAddress(username), DoctorDatabase.getDoctorPhoneNumber(username), username, null);
+
+        this.assignedNurse = new Nurse(DoctorDatabase.getDoctorNurseUsername(username));
     }
 
     // Getters

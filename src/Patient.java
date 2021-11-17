@@ -1,3 +1,4 @@
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -26,6 +27,20 @@ public class Patient extends Person {
 
         this.insuranceID = insuranceID;
         this.pharmacyAddress = pharmacyAddress;
+    }
+
+    public Patient(String username) throws ClassNotFoundException, SQLException {
+        super(PatientDatabase.getPatientFirstName(username), PatientDatabase.getPatientLastName(username), LocalDate.of(PatientDatabase.getPatientBirthDay(username), PatientDatabase.getPatientBirthMonth(username), PatientDatabase.getPatientBirthYear(username)), PatientDatabase.getPatientAddress(username), PatientDatabase.getPatientPhoneNumber(username), username, null);
+
+        this.assignedDoctor = new Doctor(PatientDatabase.getPatientDoctorUsername(username));
+        if (assignedDoctor.getAssignedNurse() != null) {
+            this.assignedNurse = assignedDoctor.getAssignedNurse();
+        } else {
+            this.assignedNurse = null;
+        }
+
+        this.insuranceID = PatientDatabase.getPatientInsuranceID(username);
+        this.pharmacyAddress = PatientDatabase.getPatientPharmacyAddress(username);
     }
 
 	// Getters

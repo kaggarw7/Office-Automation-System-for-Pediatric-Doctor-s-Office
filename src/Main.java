@@ -7,6 +7,7 @@ import javafx.stage.Stage;
 public class Main extends Application {
 
     private static String currentUser;
+    private static String selectedPatient;
 
     public static void main(String[] args) {
         launch(args);
@@ -27,5 +28,13 @@ public class Main extends Application {
 
     public static void setCurrentUser(String username) {
         currentUser = username;
+    }
+
+    public static String getSelectedPatient() {
+        return selectedPatient;
+    }
+
+    public static void setSelectedPatient(String username) {
+        selectedPatient = username;
     }
 }
