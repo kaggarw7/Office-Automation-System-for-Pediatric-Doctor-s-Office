@@ -1,127 +1,128 @@
 import java.sql.*;
 
 
-public class PatientDatabase {
-	static String url = "jdbc:mysql://localhost:3306/office_automation";
-	static String uname = "root";
-	static String pass = "Chinu@1998";
+class Database
+{   
+	static String url = "jdbc:mysql://database-1.cazevb7vwbyn.us-east-2.rds.amazonaws.com";
+	static String uname = "admin";
+	static String pass = "CSETeam12";
 	
 	
 	
 	
 	///////////////////////////////////////// GETTERS FOR PATIENT TABLE /////////////////////////////////////////////////////
 	
-	public static void getPatientFirstName(String user_name) throws Exception
+	public static String getPatientFirstName(String user_name) throws Exception
 	{
-		String query = "SELECT First_name FROM Patient where patient_username = \"" + user_name + "\"";
+		String query = "SELECT First_name FROM OfficeAutomation.Patient where patient_username = \"" + user_name + "\"";
 	    Class.forName("com.mysql.cj.jdbc.Driver");
 	    Connection con = DriverManager.getConnection(url, uname, pass);
 	    Statement st = con.createStatement();  
 	    ResultSet rs = st.executeQuery(query);
 	    rs.next();
 	    String fname = rs.getString("First_name");
-	    System.out.println(fname);
 	    st.close();
 	    con.close();
+	    return (fname);
 	}
 	
 	
-	public static void getPatientLastName(String user_name) throws Exception
+	
+	public static String getPatientLastName(String user_name) throws Exception
 	{
-		String query = "SELECT Last_name FROM Patient where patient_username = \"" + user_name + "\"";
+		String query = "SELECT Last_name FROM OfficeAutomation.Patient where patient_username = \"" + user_name + "\"";
 	    Class.forName("com.mysql.cj.jdbc.Driver");
 	    Connection con = DriverManager.getConnection(url, uname, pass);
 	    Statement st = con.createStatement();  
 	    ResultSet rs = st.executeQuery(query);
 	    rs.next();
 	    String lname = rs.getString("Last_name");
-	    System.out.println(lname);
 	    st.close();
 	    con.close();
+	    return (lname);
 	}
 	
 	
-	public static void getPatientBirthDay(String user_name) throws Exception
+	public static int getPatientBirthDay(String user_name) throws Exception
 	{
-		String query = "SELECT Birth_day FROM Patient where patient_username = \"" + user_name + "\"";
+		String query = "SELECT Birth_day FROM OfficeAutomation.Patient where patient_username = \"" + user_name + "\"";
 	    Class.forName("com.mysql.cj.jdbc.Driver");
 	    Connection con = DriverManager.getConnection(url, uname, pass);
 	    Statement st = con.createStatement();  
 	    ResultSet rs = st.executeQuery(query);
 	    rs.next();
-	    String bday = rs.getString("Birth_day");
-	    System.out.println(bday);
+	    int bday = Integer.parseInt(rs.getString("Birth_day"));
 	    st.close();
 	    con.close();
+	    return (bday) ;
 	}
 	
 	
 	
-	public static void getPatientBirthMonth(String user_name) throws Exception
+	public static int getPatientBirthMonth(String user_name) throws Exception
 	{
-		String query = "SELECT Birth_month FROM Patient where patient_username = \"" + user_name + "\"";
+		String query = "SELECT Birth_month FROM OfficeAutomation.Patient where patient_username = \"" + user_name + "\"";
 	    Class.forName("com.mysql.cj.jdbc.Driver");
 	    Connection con = DriverManager.getConnection(url, uname, pass);
 	    Statement st = con.createStatement();  
 	    ResultSet rs = st.executeQuery(query);
 	    rs.next();
-	    String bmonth = rs.getString("Birth_month");
-	    System.out.println(bmonth);
+	    int bmonth = Integer.parseInt(rs.getString("Birth_month"));
 	    st.close();
 	    con.close();
+	    return bmonth;
 	}
 	
 	
-	public static void getPatientBirthYear(String user_name) throws Exception
+	public static int getPatientBirthYear(String user_name) throws Exception
 	{
-		String query = "SELECT Birth_Year FROM Patient where patient_username = \"" + user_name + "\"";
+		String query = "SELECT Birth_Year FROM OfficeAutomation.Patient where patient_username = \"" + user_name + "\"";
 	    Class.forName("com.mysql.cj.jdbc.Driver");
 	    Connection con = DriverManager.getConnection(url, uname, pass);
 	    Statement st = con.createStatement();  
 	    ResultSet rs = st.executeQuery(query);
 	    rs.next();
-	    String byear = rs.getString("Birth_Year");
-	    System.out.println(byear);
+	    int byear = Integer.parseInt(rs.getString("Birth_Year"));
 	    st.close();
 	    con.close();
+	    return byear;
 	}
 	
 	
-	public static void getPatientAddress(String user_name) throws Exception
+	public static String getPatientAddress(String user_name) throws Exception
 	{
-		String query = "SELECT Address FROM Patient where patient_username = \"" + user_name + "\"";
+		String query = "SELECT Address FROM OfficeAutomation.Patient where patient_username = \"" + user_name + "\"";
 	    Class.forName("com.mysql.cj.jdbc.Driver");
 	    Connection con = DriverManager.getConnection(url, uname, pass);
 	    Statement st = con.createStatement();  
 	    ResultSet rs = st.executeQuery(query);
 	    rs.next();
 	    String address = rs.getString("Address");
-	    System.out.println(address);
 	    st.close();
 	    con.close();
+	    return address;
 	}
 	
 	
-	public static long getPatientPhoneNumber(String user_name) throws Exception
+	public static void getPatientPhoneNumber(String user_name) throws Exception
 	{
-		String query = "SELECT Phone_number FROM Patient where patient_username = \"" + user_name + "\"";
+		String query = "SELECT Phone_number FROM OfficeAutomation.Patient where patient_username = \"" + user_name + "\"";
 	    Class.forName("com.mysql.cj.jdbc.Driver");
 	    Connection con = DriverManager.getConnection(url, uname, pass);
 	    Statement st = con.createStatement();  
 	    ResultSet rs = st.executeQuery(query);
 	    rs.next();
-	    long phoneNumber = rs.getLong("Phone_number");
-	    System.out.println(phoneNumber);
+	    String pnumber = rs.getString("Phone_number");
+	    System.out.println(pnumber);
 	    st.close();
 	    con.close();
-	    return phoneNumber;
 	}
 	
 	
 	
 	public static void getPatientDoctorUsername(String user_name) throws Exception
 	{
-		String query = "SELECT Doctor_username FROM Patient where patient_username = \"" + user_name + "\"";
+		String query = "SELECT Doctor_username FROM OfficeAutomation.Patient where patient_username = \"" + user_name + "\"";
 	    Class.forName("com.mysql.cj.jdbc.Driver");
 	    Connection con = DriverManager.getConnection(url, uname, pass);
 	    Statement st = con.createStatement();  
@@ -137,7 +138,7 @@ public class PatientDatabase {
 	
 	public static void getPatientNurseUsername(String user_name) throws Exception
 	{
-		String query = "SELECT Nurse_username FROM Patient where patient_username = \"" + user_name + "\"";
+		String query = "SELECT Nurse_username FROM OfficeAutomation.Patient where patient_username = \"" + user_name + "\"";
 	    Class.forName("com.mysql.cj.jdbc.Driver");
 	    Connection con = DriverManager.getConnection(url, uname, pass);
 	    Statement st = con.createStatement();  
@@ -152,7 +153,7 @@ public class PatientDatabase {
 	
 	public static void getPatientUsername(String user_name) throws Exception
 	{
-		String query = "SELECT patient_username FROM Patient where patient_username = \"" + user_name + "\"";
+		String query = "SELECT patient_username FROM OfficeAutomation.Patient where patient_username = \"" + user_name + "\"";
 	    Class.forName("com.mysql.cj.jdbc.Driver");
 	    Connection con = DriverManager.getConnection(url, uname, pass);
 	    Statement st = con.createStatement();  
@@ -165,21 +166,29 @@ public class PatientDatabase {
 	}
 	
 	
-	public static void getPatientPassword(String user_name) throws Exception
+	public static String getPatientPassword(String user_name) throws Exception
 	{
-		String query = "SELECT patient_password FROM Patient where patient_username = \"" + user_name + "\"";
+		String query = "SELECT patient_password FROM OfficeAutomation.Patient where patient_username = \"" + user_name + "\"";
 	    Class.forName("com.mysql.cj.jdbc.Driver");
 	    Connection con = DriverManager.getConnection(url, uname, pass);
 	    Statement st = con.createStatement();  
-	    ResultSet rs = st.executeQuery(query);
-	    rs.next();
-	    String ppassword = rs.getString("patient_password");
-	    System.out.println(ppassword);
-	    st.close();
-	    con.close();
+	    
+		try
+		{
+		    ResultSet rs = st.executeQuery(query);
+		    rs.next();
+		    String ppassword = rs.getString("patient_password");
+		    st.close();
+		    con.close();
+		    return (ppassword);
+		}
+		catch(Exception e)
+		{
+			 st.close();
+			 con.close();
+			 return "_";
+		}
 	}
-	
-	
 	
 	
 	/////////////////////////// SETTERS FOR PATIENT TABLE /////////////////////////////
@@ -189,7 +198,7 @@ public class PatientDatabase {
 	
 	public static void setPatientFirstName(String user_name, String first_name) throws ClassNotFoundException, SQLException
     {
-        String query = "UPDATE PATIENT SET First_name = \"" +first_name + "\"  WHERE patient_username = \"" + user_name + "\"";
+        String query = "UPDATE OfficeAutomation.Patient SET First_name = \"" +first_name + "\"  WHERE patient_username = \"" + user_name + "\"";
         Class.forName("com.mysql.cj.jdbc.Driver");
         try(Connection con = DriverManager.getConnection(url, uname, pass);
                 Statement st = con.createStatement();) {
@@ -204,7 +213,7 @@ public class PatientDatabase {
 	
 	public static void setPatientLastName(String user_name, String last_name) throws ClassNotFoundException, SQLException
     {
-        String query = "UPDATE PATIENT SET Last_name = \"" + last_name + "\"  WHERE patient_username = \"" + user_name + "\"";
+        String query = "UPDATE OfficeAutomation.Patient SET Last_name = \"" + last_name + "\"  WHERE patient_username = \"" + user_name + "\"";
         Class.forName("com.mysql.cj.jdbc.Driver");
         try(Connection con = DriverManager.getConnection(url, uname, pass);
                 Statement st = con.createStatement();) {
@@ -218,7 +227,7 @@ public class PatientDatabase {
 	
 	public static void setPatientBirthDay(String user_name, int birth_day) throws ClassNotFoundException, SQLException
     {
-        String query = "UPDATE PATIENT SET Birth_day = \"" + birth_day + "\"  WHERE patient_username = \"" + user_name + "\"";
+        String query = "UPDATE OfficeAutomation.Patient SET Birth_day = \"" + birth_day + "\"  WHERE patient_username = \"" + user_name + "\"";
         Class.forName("com.mysql.cj.jdbc.Driver");
         try(Connection con = DriverManager.getConnection(url, uname, pass);
                 Statement st = con.createStatement();) {
@@ -233,7 +242,7 @@ public class PatientDatabase {
 	
 	public static void setPatientBirthMonth(String user_name, int birth_month) throws ClassNotFoundException, SQLException
     {
-        String query = "UPDATE PATIENT SET Birth_month = \"" + birth_month + "\"  WHERE patient_username = \"" + user_name + "\"";
+        String query = "UPDATE OfficeAutomation.Patient SET Birth_month = \"" + birth_month + "\"  WHERE patient_username = \"" + user_name + "\"";
         Class.forName("com.mysql.cj.jdbc.Driver");
         try(Connection con = DriverManager.getConnection(url, uname, pass);
                 Statement st = con.createStatement();) {
@@ -248,7 +257,7 @@ public class PatientDatabase {
 	
 	public static void setPatientBirthYear(String user_name, int birth_year) throws ClassNotFoundException, SQLException
     {
-        String query = "UPDATE PATIENT SET Birth_Year = \"" + birth_year + "\"  WHERE patient_username = \"" + user_name + "\"";
+        String query = "UPDATE OfficeAutomation.Patient SET Birth_Year = \"" + birth_year + "\"  WHERE patient_username = \"" + user_name + "\"";
         Class.forName("com.mysql.cj.jdbc.Driver");
         try(Connection con = DriverManager.getConnection(url, uname, pass);
                 Statement st = con.createStatement();) {
@@ -263,7 +272,7 @@ public class PatientDatabase {
 	
 	public static void setPatientAddress(String user_name, String address) throws ClassNotFoundException, SQLException
     {
-        String query = "UPDATE PATIENT SET Address = \"" + address + "\"  WHERE patient_username = \"" + user_name + "\"";
+        String query = "UPDATE OfficeAutomation.Patient SET Address = \"" + address + "\"  WHERE patient_username = \"" + user_name + "\"";
         Class.forName("com.mysql.cj.jdbc.Driver");
         try(Connection con = DriverManager.getConnection(url, uname, pass);
                 Statement st = con.createStatement();) {
@@ -276,9 +285,9 @@ public class PatientDatabase {
     }
 	
 	
-	public static void setPatientPhoneNumber(String user_name, long phoneNumber) throws ClassNotFoundException, SQLException
+	public static void setPatientPhoneNumber(String user_name, String pnumber) throws ClassNotFoundException, SQLException
     {
-        String query = "UPDATE PATIENT SET Phone_number = \"" + phoneNumber + "\"  WHERE patient_username = \"" + user_name + "\"";
+        String query = "UPDATE OfficeAutomation.Patient SET Phone_number = \"" + pnumber + "\"  WHERE patient_username = \"" + user_name + "\"";
         Class.forName("com.mysql.cj.jdbc.Driver");
         try(Connection con = DriverManager.getConnection(url, uname, pass);
                 Statement st = con.createStatement();) {
@@ -293,7 +302,7 @@ public class PatientDatabase {
 	
 	public static void setPatientDoctorUserName(String user_name, String dusername) throws ClassNotFoundException, SQLException
     {
-        String query = "UPDATE PATIENT SET Doctor_username = \"" + dusername + "\"  WHERE patient_username = \"" + user_name + "\"";
+        String query = "UPDATE OfficeAutomation.Patient SET Doctor_username = \"" + dusername + "\"  WHERE patient_username = \"" + user_name + "\"";
         Class.forName("com.mysql.cj.jdbc.Driver");
         try(Connection con = DriverManager.getConnection(url, uname, pass);
                 Statement st = con.createStatement();) {
@@ -307,7 +316,7 @@ public class PatientDatabase {
 	
 	public static void setPatientNurseUserName(String user_name, String nusername) throws ClassNotFoundException, SQLException
     {
-        String query = "UPDATE PATIENT SET Nurse_username = \"" + nusername + "\"  WHERE patient_username = \"" + user_name + "\"";
+        String query = "UPDATE OfficeAutomation.Patient SET Nurse_username = \"" + nusername + "\"  WHERE patient_username = \"" + user_name + "\"";
         Class.forName("com.mysql.cj.jdbc.Driver");
         try(Connection con = DriverManager.getConnection(url, uname, pass);
                 Statement st = con.createStatement();) {
@@ -321,7 +330,7 @@ public class PatientDatabase {
 	
 	public static void setPatientPassword(String user_name, String password) throws ClassNotFoundException, SQLException
     {
-        String query = "UPDATE PATIENT SET patient_password = \"" + password + "\"  WHERE patient_username = \"" + user_name + "\"";
+        String query = "UPDATE OfficeAutomation.Patient SET patient_password = \"" + password + "\"  WHERE patient_username = \"" + user_name + "\"";
         Class.forName("com.mysql.cj.jdbc.Driver");
         try(Connection con = DriverManager.getConnection(url, uname, pass);
                 Statement st = con.createStatement();) {
@@ -333,13 +342,44 @@ public class PatientDatabase {
         }
     }
 	
+	public static void InsertPatient(String first_name, String last_name, int birth_day, int birth_month, int birth_year, String address, long phone_number, 
+			String patient_doctor_user_name, String patient_nurse_user_name, String insurance_id, String pharmacy,
+			String username, String password) throws ClassNotFoundException, SQLException
+	{
+		String query = "INSERT INTO OfficeAutomation.Patient VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		Class.forName("com.mysql.cj.jdbc.Driver");
+		Connection con = DriverManager.getConnection(url, uname, pass);
+		PreparedStatement st = con.prepareStatement(query);
+		
+		st.setString(1, first_name);
+		st.setString(2, last_name);
+		st.setInt(3, birth_day);
+		st.setInt(4, birth_month);
+		st.setInt(5, birth_year);
+		st.setString(6, address);
+		st.setLong(7, phone_number);
+		st.setString(8, patient_doctor_user_name);
+		st.setString(9, patient_nurse_user_name);
+		st.setString(10, insurance_id);
+		st.setString(11, pharmacy);
+		st.setString(12, username);
+		st.setString(13, password);
+		
+		st.executeUpdate();
+		
+		System.out.println("Inserted successfully ");
+		st.close();
+		con.close();
+	}
+	
 	
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	
-	/*
+	
 	public static void main(String args[]) throws Exception
 	{
-		Database.setPatientPassword("kartikaggarwal", "No password");
+		Database.InsertPatient("Aryan","Bisht", 11, 10, 2001, "Arizona", 998789978, "kartik", "aditya", "RandomInsurance1234556", "Downtown-tempe-cvs",
+				"abis", "helloRocket");
+		System.out.println(Database.getPatientPassword(""));
 	}
-	*/
 }
