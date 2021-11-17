@@ -279,7 +279,7 @@ public class DoctorDatabase {
 	}
 	
 	// Insert Doctors
-	public static void InsertDoctor(String first_name, String last_name, int birth_day, int birth_month, int birth_year, String address, long phone_number, String doctor_username, String doctor_password, String nurse_username) throws ClassNotFoundException, SQLException
+	public static void InsertDoctor(String first_name, String last_name, int birth_day, int birth_month, int birth_year, String address, String phone_number, String doctor_username, String doctor_password, String nurse_username) throws ClassNotFoundException, SQLException
 	{
 		String query = "INSERT INTO Doctor VALUES(?,?,?,?,?,?,?,?,?,?)";
 		Class.forName("com.mysql.cj.jdbc.Driver");
@@ -292,7 +292,7 @@ public class DoctorDatabase {
 		st.setInt(4, birth_month);
 		st.setInt(5, birth_year);
 		st.setString(6, address);
-		st.setLong(7, phone_number);
+		st.setString(7, phone_number);
 		st.setString(8, doctor_username);
 		st.setString(9, doctor_password);
 		st.setString(10, nurse_username);
