@@ -6,6 +6,7 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
@@ -32,7 +33,7 @@
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="762.0">
                <children>
-                  <ListView fx:id="nurseHomePatientList" layoutX="14.0" layoutY="34.0" prefHeight="418.0" prefWidth="234.0" AnchorPane.bottomAnchor="14.800000000000011" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="34.0" />
+                  <ListView fx:id="nurseHomePatientList" layoutX="14.0" layoutY="34.0" onMouseClicked="#handleUpdateNursePatientValues" prefHeight="418.0" prefWidth="234.0" AnchorPane.bottomAnchor="14.800000000000011" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="34.0" />
                   <Label layoutX="14.0" layoutY="14.0" text="Patients" />
                   <AnchorPane layoutX="259.0" layoutY="14.0" prefHeight="459.0" prefWidth="483.0" style="-fx-border-color: grey;" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="259.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
                      <children>
@@ -54,10 +55,10 @@
                               <DatePicker fx:id="nurseHomePatientListPatientBirthday" editable="false" layoutX="89.0" />
                            </children>
                         </Pane>
-                        <Pane layoutX="15.0" layoutY="282.0" AnchorPane.bottomAnchor="21.99999999999997" AnchorPane.leftAnchor="15.0">
+                        <Pane layoutX="14.0" layoutY="325.0" prefHeight="106.0" prefWidth="200.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0">
                            <children>
-                              <ListView fx:id="nurseHomePatientListPatientUpcomingAppointments" layoutY="22.600006103515625" prefHeight="115.0" prefWidth="200.0" />
-                              <Label text="Upcoming Appointments" />
+                              <Label text="Upcoming Appointment" />
+                              <TextArea fx:id="nurseHomePatientListPatientUpcomingAppointment" layoutY="23.0" prefHeight="88.0" prefWidth="200.0" />
                            </children>
                         </Pane>
                         <Button fx:id="nurseHomePatientListSelectPatientButton" layoutX="364.0" layoutY="411.0" mnemonicParsing="false" onAction="#handleNursePatientListSelectPatientButton" text="Select" AnchorPane.bottomAnchor="9.799999999999976" AnchorPane.rightAnchor="14.200000000000045" />

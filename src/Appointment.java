@@ -54,4 +54,11 @@ public class Appointment {
     public void setMinute(int minute) {
         this.minute = minute;
     }
+
+    // Functionality
+
+    @Override
+    public String toString() {
+        return this.date.toString() + " at " + this.hour + ":" + this.minute;
+    }
 }

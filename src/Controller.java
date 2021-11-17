@@ -83,7 +83,7 @@ public class Controller {
     @FXML private DatePicker nurseHomePatientListPatientBirthday;
     @FXML private TextField nurseHomePatientListPatientInsuranceID;
     @FXML private TextField nurseHomePatientListPatientPharmacyAddress;
-    @FXML private ListView nurseHomePatientListPatientUpcomingAppointments;
+    @FXML private TextArea nurseHomePatientListPatientUpcomingAppointment;
     @FXML private Button nurseHomePatientListSelectPatientButton;
 
     // Create Appointment screen
@@ -117,7 +117,7 @@ public class Controller {
     @FXML private DatePicker doctorHomePatientListPatientBirthday;
     @FXML private TextField doctorHomePatientListPatientInsuranceID;
     @FXML private TextField doctorHomePatientListPatientPharmacyAddress;
-    @FXML private ListView doctorHomePatientListPatientUpcomingAppointments;
+    @FXML private TextArea doctorHomePatientListPatientUpcomingAppointment;
     @FXML private Button doctorHomePatientListSelectPatientButton;
 
     // Doctor Patient Info screen
@@ -144,6 +144,24 @@ public class Controller {
      *
      * Generic handlers with no specific home
      ********************************/
+
+    @FXML
+    public ObservableList getPatientList() {
+        // Test Data
+        Patient johnDoe98 = new Patient("John", "Doe", LocalDate.of(1998, 12, 12), "510 Whatever St.", "5551231234", "johnDoe98", "password1234", null, "ABCWhoCares", "123 Pharmacy Rd.");
+        Patient mattSmith01 = new Patient("Matt", "Smith", LocalDate.of(2001, 5, 2), "123 Halloween Avenue", "5552342345", "mattSmith01", "password1234", null, "AnotherFakeID", "123 Pharmacy Rd.");
+        Patient janeDoe08 = new Patient("Jane", "Doe", LocalDate.of(2008, 2, 5), "510 Whatever St.", "5551231234", "janeDoe08", "password1234", null, "ABCWhoCares", "123 Pharmacy Rd.");
+
+        ArrayList<Patient> patientList = new ArrayList<>();
+        patientList.add(johnDoe98);
+        patientList.add(mattSmith01);
+        patientList.add(janeDoe08);
+
+        ObservableList<Patient> patients = FXCollections.observableArrayList();
+        patients.setAll(patientList);
+
+        return patients;
+    }
 
     @FXML
     public void handleCloseStage(ActionEvent e) {
@@ -295,6 +313,11 @@ public class Controller {
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
             stage.show();
+
+            Patient selectedPatient = (Patient) nurseHomePatientList.getSelectionModel().getSelectedItem();
+
+            nursePatientInfoPatientUsername.setText(selectedPatient.getUsername());
+            nursePatientInfoWeight.setText(selectedPatient.);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -302,34 +325,25 @@ public class Controller {
 
     @FXML
     public void handlePopulateNursePatientList() {
-        // TODO: Populate an ArrayList with every Patient in the database, then populate the ObservableList with that ArrayList
-
-        System.out.println("This is working!");
-
-        // Test Data
-        Patient johnDoe98 = new Patient("John", "Doe", LocalDate.of(1998, 12, 12), "510 Whatever St.", "5551231234", "johnDoe98", "password1234", null, "ABCWhoCares", "123 Pharmacy Rd.");
-        Patient mattSmith01 = new Patient("Matt", "Smith", LocalDate.of(2001, 5, 2), "123 Halloween Avenue", "5552342345", "mattSmith01", "password1234", null, "AnotherFakeID", "123 Pharmacy Rd.");
-        Patient janeDoe08 = new Patient("Jane", "Doe", LocalDate.of(2008, 2, 5), "510 Whatever St.", "5551231234", "janeDoe08", "password1234", null, "ABCWhoCares", "123 Pharmacy Rd.");
-
-        ArrayList<Patient> patientList = new ArrayList<>();
-        patientList.add(johnDoe98);
-        patientList.add(mattSmith01);
-        patientList.add(janeDoe08);
-
-        ObservableList<Patient> patients = FXCollections.observableArrayList();
-        patients.setAll(patientList);
-
-        nurseHomePatientList.setItems(patients);
+        nurseHomePatientList.setItems(getPatientList());
     }
 
     @FXML
     public void handleUpdateNursePatientValues() {
         //TODO: fetch the most recent consultation belonging to the specific patient, and fill in the corresponding TextFields with the relevant data
 
-        ObservableList<Patient> patients = FXCollections.observableArrayList();
+        Patient selectedPatient = (Patient) nurseHomePatientList.getSelectionModel().getSelectedItem();
 
-        nurseHomePatientList.getSelectionModel().getSelectedItem();
-        //nursePatientInfoPatientUsername.setText();
+        nurseHomePatientListPatientAddress.setText(selectedPatient.getAddress());
+        nurseHomePatientListPatientPhoneNumber.setText(selectedPatient.getPhoneNumber());
+        nurseHomePatientListPatientBirthday.setValue(selectedPatient.getBirthday());
+        nurseHomePatientListPatientInsuranceID.setText(selectedPatient.getInsuranceID());
+        nurseHomePatientListPatientPharmacyAddress.setText(selectedPatient.getPharmacyAddress());
+
+        if (selectedPatient.getNextAppointment() != null) {
+            nurseHomePatientListPatientUpcomingAppointment.setText(selectedPatient.getNextAppointment().toString());
+        }
+
     }
 
     @FXML

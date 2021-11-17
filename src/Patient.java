@@ -54,6 +54,10 @@ public class Patient extends Person {
         return consultationRecord;
     }
 
+    public Consultation getLastConsultation() {
+        return consultationRecord.get(consultationRecord.size() - 1);
+    }
+
     public Appointment getNextAppointment() {
         return nextAppointment;
     }
