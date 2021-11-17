@@ -12,7 +12,7 @@ class Database
 	
 	///////////////////////////////////////// GETTERS FOR PATIENT TABLE /////////////////////////////////////////////////////
 	
-	public static String getPatientFirstName(String user_name) throws Exception
+	public static String getPatientFirstName(String user_name) throws ClassNotFoundException, SQLException
 	{
 		String query = "SELECT First_name FROM OfficeAutomation.Patient where patient_username = \"" + user_name + "\"";
 	    Class.forName("com.mysql.cj.jdbc.Driver");
@@ -28,7 +28,7 @@ class Database
 	
 	
 	
-	public static String getPatientLastName(String user_name) throws Exception
+	public static String getPatientLastName(String user_name) throws ClassNotFoundException, SQLException
 	{
 		String query = "SELECT Last_name FROM OfficeAutomation.Patient where patient_username = \"" + user_name + "\"";
 	    Class.forName("com.mysql.cj.jdbc.Driver");
@@ -43,7 +43,7 @@ class Database
 	}
 	
 	
-	public static int getPatientBirthDay(String user_name) throws Exception
+	public static int getPatientBirthDay(String user_name) throws ClassNotFoundException, SQLException
 	{
 		String query = "SELECT Birth_day FROM OfficeAutomation.Patient where patient_username = \"" + user_name + "\"";
 	    Class.forName("com.mysql.cj.jdbc.Driver");
@@ -59,7 +59,7 @@ class Database
 	
 	
 	
-	public static int getPatientBirthMonth(String user_name) throws Exception
+	public static int getPatientBirthMonth(String user_name) throws ClassNotFoundException, SQLException
 	{
 		String query = "SELECT Birth_month FROM OfficeAutomation.Patient where patient_username = \"" + user_name + "\"";
 	    Class.forName("com.mysql.cj.jdbc.Driver");
@@ -74,7 +74,7 @@ class Database
 	}
 	
 	
-	public static int getPatientBirthYear(String user_name) throws Exception
+	public static int getPatientBirthYear(String user_name) throws ClassNotFoundException, SQLException
 	{
 		String query = "SELECT Birth_Year FROM OfficeAutomation.Patient where patient_username = \"" + user_name + "\"";
 	    Class.forName("com.mysql.cj.jdbc.Driver");
@@ -89,7 +89,7 @@ class Database
 	}
 	
 	
-	public static String getPatientAddress(String user_name) throws Exception
+	public static String getPatientAddress(String user_name) throws ClassNotFoundException, SQLException
 	{
 		String query = "SELECT Address FROM OfficeAutomation.Patient where patient_username = \"" + user_name + "\"";
 	    Class.forName("com.mysql.cj.jdbc.Driver");
@@ -104,7 +104,7 @@ class Database
 	}
 	
 	
-	public static String getPatientPhoneNumber(String user_name) throws Exception
+	public static String getPatientPhoneNumber(String user_name) throws ClassNotFoundException, SQLException
 	{
 		String query = "SELECT Phone_number FROM OfficeAutomation.Patient where patient_username = \"" + user_name + "\"";
 	    Class.forName("com.mysql.cj.jdbc.Driver");
@@ -120,7 +120,7 @@ class Database
 	
 	
 	
-	public static String getPatientDoctorUsername(String user_name) throws Exception
+	public static String getPatientDoctorUsername(String user_name) throws ClassNotFoundException, SQLException
 	{
 		String query = "SELECT Doctor_username FROM OfficeAutomation.Patient where patient_username = \"" + user_name + "\"";
 	    Class.forName("com.mysql.cj.jdbc.Driver");
@@ -137,7 +137,7 @@ class Database
 	
 	
 	
-	public static String getPatientNurseUsername(String user_name) throws Exception
+	public static String getPatientNurseUsername(String user_name) throws ClassNotFoundException, SQLException
 	{
 		String query = "SELECT Nurse_username FROM OfficeAutomation.Patient where patient_username = \"" + user_name + "\"";
 	    Class.forName("com.mysql.cj.jdbc.Driver");
@@ -153,7 +153,7 @@ class Database
 	
 	
 	
-	public static String getPharmacy(String user_name) throws Exception
+	public static String getPharmacy(String user_name) throws ClassNotFoundException, SQLException
 	{
 		String query = "SELECT Pharmacy FROM OfficeAutomation.Patient where patient_username = \"" + user_name + "\"";
 	    Class.forName("com.mysql.cj.jdbc.Driver");
@@ -168,7 +168,7 @@ class Database
 	}
 	
 	
-	public static String getInsuranceId(String user_name) throws Exception
+	public static String getInsuranceId(String user_name) throws ClassNotFoundException, SQLException
 	{
 		String query = "SELECT Insurance_id FROM OfficeAutomation.Patient where patient_username = \"" + user_name + "\"";
 	    Class.forName("com.mysql.cj.jdbc.Driver");
@@ -187,7 +187,7 @@ class Database
 	
 
 	
-	public static String getPatientUsername(String user_name) throws Exception
+	public static String getPatientUsername(String user_name) throws ClassNotFoundException, SQLException
 	{
 		String query = "SELECT patient_username FROM OfficeAutomation.Patient where patient_username = \"" + user_name + "\"";
 	    Class.forName("com.mysql.cj.jdbc.Driver");
@@ -203,7 +203,7 @@ class Database
 	}
 	
 	
-	public static String getPatientPassword(String user_name) throws Exception
+	public static String getPatientPassword(String user_name) throws ClassNotFoundException, SQLException
 	{
 		String query = "SELECT patient_password FROM OfficeAutomation.Patient where patient_username = \"" + user_name + "\"";
 	    Class.forName("com.mysql.cj.jdbc.Driver");
@@ -226,10 +226,19 @@ class Database
 			 return "_";
 		}
 	}
-	
-	
-	
-	
+
+	public static Boolean checkExistence(String user_name) throws ClassNotFoundException, SQLException {
+		String query = "SELECT EXISTS(SELECT * FROM OfficeAutomation.Patient WHERE patient_username = \"" + user_name + "\"";
+		Class.forName("com.mysql.cj.jdbc.Driver");
+		Connection con = DriverManager.getConnection(url, uname, pass);
+		Statement st = con.createStatement();
+		ResultSet rs = st.executeQuery(query);
+		if (rs.next()) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 	
 	/////////////////////////// SETTERS FOR PATIENT TABLE /////////////////////////////
 	
@@ -382,7 +391,7 @@ class Database
         }
     }
 	
-	public static void InsertPatient(String first_name, String last_name, int birth_day, int birth_month, int birth_year, String address, long phone_number, 
+	public static void InsertPatient(String first_name, String last_name, int birth_day, int birth_month, int birth_year, String address, String phone_number,
 			String patient_doctor_user_name, String patient_nurse_user_name, String insurance_id, String pharmacy,
 			String username, String password) throws ClassNotFoundException, SQLException
 	{
@@ -397,7 +406,7 @@ class Database
 		st.setInt(4, birth_month);
 		st.setInt(5, birth_year);
 		st.setString(6, address);
-		st.setLong(7, phone_number);
+		st.setString(7, phone_number);
 		st.setString(8, patient_doctor_user_name);
 		st.setString(9, patient_nurse_user_name);
 		st.setString(10, insurance_id);
