@@ -7,9 +7,9 @@ import java.sql.Statement;
 import java.util.*;
 
 public class ConsultationDatabase {
-	static String url = "jdbc:mysql://localhost:3307/office_automation";
-	static String uname = "root";
-	static String pass = "kartik3001";
+	static String url = "jdbc:mysql://database-1.cazevb7vwbyn.us-east-2.rds.amazonaws.com";
+    	static String uname = "admin";
+    	static String pass = "CSETeam12";
 	
 	// Main
 	public static void main(String[] args) throws Exception
