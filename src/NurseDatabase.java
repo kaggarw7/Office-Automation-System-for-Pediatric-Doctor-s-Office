@@ -129,6 +129,19 @@ public class NurseDatabase {
 		con.close();
 		return password;
 	}
+
+	public static Boolean checkExistance(String user_name) throws ClassNotFoundException, SQLException {
+		String query = "SELECT EXISTS(SELECT * FROM Nurse WHERE Nurse_username = \"" + user_name + "\"";
+		Class.forName("com.mysql.cj.jdbc.Driver");
+		Connection con = DriverManager.getConnection(url, uname, pass);
+		Statement st = con.createStatement();
+		ResultSet rs = st.executeQuery(query);
+		if (rs.next()) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 	
 	// Setters
 	public static void setNurseFirstName(String user_name, String first_name) throws ClassNotFoundException, SQLException

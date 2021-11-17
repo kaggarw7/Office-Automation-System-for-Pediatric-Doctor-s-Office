@@ -192,6 +192,19 @@ class PatientDatabase
 			 return "_";
 		}
 	}
+
+    public static Boolean checkExistance(String user_name) throws ClassNotFoundException, SQLException {
+        String query = "SELECT EXISTS(SELECT * FROM OfficeAutomation.Patient WHERE patient_username = \"" + user_name + "\"";
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection con = DriverManager.getConnection(url, uname, pass);
+        Statement st = con.createStatement();
+        ResultSet rs = st.executeQuery(query);
+        if (rs.next()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 	
 	
 	/////////////////////////// SETTERS FOR PATIENT TABLE /////////////////////////////

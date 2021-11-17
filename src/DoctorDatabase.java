@@ -148,6 +148,19 @@ public class DoctorDatabase {
 		con.close();
 		return nurse_username;
 	}
+
+	public static Boolean checkExistance(String user_name) throws ClassNotFoundException, SQLException {
+		String query = "SELECT EXISTS(SELECT * FROM Doctor WHERE Doctor_username = \"" + user_name + "\"";
+		Class.forName("com.mysql.cj.jdbc.Driver");
+		Connection con = DriverManager.getConnection(url, uname, pass);
+		Statement st = con.createStatement();
+		ResultSet rs = st.executeQuery(query);
+		if (rs.next()) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 	
 	
 	

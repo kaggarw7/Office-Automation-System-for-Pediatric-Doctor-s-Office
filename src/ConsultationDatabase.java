@@ -131,7 +131,6 @@ public class ConsultationDatabase {
 		} else {
 			return false;
 		}
-
 	}
 	
 	// Setters

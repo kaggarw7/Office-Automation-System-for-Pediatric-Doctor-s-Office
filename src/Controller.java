@@ -10,6 +10,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
+import javax.print.Doc;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -194,11 +195,37 @@ public class Controller {
     private void errorDialogue() {
         Parent errorBox;
         try {
-            errorBox = FXMLLoader.load(getClass().getResource("ErrorDialogue.fxml"));
+            errorBox = FXMLLoader.load(getClass().getResource("fxml/ErrorDialogue.fxml"));
             Stage error = new Stage();
             error.setTitle("Error");
             error.setScene(new Scene(errorBox, 400, 200));
             error.show();
+        } catch (IOException e) {
+            e.getMessage();
+        }
+    }
+
+    private void usernameTaken() {
+        Parent usernameTaken;
+        try {
+            usernameTaken = FXMLLoader.load(getClass().getResource("fxml/UsernameTaken.fxml"));
+            Stage nameTaken = new Stage();
+            nameTaken.setTitle("Username Taken");
+            nameTaken.setScene(new Scene(usernameTaken, 400, 200));
+            nameTaken.show();
+        } catch (IOException e) {
+            e.getMessage();
+        }
+    }
+
+    private void signInFail() {
+        Parent signInFail;
+        try {
+            signInFail = FXMLLoader.load(getClass().getResource("fxml/SignInFail.fxml"));
+            Stage fail = new Stage();
+            fail.setTitle("Incorrect Username/Password");
+            fail.setScene(new Scene(signInFail, 500, 300));
+            fail.show();
         } catch (IOException e) {
             e.getMessage();
         }
@@ -230,15 +257,24 @@ public class Controller {
             String pharmacyAddress = signUpPharmacyAddress.getText();
 
             if (firstName.isEmpty() || lastName.isEmpty() || address.isEmpty() || phoneNumber.isEmpty() || username.isEmpty() || password.isEmpty()) {
-                throw new Exception();
+                throw new ClassCircularityError();
             }
 
+            // TODO: Check if a username is already in use. If so, throw an exception
+
+
+
+            // TODO: Someway of selecting a doctor username when creating a patient, and a way of selecting a nurse when creating a doctor
+
+            String doctorUsername = "";
+            String nurseUsername = "";
+
             if (signUpPatientRadio.isSelected()) {
-                // There is currently no insertPatient function
+                PatientDatabase.InsertPatient(firstName, lastName, birthDay, birthMonth, birthYear, address, phoneNumber, doctorUsername, DoctorDatabase.getDoctorNurseUsername(doctorUsername), insuranceID, pharmacyAddress, username, password);
             } else if (signUpNurseRadio.isSelected()) {
-                //NurseDatabase.InsertNurse(firstName, lastName, birthDay, birthMonth, birthYear, address, phoneNumber, username, password);
+                NurseDatabase.InsertNurse(firstName, lastName, birthDay, birthMonth, birthYear, address, phoneNumber, username, password);
             } else if (signUpDoctorRadio.isSelected()) {
-                //DoctorDatabase.InsertDoctor(firstName, lastName, birthDay, birthMonth, birthYear, address, phoneNumber, username, password, null);
+                DoctorDatabase.InsertDoctor(firstName, lastName, birthDay, birthMonth, birthYear, address, phoneNumber, username, password, nurseUsername);
             }
 
             try {
@@ -248,9 +284,23 @@ public class Controller {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        } catch (Exception e) {
+        } catch (ClassCircularityError e) {
             e.getStackTrace();
             errorDialogue();
+
+            signUpFirstName.clear();
+            signUpLastName.clear();
+            signUpBirthday.setValue(LocalDate.EPOCH); // No good way to clear this as far as I can tell.
+            signUpAddress.clear();
+            signUpPhoneNumber.clear();
+            signUpUsername.clear();
+            signUpPassword.clear();
+            signUpInsuranceId.clear();
+            signUpPharmacyAddress.clear();
+            signUpPatientRadio.setSelected(true);
+        } catch (ArithmeticException e) {
+            e.getStackTrace();
+            usernameTaken();
 
             signUpFirstName.clear();
             signUpLastName.clear();
@@ -266,17 +316,54 @@ public class Controller {
     }
 
     @FXML
-    public void handleSignInButton() {
-        //TODO: This needs to check the username and password for a matching pair in the database, then open a home page corresponding to that user.
+    public void handleSignInButton() throws ClassNotFoundException, SQLException {
+        String username = signInUsername.getText();
+        String password = signInPassword.getText();
 
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("DoctorHome.fxml"));
-            Stage primaryStage = (Stage) signInSignInButton.getScene().getWindow();
-            primaryStage.setScene(new Scene(root, 700, 500));
+        if (PatientDatabase.checkExistance(username)) {
+            if (PatientDatabase.getPatientPassword(username).equals(password)) {
+                Main.setCurrentUser(username);
 
-        } catch (Exception e) {
-            e.printStackTrace();
+                try {
+                    Parent root = FXMLLoader.load(getClass().getResource("fxml/PatientHome.fxml"));
+                    Stage primaryStage = (Stage) signInSignInButton.getScene().getWindow();
+                    primaryStage.setScene(new Scene(root, 700, 500));
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        } else if (NurseDatabase.checkExistance(username)) {
+            if (NurseDatabase.getNursePassword(username).equals(password)) {
+                Main.setCurrentUser(username);
+
+                try {
+                    Parent root = FXMLLoader.load(getClass().getResource("fxml/NurseHome.fxml"));
+                    Stage primaryStage = (Stage) signInSignInButton.getScene().getWindow();
+                    primaryStage.setScene(new Scene(root, 700, 500));
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        } else if (DoctorDatabase.checkExistance(username)) {
+            if (DoctorDatabase.getDoctorPassword(username).equals(password)) {
+                Main.setCurrentUser(username);
+
+                try {
+                    Parent root = FXMLLoader.load(getClass().getResource("fxml/DoctorHome.fxml"));
+                    Stage primaryStage = (Stage) signInSignInButton.getScene().getWindow();
+                    primaryStage.setScene(new Scene(root, 700, 500));
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
         }
+
+        signInFail();
+        signInUsername.clear();
+        signInPassword.clear();
     }
 
     @FXML
