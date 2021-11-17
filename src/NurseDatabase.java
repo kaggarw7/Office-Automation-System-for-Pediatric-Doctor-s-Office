@@ -244,7 +244,7 @@ public class NurseDatabase {
 	}
 	
 	// Insert Nurse
-	public static void InsertNurse(String first_name, String last_name, int birth_day, int birth_month, int birth_year, String address, long phone_number, String username, String password) throws ClassNotFoundException, SQLException
+	public static void InsertNurse(String first_name, String last_name, int birth_day, int birth_month, int birth_year, String address, String phone_number, String username, String password) throws ClassNotFoundException, SQLException
 	{
 		String query = "INSERT INTO NURSE VALUES(?,?,?,?,?,?,?,?,?)";
 		Class.forName("com.mysql.cj.jdbc.Driver");
@@ -257,7 +257,7 @@ public class NurseDatabase {
 		st.setInt(4, birth_month);
 		st.setInt(5, birth_year);
 		st.setString(6, address);
-		st.setLong(7, phone_number);
+		st.setString(7, phone_number);
 		st.setString(8, username);
 		st.setString(9, password);
 		
