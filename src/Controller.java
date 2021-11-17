@@ -238,7 +238,7 @@ public class Controller {
      ********************************/
 
     // This is an example function to show how to get data from the UI fields.
-    public void handleAddUser() {
+    public void handleAddUser() throws ClassNotFoundException, SQLException {
         try {
             String firstName = signUpFirstName.getText();
             String lastName = signUpLastName.getText();
