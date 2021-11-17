@@ -393,6 +393,38 @@ public class Controller {
         patientHomePatientPharmacyAddress.setText(user.getPharmacyAddress());
 
         patientHomeUpcomingAppointment.setText(user.getNextAppointment().toString());
+
+        if (user.getAssignedDoctor().toString() != null) {
+            patientHomeDoctorName.setText(user.getAssignedDoctor().toString());
+        }
+        if (user.getAssignedNurse().toString() != null) {
+            patientHomeNurseName.setText(user.getAssignedNurse().toString());
+        }
+    }
+
+    @FXML
+    public void handlePopulateMedicalInformation() throws ClassNotFoundException, SQLException {
+        Patient user = new Patient(Main.getCurrentUser());
+
+        patientHomePatientMedicalInfo.appendText("Weight (lb): " + user.getLastConsultation().getWeight());
+        patientHomePatientMedicalInfo.appendText("Height (cm): " + user.getLastConsultation().getHeight());
+        patientHomePatientMedicalInfo.appendText("Blood Pressure: " + user.getLastConsultation().getBloodPressure());
+        patientHomePatientMedicalInfo.appendText("\nNotes: " + user.getLastConsultation().getNotes());
+
+        for (Prescription prescription : user.getPrescriptions()) {
+            patientHomePatientPrescriptions.appendText(prescription.toString());
+        }
+
+        for (Prescription prescription : user.getPrescriptions()) {
+            patientHomePatientInstructions.appendText("Take a " + prescription.getDosageAmount() + " tablet " + prescription.getTimesPerMonth() + " times per month.");
+        }
+    }
+
+    @FXML
+    public void handleClearMedicalInfo() {
+        patientHomePatientMedicalInfo.clear();
+        patientHomePatientPrescriptions.clear();
+        patientHomePatientInstructions.clear();
     }
 
     @FXML

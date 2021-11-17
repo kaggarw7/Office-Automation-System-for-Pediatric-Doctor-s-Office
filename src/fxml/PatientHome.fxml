@@ -14,7 +14,7 @@
 
 <TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="502.0" prefWidth="776.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
   <tabs>
-    <Tab text="Home">
+    <Tab onSelectionChanged="#handleClearMedicalInfo" text="Home">
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="767.0">
                <children>
@@ -90,7 +90,7 @@
                </children></AnchorPane>
       </content>
     </Tab>
-    <Tab text="Medical Record">
+    <Tab onSelectionChanged="#handlePopulateMedicalInformation" text="Medical Record">
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="762.0">
                <children>
