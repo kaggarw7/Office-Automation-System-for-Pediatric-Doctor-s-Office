@@ -130,7 +130,7 @@ public class NurseDatabase {
 		return password;
 	}
 
-	public static Boolean checkExistance(String user_name) throws ClassNotFoundException, SQLException {
+	public static Boolean checkExistence(String user_name) throws ClassNotFoundException, SQLException {
 		String query = "SELECT EXISTS(SELECT * FROM Nurse WHERE Nurse_username = \"" + user_name + "\"";
 		Class.forName("com.mysql.cj.jdbc.Driver");
 		Connection con = DriverManager.getConnection(url, uname, pass);

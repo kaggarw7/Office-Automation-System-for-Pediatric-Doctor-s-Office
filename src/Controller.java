@@ -10,7 +10,6 @@ import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-import javax.print.Doc;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -270,19 +269,19 @@ public class Controller {
             String nurseUsername = "";
 
             if (signUpPatientRadio.isSelected()) {
-                if (PatientDatabase.checkExistance(username)) {
+                if (PatientDatabase.checkExistence(username)) {
                     throw new ArithmeticException();
                 } else {
                     PatientDatabase.InsertPatient(firstName, lastName, birthDay, birthMonth, birthYear, address, phoneNumber, doctorUsername, DoctorDatabase.getDoctorNurseUsername(doctorUsername), insuranceID, pharmacyAddress, username, password);
                 }
             } else if (signUpNurseRadio.isSelected()) {
-                if (NurseDatabase.checkExistance(username)) {
+                if (NurseDatabase.checkExistence(username)) {
                     throw new ArithmeticException();
                 } else {
                     NurseDatabase.InsertNurse(firstName, lastName, birthDay, birthMonth, birthYear, address, phoneNumber, username, password);
                 }
             } else if (signUpDoctorRadio.isSelected()) {
-                if (DoctorDatabase.checkExistance(username)) {
+                if (DoctorDatabase.checkExistence(username)) {
                     throw new ArithmeticException();
                 } else {
                     DoctorDatabase.InsertDoctor(firstName, lastName, birthDay, birthMonth, birthYear, address, phoneNumber, username, password, nurseUsername);
@@ -332,7 +331,7 @@ public class Controller {
         String username = signInUsername.getText();
         String password = signInPassword.getText();
 
-        if (PatientDatabase.checkExistance(username)) {
+        if (PatientDatabase.checkExistence(username)) {
             if (PatientDatabase.getPatientPassword(username).equals(password)) {
                 Main.setCurrentUser(username);
 
@@ -345,7 +344,7 @@ public class Controller {
                     e.printStackTrace();
                 }
             }
-        } else if (NurseDatabase.checkExistance(username)) {
+        } else if (NurseDatabase.checkExistence(username)) {
             if (NurseDatabase.getNursePassword(username).equals(password)) {
                 Main.setCurrentUser(username);
 
@@ -358,7 +357,7 @@ public class Controller {
                     e.printStackTrace();
                 }
             }
-        } else if (DoctorDatabase.checkExistance(username)) {
+        } else if (DoctorDatabase.checkExistence(username)) {
             if (DoctorDatabase.getDoctorPassword(username).equals(password)) {
                 Main.setCurrentUser(username);
 
