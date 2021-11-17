@@ -60,5 +60,15 @@
             <Label layoutX="1.0" text="Current Prescriptions" />
          </children>
       </Pane>
+      <Pane layoutX="24.0" layoutY="159.0">
+         <children>
+            <Label layoutY="2.0" text="Temperature">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <TextField layoutX="133.0" promptText="98.6" />
+         </children>
+      </Pane>
    </children>
 </AnchorPane>
