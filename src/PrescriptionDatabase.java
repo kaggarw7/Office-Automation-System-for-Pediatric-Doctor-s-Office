@@ -51,6 +51,39 @@ public class PrescriptionDatabase {
 		}
 		
 		
+		public static String getDosage(String user_name) throws Exception
+		{
+		String query = "SELECT Dosage FROM OfficeAutomation.Prescription where patient_username = \"" + user_name + "\"";
+		Class.forName("com.mysql.cj.jdbc.Driver");
+		Connection con = DriverManager.getConnection(url, uname, pass);
+		Statement st = con.createStatement();  
+		ResultSet rs = st.executeQuery(query);
+		rs.next();
+		String dosage = rs.getString("Dosage"); 
+		st.close();
+		con.close();
+		return (dosage);
+		}
+		
+		
+
+		public static String getPatientUsername(String user_name) throws Exception
+		{
+			String query = "SELECT patient_username FROM OfficeAutomation.Patient where patient_username = \"" + user_name + "\"";
+		    Class.forName("com.mysql.cj.jdbc.Driver");
+		    Connection con = DriverManager.getConnection(url, uname, pass);
+		    Statement st = con.createStatement();  
+		    ResultSet rs = st.executeQuery(query);
+		    rs.next();
+		    String fname = rs.getString("patient_username");
+		    st.close();
+		    con.close();
+		    
+		    return fname;
+		}
+		
+		
+		
 		///////////////////////////////// Setter Functions ////////////////////////////////////
 		
 		
@@ -101,9 +134,9 @@ public class PrescriptionDatabase {
 		
 		///////////////////////////////// ------------- ////////////////////////////////////
 				
-		public static void InsertPatient(String Medicine, int frequency, String dosage) throws ClassNotFoundException, SQLException
+		public static void InsertPatient(String Medicine, int frequency, String dosage, String patient_username) throws ClassNotFoundException, SQLException
 		{
-		String query = "INSERT INTO OfficeAutomation.Patient VALUES(?,?,?)";
+		String query = "INSERT INTO OfficeAutomation.Patient VALUES(?,?,?,?)";
 		Class.forName("com.mysql.cj.jdbc.Driver");
 		Connection con = DriverManager.getConnection(url, uname, pass);
 		PreparedStatement st = con.prepareStatement(query);
@@ -111,6 +144,7 @@ public class PrescriptionDatabase {
 		st.setString(1, Medicine);
 		st.setInt(2, frequency);
 		st.setString(3, dosage);
+		st.setString(4, patient_username);
 		st.executeUpdate();
 		
 		System.out.println("Inserted successfully ");
