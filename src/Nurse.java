@@ -6,7 +6,7 @@ public class Nurse extends Person {
 
     // Constructor
 
-    public Nurse(String firstName, String lastName, LocalDate birthday, String address, long phoneNumber, String username, String password) {
+    public Nurse(String firstName, String lastName, LocalDate birthday, String address, String phoneNumber, String username, String password) {
         super(firstName, lastName, birthday, address, phoneNumber, username, password);
     }
 

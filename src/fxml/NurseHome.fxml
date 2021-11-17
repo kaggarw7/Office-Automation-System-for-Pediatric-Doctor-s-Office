@@ -28,7 +28,7 @@
                </children></AnchorPane>
       </content>
     </Tab>
-    <Tab text="Patient List">
+    <Tab onSelectionChanged="#handlePopulateNursePatientList" text="Patient List">
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="762.0">
                <children>

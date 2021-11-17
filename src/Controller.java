@@ -1,3 +1,5 @@
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,6 +13,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class Controller {
 
@@ -198,7 +201,7 @@ public class Controller {
             int birthYear = signUpBirthday.getValue().getYear();
 
             String address = signUpAddress.getText();
-            long phoneNumber = Long.parseLong(signUpPhoneNumber.getText().replaceAll("-", ""));
+            String phoneNumber = signUpPhoneNumber.getText();
 
             String username = signUpUsername.getText();
             String password = signUpPassword.getText();
@@ -206,16 +209,16 @@ public class Controller {
             String insuranceID = signUpInsuranceId.getText();
             String pharmacyAddress = signUpPharmacyAddress.getText();
 
-            if (firstName.isEmpty() || lastName.isEmpty() || address.isEmpty() || phoneNumber == 0 || username.isEmpty() || password.isEmpty()) {
+            if (firstName.isEmpty() || lastName.isEmpty() || address.isEmpty() || phoneNumber.isEmpty() || username.isEmpty() || password.isEmpty()) {
                 throw new Exception();
             }
 
             if (signUpPatientRadio.isSelected()) {
                 // There is currently no insertPatient function
             } else if (signUpNurseRadio.isSelected()) {
-                NurseDatabase.InsertNurse(firstName, lastName, birthDay, birthMonth, birthYear, address, phoneNumber, username, password);
+                //NurseDatabase.InsertNurse(firstName, lastName, birthDay, birthMonth, birthYear, address, phoneNumber, username, password);
             } else if (signUpDoctorRadio.isSelected()) {
-                DoctorDatabase.InsertDoctor(firstName, lastName, birthDay, birthMonth, birthYear, address, phoneNumber, username, password, null);
+                //DoctorDatabase.InsertDoctor(firstName, lastName, birthDay, birthMonth, birthYear, address, phoneNumber, username, password, null);
             }
 
             try {
@@ -288,13 +291,45 @@ public class Controller {
     @FXML
     public void handleNursePatientListSelectPatientButton() {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("NursePatientInfo.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("fxml/NursePatientInfo.fxml"));
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
             stage.show();
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    public void handlePopulateNursePatientList() {
+        // TODO: Populate an ArrayList with every Patient in the database, then populate the ObservableList with that ArrayList
+
+        System.out.println("This is working!");
+
+        // Test Data
+        Patient johnDoe98 = new Patient("John", "Doe", LocalDate.of(1998, 12, 12), "510 Whatever St.", "5551231234", "johnDoe98", "password1234", null, "ABCWhoCares", "123 Pharmacy Rd.");
+        Patient mattSmith01 = new Patient("Matt", "Smith", LocalDate.of(2001, 5, 2), "123 Halloween Avenue", "5552342345", "mattSmith01", "password1234", null, "AnotherFakeID", "123 Pharmacy Rd.");
+        Patient janeDoe08 = new Patient("Jane", "Doe", LocalDate.of(2008, 2, 5), "510 Whatever St.", "5551231234", "janeDoe08", "password1234", null, "ABCWhoCares", "123 Pharmacy Rd.");
+
+        ArrayList<Patient> patientList = new ArrayList<>();
+        patientList.add(johnDoe98);
+        patientList.add(mattSmith01);
+        patientList.add(janeDoe08);
+
+        ObservableList<Patient> patients = FXCollections.observableArrayList();
+        patients.setAll(patientList);
+
+        nurseHomePatientList.setItems(patients);
+    }
+
+    @FXML
+    public void handleUpdateNursePatientValues() {
+        //TODO: fetch the most recent consultation belonging to the specific patient, and fill in the corresponding TextFields with the relevant data
+
+        ObservableList<Patient> patients = FXCollections.observableArrayList();
+
+        nurseHomePatientList.getSelectionModel().getSelectedItem();
+        //nursePatientInfoPatientUsername.setText();
     }
 
     @FXML

@@ -7,7 +7,7 @@ public class Doctor extends Person {
 
 	// Constructor
 
-    public Doctor(String firstName, String lastName, LocalDate birthday, String address, long phoneNumber, String username, String password, Nurse assignedNurse) {
+    public Doctor(String firstName, String lastName, LocalDate birthday, String address, String phoneNumber, String username, String password, Nurse assignedNurse) {
         super(firstName, lastName, birthday, address, phoneNumber, username, password);
 
         this.assignedNurse = assignedNurse;

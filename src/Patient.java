@@ -14,11 +14,16 @@ public class Patient extends Person {
 
 	// Constructor
 
-    public Patient(String firstName, String lastName, LocalDate birthday, String address, long phoneNumber, String username, String password, Doctor assignedDoctor, String insuranceID, String pharmacyAddress) {
+    public Patient(String firstName, String lastName, LocalDate birthday, String address, String phoneNumber, String username, String password, Doctor assignedDoctor, String insuranceID, String pharmacyAddress) {
         super(firstName, lastName, birthday, address, phoneNumber, username, password);
 
         this.assignedDoctor = assignedDoctor;
-        this.assignedNurse = assignedDoctor.getAssignedNurse();
+        if (assignedDoctor != null) {
+            this.assignedNurse = assignedDoctor.getAssignedNurse();
+        } else {
+            this.assignedNurse = null;
+        }
+
         this.insuranceID = insuranceID;
         this.pharmacyAddress = pharmacyAddress;
     }

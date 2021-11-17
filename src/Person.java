@@ -8,7 +8,7 @@ public class Person {
 	private LocalDate birthday;
 
 	private String address;
-	private long phoneNumber;
+	private String phoneNumber;
 
 	private String username;
 	private String password;
@@ -22,13 +22,13 @@ public class Person {
         birthday = null;
 
         address = null;
-        phoneNumber = -1;
+        phoneNumber = null;
 
         username = null;
         password = null;
     }
 
-    public Person(String firstName, String lastName, LocalDate birthday, String address, long phoneNumber, String username, String password) {
+    public Person(String firstName, String lastName, LocalDate birthday, String address, String phoneNumber, String username, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
 
@@ -59,7 +59,7 @@ public class Person {
         return address;
     }
 
-    public long getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
@@ -96,7 +96,7 @@ public class Person {
         this.address = address;
     }
 
-    public void setPhoneNumber(long phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
@@ -106,5 +106,12 @@ public class Person {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    // Functionality
+
+    @Override
+    public String toString() {
+        return this.firstName + " " + this.lastName;
     }
 }
