@@ -104,7 +104,7 @@ class Database
 	}
 	
 	
-	public static void getPatientPhoneNumber(String user_name) throws Exception
+	public static String getPatientPhoneNumber(String user_name) throws Exception
 	{
 		String query = "SELECT Phone_number FROM OfficeAutomation.Patient where patient_username = \"" + user_name + "\"";
 	    Class.forName("com.mysql.cj.jdbc.Driver");
@@ -113,14 +113,14 @@ class Database
 	    ResultSet rs = st.executeQuery(query);
 	    rs.next();
 	    String pnumber = rs.getString("Phone_number");
-	    System.out.println(pnumber);
 	    st.close();
 	    con.close();
+	    return pnumber;
 	}
 	
 	
 	
-	public static void getPatientDoctorUsername(String user_name) throws Exception
+	public static String getPatientDoctorUsername(String user_name) throws Exception
 	{
 		String query = "SELECT Doctor_username FROM OfficeAutomation.Patient where patient_username = \"" + user_name + "\"";
 	    Class.forName("com.mysql.cj.jdbc.Driver");
@@ -129,14 +129,15 @@ class Database
 	    ResultSet rs = st.executeQuery(query);
 	    rs.next();
 	    String doctor_username = rs.getString("Doctor_username");
-	    System.out.println(doctor_username);
 	    st.close();
 	    con.close();
+	    
+	    return doctor_username;
 	}
 	
 	
 	
-	public static void getPatientNurseUsername(String user_name) throws Exception
+	public static String getPatientNurseUsername(String user_name) throws Exception
 	{
 		String query = "SELECT Nurse_username FROM OfficeAutomation.Patient where patient_username = \"" + user_name + "\"";
 	    Class.forName("com.mysql.cj.jdbc.Driver");
@@ -145,13 +146,14 @@ class Database
 	    ResultSet rs = st.executeQuery(query);
 	    rs.next();
 	    String nusername = rs.getString("Nurse_username");
-	    System.out.println(nusername);
 	    st.close();
 	    con.close();
+	    return nusername;
 	}
 	
+
 	
-	public static void getPatientUsername(String user_name) throws Exception
+	public static String getPatientUsername(String user_name) throws Exception
 	{
 		String query = "SELECT patient_username FROM OfficeAutomation.Patient where patient_username = \"" + user_name + "\"";
 	    Class.forName("com.mysql.cj.jdbc.Driver");
@@ -160,9 +162,10 @@ class Database
 	    ResultSet rs = st.executeQuery(query);
 	    rs.next();
 	    String fname = rs.getString("patient_username");
-	    System.out.println(fname);
 	    st.close();
 	    con.close();
+	    
+	    return fname;
 	}
 	
 	
