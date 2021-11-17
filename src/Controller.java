@@ -573,9 +573,11 @@ public class Controller {
         PatientDatabase.setPatientAddress(Main.getCurrentUser(), newAddress);
 
         String newInsuranceID = editPersonalInformationInsuranceID.getText();
+        PatientDatabase.setPatientInsuranceID(Main.getCurrentUser(), newInsuranceID);
         // Need insuranceID variable in database
 
         String newPharmacyAddress = editPersonalInformationPharmacyAddress.getText();
+        PatientDatabase.setPatientPharmacyAddress(Main.getCurrentUser(), newPharmacyAddress);
         // Need pharmacyAddress variable in database
 
         Stage stage = (Stage) editPersonalInformationConfirmButton.getScene().getWindow();
