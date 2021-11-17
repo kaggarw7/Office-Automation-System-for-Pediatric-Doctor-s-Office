@@ -270,11 +270,23 @@ public class Controller {
             String nurseUsername = "";
 
             if (signUpPatientRadio.isSelected()) {
-                PatientDatabase.InsertPatient(firstName, lastName, birthDay, birthMonth, birthYear, address, phoneNumber, doctorUsername, DoctorDatabase.getDoctorNurseUsername(doctorUsername), insuranceID, pharmacyAddress, username, password);
+                if (PatientDatabase.checkExistance(username)) {
+                    throw new ArithmeticException();
+                } else {
+                    PatientDatabase.InsertPatient(firstName, lastName, birthDay, birthMonth, birthYear, address, phoneNumber, doctorUsername, DoctorDatabase.getDoctorNurseUsername(doctorUsername), insuranceID, pharmacyAddress, username, password);
+                }
             } else if (signUpNurseRadio.isSelected()) {
-                NurseDatabase.InsertNurse(firstName, lastName, birthDay, birthMonth, birthYear, address, phoneNumber, username, password);
+                if (NurseDatabase.checkExistance(username)) {
+                    throw new ArithmeticException();
+                } else {
+                    NurseDatabase.InsertNurse(firstName, lastName, birthDay, birthMonth, birthYear, address, phoneNumber, username, password);
+                }
             } else if (signUpDoctorRadio.isSelected()) {
-                DoctorDatabase.InsertDoctor(firstName, lastName, birthDay, birthMonth, birthYear, address, phoneNumber, username, password, nurseUsername);
+                if (DoctorDatabase.checkExistance(username)) {
+                    throw new ArithmeticException();
+                } else {
+                    DoctorDatabase.InsertDoctor(firstName, lastName, birthDay, birthMonth, birthYear, address, phoneNumber, username, password, nurseUsername);
+                }
             }
 
             try {
