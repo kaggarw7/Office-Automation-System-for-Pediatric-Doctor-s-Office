@@ -129,6 +129,20 @@ public class NurseDatabase {
 		con.close();
 		return password;
 	}
+	
+	public static String getNurseDoctorUsername(String user_name) throws ClassNotFoundException, SQLException
+	{
+		String query = "SELECT Nurse_DoctorUsername FROM NURSE WHERE Nurse_username = \"" + user_name + "\"";
+		Class.forName("com.mysql.cj.jdbc.Driver");
+		Connection con = DriverManager.getConnection(url, uname, pass);
+		Statement st = con.createStatement();
+		ResultSet rs = st.executeQuery(query);
+		rs.next();
+		String doctor_username = rs.getString("Nurse_DoctorUsername");
+		st.close();
+		con.close();
+		return doctor_username;
+	}
 
 	public static Boolean checkExistence(String user_name) throws ClassNotFoundException, SQLException {
 		String query = "SELECT EXISTS(SELECT * FROM Nurse WHERE Nurse_username = \"" + user_name + "\"";
@@ -256,10 +270,24 @@ public class NurseDatabase {
 	    }	
 	}
 	
-	// Insert Nurse
-	public static void InsertNurse(String first_name, String last_name, int birth_day, int birth_month, int birth_year, String address, String phone_number, String username, String password) throws ClassNotFoundException, SQLException
+	public static void setNurseDoctorUsername(String user_name, String doctor_username) throws ClassNotFoundException, SQLException
 	{
-		String query = "INSERT INTO NURSE VALUES(?,?,?,?,?,?,?,?,?)";
+		String query = "UPDATE NURSE SET Nurse_DoctorUsername = \"" + doctor_username + "\"  WHERE Nurse_username = \"" + user_name + "\"";
+		Class.forName("com.mysql.cj.jdbc.Driver");
+		try(Connection con = DriverManager.getConnection(url, uname, pass);
+				Statement st = con.createStatement();) {
+			
+			 st.executeUpdate(query);
+			 System.out.println("Database updated successfully ");
+		} catch (SQLException e) {
+		      e.printStackTrace();
+	    }	
+	}
+	
+	// Insert Nurse
+	public static void InsertNurse(String first_name, String last_name, int birth_day, int birth_month, int birth_year, String address, String phone_number, String username, String password, String doctor_username) throws ClassNotFoundException, SQLException
+	{
+		String query = "INSERT INTO NURSE VALUES(?,?,?,?,?,?,?,?,?,?)";
 		Class.forName("com.mysql.cj.jdbc.Driver");
 		Connection con = DriverManager.getConnection(url, uname, pass);
 		PreparedStatement st = con.prepareStatement(query);
@@ -273,6 +301,7 @@ public class NurseDatabase {
 		st.setString(7, phone_number);
 		st.setString(8, username);
 		st.setString(9, password);
+		st.setString(10, doctor_username);
 		
 		st.executeUpdate();
 		
