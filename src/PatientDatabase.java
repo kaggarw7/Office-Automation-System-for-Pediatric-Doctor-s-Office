@@ -1,7 +1,7 @@
 import java.sql.*;
 
 
-class Database
+class PatientDatabase
 {   
 	static String url = "jdbc:mysql://database-1.cazevb7vwbyn.us-east-2.rds.amazonaws.com";
 	static String uname = "admin";
@@ -345,7 +345,7 @@ class Database
         }
     }
 	
-	public static void InsertPatient(String first_name, String last_name, int birth_day, int birth_month, int birth_year, String address, long phone_number, 
+	public static void InsertPatient(String first_name, String last_name, int birth_day, int birth_month, int birth_year, String address, String phone_number,
 			String patient_doctor_user_name, String patient_nurse_user_name, String insurance_id, String pharmacy,
 			String username, String password) throws ClassNotFoundException, SQLException
 	{
@@ -360,7 +360,7 @@ class Database
 		st.setInt(4, birth_month);
 		st.setInt(5, birth_year);
 		st.setString(6, address);
-		st.setLong(7, phone_number);
+		st.setString(7, phone_number);
 		st.setString(8, patient_doctor_user_name);
 		st.setString(9, patient_nurse_user_name);
 		st.setString(10, insurance_id);
@@ -381,8 +381,10 @@ class Database
 	
 	public static void main(String args[]) throws Exception
 	{
+		/*
 		Database.InsertPatient("Aryan","Bisht", 11, 10, 2001, "Arizona", 998789978, "kartik", "aditya", "RandomInsurance1234556", "Downtown-tempe-cvs",
 				"abis", "helloRocket");
 		System.out.println(Database.getPatientPassword(""));
+		*/
 	}
 }
