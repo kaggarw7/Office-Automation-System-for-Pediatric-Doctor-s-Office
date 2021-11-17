@@ -1,14 +1,14 @@
 public class Prescription {
     private String medicine;
+    private String dosageAmount;
     private int timesPerMonth;
-    private int dosageAmount;
 
     // Constructor
 
-    public Prescription(String medicine, int timesPerMonth, int dosageAmount) {
+    public Prescription(String medicine, String dosageAmount, int timesPerMonth) {
         this.medicine = medicine;
-        this.timesPerMonth = timesPerMonth;
         this.dosageAmount = dosageAmount;
+        this.timesPerMonth = timesPerMonth;
     }
 
     // Getters
@@ -17,11 +17,12 @@ public class Prescription {
         return medicine;
     }
 
+    public String getDosageAmount() {
+        return dosageAmount;
+    }
+
     public int getTimesPerMonth() {
         return timesPerMonth;
     }
 
-    public int getDosageAmount() {
-        return dosageAmount;
-    }
 }

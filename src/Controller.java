@@ -95,7 +95,7 @@ public class Controller {
     @FXML private TextField nursePatientInfoPatientUsername;
     @FXML private TextField nursePatientInfoWeight;
     @FXML private TextField nursePatientInfoHeight;
-    @FXML private TextField nursePatientInfoBloodType;
+    @FXML private TextField nursePatientInfoBloodPressure;
     @FXML private TextArea nursePatientInfoNotes;
 
     @FXML private TextField nursePatientInfoPrescriptionName;
@@ -121,7 +121,7 @@ public class Controller {
     @FXML private TextField doctorPatientInfoPatientUsername;
     @FXML private TextField doctorPatientInfoWeight;
     @FXML private TextField doctorPatientInfoHeight;
-    @FXML private TextField doctorPatientInfoBloodType;
+    @FXML private TextField doctorPatientInfoBloodPressure;
     @FXML private TextArea doctorPatientInfoNotes;
 
     @FXML private TextField doctorPatientInfoPrescriptionName;
@@ -368,7 +368,27 @@ public class Controller {
 
     @FXML
     public void handleDoctorPatientInfoSave() {
-        //TODO: This has to record the medical info entered as a consultation of some sort.
+        String patientUsername = doctorPatientInfoPatientUsername.getText();
+
+        LocalDate today = LocalDate.now();
+
+        double patientWeight = Double.parseDouble(doctorPatientInfoWeight.getText());
+        double patientHeight = Double.parseDouble(doctorPatientInfoHeight.getText());
+
+        String patientBloodPressure = doctorPatientInfoBloodPressure.getText();
+
+        String prescriptionName = doctorPatientInfoPrescriptionName.getText();
+        String prescriptionDosageAmount = doctorPatientInfoPrescriptionDosageAmount.getText();
+        int prescriptionTimesPerMonth = Integer.parseInt(doctorPatientInfoPrescriptionTimesPerMonth.getText());
+        Prescription prescription = new Prescription(prescriptionName, prescriptionDosageAmount, prescriptionTimesPerMonth);
+
+        String doctorNotes = doctorPatientInfoNotes.getText();
+
+        if (!prescriptionName.isEmpty() || !prescriptionDosageAmount.isEmpty()) {
+            Consultation consultation = new Consultation(patientUsername, today, patientWeight, patientHeight, patientBloodPressure, prescription, doctorNotes);
+        } else {
+            Consultation consultation = new Consultation(patientUsername, today, patientWeight, patientHeight, patientBloodPressure, null, doctorNotes);
+        }
 
         Stage stage = (Stage) doctorPatientInfoSaveButton.getScene().getWindow();
         stage.close();

@@ -10,14 +10,14 @@ public class Consultation {
     // Vitals
     private double weight;
     private double height;
-    private double bloodPressure;
+    private String bloodPressure;
 
-    private String prescribedMedicine;
+    private Prescription prescription;
     private String notes;
 
     // Constructor
 
-    public Consultation(String patientUsername, LocalDate date, double weight, double height, double bloodPressure, String prescribedMedicine, String notes) {
+    public Consultation(String patientUsername, LocalDate date, double weight, double height, String bloodPressure, Prescription prescription, String notes) {
         this.patientUsername = patientUsername;
 
         this.date = date;
@@ -26,7 +26,7 @@ public class Consultation {
         this.height = height;
         this.bloodPressure = bloodPressure;
 
-        this.prescribedMedicine = prescribedMedicine;
+        this.prescription = prescription;
         this.notes = notes;
     }
 
@@ -49,12 +49,12 @@ public class Consultation {
         return height;
     }
 
-    public double getBloodPressure() {
+    public String getBloodPressure() {
         return bloodPressure;
     }
 
-    public String getPrescribedMedicine() {
-        return prescribedMedicine;
+    public Prescription getPrescription() {
+        return prescription;
     }
 
     public String getNotes() {

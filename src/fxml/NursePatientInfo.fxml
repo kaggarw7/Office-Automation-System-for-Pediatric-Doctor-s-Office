@@ -11,16 +11,6 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="401.0" prefWidth="843.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
    <children>
       <TextArea fx:id="nursePatientInfoNotes" editable="false" layoutX="14.0" layoutY="209.0" prefHeight="200.0" prefWidth="435.0" promptText="Notes" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="14.0" />
-      <Pane layoutX="695.0" layoutY="20.0" AnchorPane.rightAnchor="24.0" AnchorPane.topAnchor="20.0">
-         <children>
-            <Label fx:id="bloodType_lable" layoutY="2.0" text="Blood Type:">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Label>
-            <TextField fx:id="nursePatientInfoBloodType" accessibleText="Age" editable="false" layoutX="89.0" prefHeight="25.0" prefWidth="62.0" promptText="A+" />
-         </children>
-      </Pane>
       <Button fx:id="nursePatientInfoCloseButton" layoutX="784.0" layoutY="362.0" mnemonicParsing="false" onAction="#handleCloseStage" text="Close" textFill="#e11010" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0" />
       <Pane layoutX="24.0" layoutY="20.0" AnchorPane.leftAnchor="24.0" AnchorPane.topAnchor="20.0">
          <children>
@@ -53,7 +43,7 @@
             <TextField fx:id="nursePatientInfoHeight" accessibleText="Age" editable="false" layoutX="131.0" promptText="160" />
          </children>
       </Pane>
-      <Pane layoutX="526.0" layoutY="55.0" prefHeight="124.0" prefWidth="293.0" style="-fx-border-color: grey;" AnchorPane.rightAnchor="24.0" AnchorPane.topAnchor="55.0">
+      <Pane layoutX="536.0" layoutY="20.0" prefHeight="124.0" prefWidth="293.0" style="-fx-border-color: grey;" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="20.0">
          <children>
             <Pane layoutX="7.0" layoutY="14.0">
                <children>
@@ -85,6 +75,16 @@
                   <TextField fx:id="nursePatientInfoPrescriptionTimesPerMonth" accessibleText="Age" editable="false" layoutX="131.0" promptText="30" />
                </children>
             </Pane>
+         </children>
+      </Pane>
+      <Pane layoutX="24.0" layoutY="125.0">
+         <children>
+            <Label accessibleText="Age" layoutY="2.0" text="Blood Pressure">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <TextField fx:id="nursePatientInfoBloodPressure" accessibleText="Age" layoutX="131.0" promptText="120/80" />
          </children>
       </Pane>
    </children>

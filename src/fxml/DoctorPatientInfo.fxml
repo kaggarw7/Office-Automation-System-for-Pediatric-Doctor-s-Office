@@ -11,21 +11,11 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="401.0" prefWidth="843.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
    <children>
       <TextArea fx:id="doctorPatientInfoNotes" layoutX="14.0" layoutY="209.0" prefHeight="200.0" prefWidth="435.0" promptText="Notes" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="14.0" />
-      <Pane layoutX="695.0" layoutY="20.0" AnchorPane.rightAnchor="24.0" AnchorPane.topAnchor="20.0">
-         <children>
-            <Label fx:id="bloodType_lable" layoutY="2.0" text="Blood Type:">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Label>
-            <TextField fx:id="doctorPatientInfoBloodType" accessibleText="Age" layoutX="89.0" prefHeight="25.0" prefWidth="62.0" promptText="A+" />
-         </children>
-      </Pane>
       <Button fx:id="doctorPatientInfoCloseButton" layoutX="755.0" layoutY="377.0" mnemonicParsing="false" onAction="#handleCloseStage" text="Close" textFill="#e11010" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="70.0" />
       <Button fx:id="doctorPatientInfoSaveButton" layoutX="815.0" layoutY="377.0" mnemonicParsing="false" onAction="#handleDoctorPatientInfoSave" text="Save" textFill="#210be5" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="14.0" />
       <Pane layoutX="24.0" layoutY="20.0" AnchorPane.leftAnchor="24.0" AnchorPane.topAnchor="20.0">
          <children>
-            <Label fx:id="firstName_lable" accessibleText="Age" layoutY="2.0" text="Patient Username">
+            <Label accessibleText="Age" layoutY="2.0" text="Patient Username">
                <font>
                   <Font size="15.0" />
                </font>
@@ -36,7 +26,7 @@
       <Pane layoutX="24.0" layoutY="55.0" AnchorPane.leftAnchor="24.0" AnchorPane.topAnchor="55.0" />
       <Pane layoutX="24.0" layoutY="55.0" AnchorPane.leftAnchor="24.0" AnchorPane.topAnchor="55.0">
          <children>
-            <Label fx:id="weight_lable" accessibleText="Age" layoutY="2.0" text="Weight(lb)">
+            <Label accessibleText="Age" layoutY="2.0" text="Weight(lb)">
                <font>
                   <Font size="15.0" />
                </font>
@@ -46,7 +36,7 @@
       </Pane>
       <Pane layoutX="24.0" layoutY="94.0" AnchorPane.leftAnchor="24.0" AnchorPane.topAnchor="94.0">
          <children>
-            <Label fx:id="height_lable" accessibleText="Age" layoutY="2.0" text="Height (cm)">
+            <Label accessibleText="Age" layoutY="2.0" text="Height (cm)">
                <font>
                   <Font size="15.0" />
                </font>
@@ -54,7 +44,7 @@
             <TextField fx:id="doctorPatientInfoHeight" accessibleText="Age" layoutX="131.0" promptText="160" />
          </children>
       </Pane>
-      <Pane layoutX="526.0" layoutY="57.0" prefHeight="124.0" prefWidth="293.0" style="-fx-border-color: grey;" AnchorPane.rightAnchor="24.0" AnchorPane.topAnchor="57.0">
+      <Pane layoutX="536.0" layoutY="20.0" prefHeight="124.0" prefWidth="293.0" style="-fx-border-color: grey;" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="20.0">
          <children>
             <Pane layoutX="7.0" layoutY="14.0">
                <children>
@@ -86,6 +76,16 @@
                   <TextField fx:id="doctorPatientInfoPrescriptionTimesPerMonth" accessibleText="Age" editable="false" layoutX="131.0" promptText="30" />
                </children>
             </Pane>
+         </children>
+      </Pane>
+      <Pane layoutX="25.0" layoutY="132.0">
+         <children>
+            <Label accessibleText="Age" layoutY="2.0" text="Blood Pressure">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <TextField fx:id="doctorPatientInfoBloodPressure" accessibleText="Age" layoutX="131.0" promptText="120/80" />
          </children>
       </Pane>
    </children>
