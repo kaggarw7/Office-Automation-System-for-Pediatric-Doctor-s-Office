@@ -9,7 +9,7 @@ public class AppointmentDatabase {
 	
 	///////////////////////////////// Getter Functions  ////////////////////////////////////
 	
-	public static String getYear(String user_name) throws ClassNotFoundException, SQLException
+	public static int getYear(String user_name) throws ClassNotFoundException, SQLException
 	{
 		String query = "SELECT Year FROM OfficeAutomation.Appointment where patient_username = \"" + user_name + "\"";
 	    Class.forName("com.mysql.cj.jdbc.Driver");
@@ -17,13 +17,13 @@ public class AppointmentDatabase {
 	    Statement st = con.createStatement();  
 	    ResultSet rs = st.executeQuery(query);
 	    rs.next();
-	    String year = rs.getString("Year"); 
+	    int year = rs.getInt("Year");
 	    st.close();
 	    con.close();
 	    return (year);
 	}
 	
-	public static String getMonth(String user_name) throws ClassNotFoundException, SQLException
+	public static int getMonth(String user_name) throws ClassNotFoundException, SQLException
 	{
 		String query = "SELECT Month FROM OfficeAutomation.Appointment where patient_username = \"" + user_name + "\"";
 	    Class.forName("com.mysql.cj.jdbc.Driver");
@@ -31,14 +31,14 @@ public class AppointmentDatabase {
 	    Statement st = con.createStatement();  
 	    ResultSet rs = st.executeQuery(query);
 	    rs.next();
-	    String month = rs.getString("Month"); 
+	    int month = rs.getInt("Month");
 	    st.close();
 	    con.close();
 	    return (month);
 	}
 	
 	
-	public static String getDay(String user_name) throws ClassNotFoundException, SQLException
+	public static int getDay(String user_name) throws ClassNotFoundException, SQLException
 	{
 		String query = "SELECT Day FROM OfficeAutomation.Appointment where patient_username = \"" + user_name + "\"";
 	    Class.forName("com.mysql.cj.jdbc.Driver");
@@ -46,10 +46,10 @@ public class AppointmentDatabase {
 	    Statement st = con.createStatement();  
 	    ResultSet rs = st.executeQuery(query);
 	    rs.next();
-	    String date = rs.getString("Date"); 
+	    int day = rs.getInt("Day");
 	    st.close();
 	    con.close();
-	    return (date);
+	    return (day);
 	}
 	
 	
