@@ -513,13 +513,14 @@ public class Controller {
         patientHomePatientMedicalInfo.appendText("Height (cm): " + user.getLastConsultation().getHeight());
         patientHomePatientMedicalInfo.appendText("Blood Pressure: " + user.getLastConsultation().getBloodPressure());
         patientHomePatientMedicalInfo.appendText("\nNotes: " + user.getLastConsultation().getNotes());
+        patientHomePatientMedicalInfo.appendText("\n");
 
         for (Prescription prescription : user.getPrescriptions()) {
-            patientHomePatientPrescriptions.appendText(prescription.toString());
+            patientHomePatientPrescriptions.appendText(prescription.toString() + "\n");
         }
 
         for (Prescription prescription : user.getPrescriptions()) {
-            patientHomePatientInstructions.appendText("Take a " + prescription.getDosageAmount() + " tablet " + prescription.getTimesPerMonth() + " times per month.");
+            patientHomePatientInstructions.appendText("Take a " + prescription.getDosageAmount() + " tablet " + prescription.getTimesPerMonth() + " times per month.\n");
         }
     }
 
