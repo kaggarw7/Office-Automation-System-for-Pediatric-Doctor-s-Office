@@ -102,7 +102,7 @@ public class PrescriptionDatabase {
 		
 		///////////////////////////////// ------------- ////////////////////////////////////
 				
-		public static void InsertPatient(String Medicine, int frequency, int dosage) throws ClassNotFoundException, SQLException
+		public static void InsertPrescription(String Medicine, int frequency, int dosage) throws ClassNotFoundException, SQLException
 		{
 		String query = "INSERT INTO OfficeAutomation.Patient VALUES(?,?,?)";
 		Class.forName("com.mysql.cj.jdbc.Driver");
