@@ -84,7 +84,7 @@ public class PrescriptionDatabase {
 	    }
 		
 		
-		public static void setDosage(String user_name, int dosage) throws ClassNotFoundException, SQLException
+		public static void setDosage(String user_name, String dosage) throws ClassNotFoundException, SQLException
 	    {
 	        String query = "UPDATE OfficeAutomation.Prescription SET Dosage = \"" + dosage + "\"  WHERE patient_username = \"" + user_name + "\"";
 	        Class.forName("com.mysql.cj.jdbc.Driver");
@@ -101,7 +101,7 @@ public class PrescriptionDatabase {
 		
 		///////////////////////////////// ------------- ////////////////////////////////////
 				
-		public static void InsertPatient(String Medicine, int frequency, int dosage) throws ClassNotFoundException, SQLException
+		public static void InsertPatient(String Medicine, int frequency, String dosage) throws ClassNotFoundException, SQLException
 		{
 		String query = "INSERT INTO OfficeAutomation.Patient VALUES(?,?,?)";
 		Class.forName("com.mysql.cj.jdbc.Driver");
@@ -110,7 +110,7 @@ public class PrescriptionDatabase {
 		
 		st.setString(1, Medicine);
 		st.setInt(2, frequency);
-		st.setInt(3, dosage);
+		st.setString(3, dosage);
 		st.executeUpdate();
 		
 		System.out.println("Inserted successfully ");
