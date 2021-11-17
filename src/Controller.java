@@ -148,7 +148,7 @@ public class Controller {
      ********************************/
 
     @FXML
-    public ObservableList getPatientList() {
+    public ObservableList getPatientList() throws ClassNotFoundException, SQLException {
         // Test Data
         Patient johnDoe98 = new Patient("John", "Doe", LocalDate.of(1998, 12, 12), "510 Whatever St.", "5551231234", "johnDoe98", "password1234", null, "ABCWhoCares", "123 Pharmacy Rd.");
         Patient mattSmith01 = new Patient("Matt", "Smith", LocalDate.of(2001, 5, 2), "123 Halloween Avenue", "5552342345", "mattSmith01", "password1234", null, "AnotherFakeID", "123 Pharmacy Rd.");
@@ -161,6 +161,14 @@ public class Controller {
 
         ObservableList<Patient> patients = FXCollections.observableArrayList();
         patients.setAll(patientList);
+
+        /*
+        ArrayList<String> allPatientUsernames = PatientDatabase.getPatientUsernameList();
+        ArrayList<Patient> allPatients = new ArrayList<>();
+        for (String usernames : allPatientUsernames) {
+            allPatients.add(new Patient(usernames));
+        }
+        */
 
         return patients;
     }
@@ -285,7 +293,7 @@ public class Controller {
             }
 
             try {
-                Parent root = FXMLLoader.load(getClass().getResource("SignIn.fxml"));
+                Parent root = FXMLLoader.load(getClass().getResource("fxml/SignIn.fxml"));
                 Stage primaryStage = (Stage) signUpSignUpButton.getScene().getWindow();
                 primaryStage.setScene(new Scene(root, 700, 500));
             } catch (Exception e) {
@@ -376,7 +384,7 @@ public class Controller {
     @FXML
     public void handleCreateAccountButton() {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("SignUp.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("fxml/SignUp.fxml"));
             Stage primaryStage = (Stage) signInCreateAccountButton.getScene().getWindow();
             primaryStage.setScene(new Scene(root, 700, 500));
         } catch (Exception e) {
@@ -393,7 +401,7 @@ public class Controller {
     @FXML
     public void handleOpenNewAppointment() {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("CreateAppointment.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("fxml/CreateAppointment.fxml"));
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
             stage.show();
@@ -465,7 +473,7 @@ public class Controller {
     }
 
     @FXML
-    public void handleCreateAppointment() {
+    public void handleCreateAppointment() throws ClassNotFoundException, SQLException {
         //TODO: Actually create an appointment and put it in the database
 
         String patientUsername = createAppointmentPatientUsername.getText();
@@ -541,7 +549,7 @@ public class Controller {
     @FXML
     public void handleEditPersonalInformationButton() {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("EditPatientInfo.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("fxml/EditPatientInfo.fxml"));
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
             stage.show();
@@ -568,11 +576,11 @@ public class Controller {
         PatientDatabase.setPatientAddress(Main.getCurrentUser(), newAddress);
 
         String newInsuranceID = editPersonalInformationInsuranceID.getText();
-        PatientDatabase.setPatientInsuranceID(Main.getCurrentUser(), newInsuranceID);
+        //PatientDatabase.setPatientInsuranceID(Main.getCurrentUser(), newInsuranceID);
         // Need insuranceID variable in database
 
         String newPharmacyAddress = editPersonalInformationPharmacyAddress.getText();
-        PatientDatabase.setPatientPharmacyAddress(Main.getCurrentUser(), newPharmacyAddress);
+        //PatientDatabase.setPatientPharmacyAddress(Main.getCurrentUser(), newPharmacyAddress);
         // Need pharmacyAddress variable in database
 
         Stage stage = (Stage) editPersonalInformationConfirmButton.getScene().getWindow();
@@ -588,7 +596,7 @@ public class Controller {
     @FXML
     public void handleDoctorPatientListSelectPatientButton() {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("DoctorPatientInfo.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("fxml/DoctorPatientInfo.fxml"));
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
             stage.show();
