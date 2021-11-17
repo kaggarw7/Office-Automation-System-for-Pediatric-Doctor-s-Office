@@ -316,6 +316,8 @@ public class Controller {
             stage.setScene(new Scene(root));
             stage.show();
 
+            populateNursePatientInfo();
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -342,7 +344,7 @@ public class Controller {
     }
 
     @FXML
-    public void handlePopulateNursePatientList() {
+    public void handlePopulateNursePatientList() throws ClassNotFoundException, SQLException {
         nurseHomePatientList.setItems(getPatientList());
 
         nurseHomePatientList.getSelectionModel().select(0);
@@ -350,7 +352,7 @@ public class Controller {
     }
 
     @FXML
-    public void handleUpdateNursePatientValues() {
+    public void handleUpdateNursePatientValues() throws ClassNotFoundException, SQLException {
         //TODO: fetch the most recent consultation belonging to the specific patient, and fill in the corresponding TextFields with the relevant data
 
         Patient selectedPatient = (Patient) nurseHomePatientList.getSelectionModel().getSelectedItem();
@@ -448,6 +450,8 @@ public class Controller {
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
             stage.show();
+
+            handlePopulatePersonalInformation();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -491,6 +495,8 @@ public class Controller {
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
             stage.show();
+
+            populateDoctorPatientInfo();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -552,7 +558,7 @@ public class Controller {
     }
 
     @FXML
-    public void handlePopulateDoctorPatientList() {
+    public void handlePopulateDoctorPatientList() throws ClassNotFoundException, SQLException {
         doctorHomePatientList.setItems(getPatientList());
 
         doctorHomePatientList.getSelectionModel().select(0);
@@ -560,7 +566,7 @@ public class Controller {
     }
 
     @FXML
-    public void handleUpdateDoctorPatientValues() {
+    public void handleUpdateDoctorPatientValues() throws ClassNotFoundException, SQLException {
         //TODO: fetch the most recent consultation belonging to the specific patient, and fill in the corresponding TextFields with the relevant data
 
         Patient selectedPatient = (Patient) doctorHomePatientList.getSelectionModel().getSelectedItem();
