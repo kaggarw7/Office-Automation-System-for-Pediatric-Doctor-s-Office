@@ -448,7 +448,7 @@ public class Controller {
         String newLastName = editPersonalInformationLastName.getText();
         PatientDatabase.setPatientLastName(Main.getCurrentUser(), newLastName);
 
-        long newPhoneNumber = Long.parseLong(editPersonalInformationPhoneNumber.getText().replaceAll("-", ""));
+        String newPhoneNumber = editPersonalInformationPhoneNumber.getText();
         PatientDatabase.setPatientPhoneNumber(Main.getCurrentUser(), newPhoneNumber);
 
         String newAddress = editPersonalInformationAddress.getText();
