@@ -47,7 +47,7 @@ public class Controller {
 
     // Patient Home screen
     // Home tab
-    @FXML private ListView patientHomeUpcomingAppointments;
+    @FXML private TextArea patientHomeUpcomingAppointment;
     @FXML private TextField patientHomeDoctorName;
     @FXML private TextField patientHomeNurseName;
     @FXML private TextField patientHomePatientFirstName;
@@ -314,17 +314,14 @@ public class Controller {
             stage.setScene(new Scene(root));
             stage.show();
 
-            //populateNursePatientInfo();
-
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     @FXML
-    public void populateNursePatientInfo() {
-        Patient selectedPatient = new Patient()
-        System.out.println(selectedPatient.getUsername());
+    public void populateNursePatientInfo() throws ClassNotFoundException, SQLException {
+        Patient selectedPatient = new Patient(Main.getSelectedPatient());
 
         nursePatientInfoPatientUsername.setText(selectedPatient.getUsername());
 
@@ -332,7 +329,7 @@ public class Controller {
             nursePatientInfoWeight.setText(Double.toString(selectedPatient.getLastConsultation().getWeight()));
             nursePatientInfoHeight.setText(Double.toString(selectedPatient.getLastConsultation().getHeight()));
             nursePatientInfoBloodPressure.setText(selectedPatient.getLastConsultation().getBloodPressure());
-            //nursePatientInfoNotes.setText(selectedPatient.getLastConsultation().getNotes());
+            nursePatientInfoNotes.setText(selectedPatient.getLastConsultation().getNotes());
         }
 
         if (selectedPatient.getPrescriptions() != null) {
@@ -345,6 +342,9 @@ public class Controller {
     @FXML
     public void handlePopulateNursePatientList() {
         nurseHomePatientList.setItems(getPatientList());
+
+        nurseHomePatientList.getSelectionModel().select(0);
+        handleUpdateNursePatientValues();
     }
 
     @FXML
@@ -352,6 +352,7 @@ public class Controller {
         //TODO: fetch the most recent consultation belonging to the specific patient, and fill in the corresponding TextFields with the relevant data
 
         Patient selectedPatient = (Patient) nurseHomePatientList.getSelectionModel().getSelectedItem();
+        Main.setSelectedPatient(selectedPatient.getUsername());
 
         nurseHomePatientListPatientAddress.setText(selectedPatient.getAddress());
         nurseHomePatientListPatientPhoneNumber.setText(selectedPatient.getPhoneNumber());
@@ -378,6 +379,21 @@ public class Controller {
      *
      * Handler functions for everything accessed from PatientHome.fxml and child.
      ********************************/
+
+    @FXML
+    public void handlePopulatePersonalInformation() throws ClassNotFoundException, SQLException {
+        Patient user = new Patient(Main.getCurrentUser());
+
+        patientHomePatientFirstName.setText(user.getFirstName());
+        patientHomePatientLastName.setText(user.getLastName());
+        patientHomePatientBirthday.setValue(user.getBirthday());
+        patientHomePatientAddress.setText(user.getAddress());
+        patientHomePatientPhoneNumber.setText(user.getPhoneNumber());
+        patientHomePatientInsuranceID.setText(user.getInsuranceID());
+        patientHomePatientPharmacyAddress.setText(user.getPharmacyAddress());
+
+        patientHomeUpcomingAppointment.setText(user.getNextAppointment().toString());
+    }
 
     @FXML
     public void handleEditPersonalInformationButton() {
@@ -460,5 +476,52 @@ public class Controller {
 
         Stage stage = (Stage) doctorPatientInfoSaveButton.getScene().getWindow();
         stage.close();
+    }
+
+    @FXML
+    public void populateDoctorPatientInfo() throws ClassNotFoundException, SQLException {
+        Patient selectedPatient = new Patient(Main.getSelectedPatient());
+
+        doctorPatientInfoPatientUsername.setText(selectedPatient.getUsername());
+
+        if (selectedPatient.getConsultationRecord() != null) {
+            doctorPatientInfoWeight.setText(Double.toString(selectedPatient.getLastConsultation().getWeight()));
+            doctorPatientInfoHeight.setText(Double.toString(selectedPatient.getLastConsultation().getHeight()));
+            doctorPatientInfoBloodPressure.setText(selectedPatient.getLastConsultation().getBloodPressure());
+            doctorPatientInfoNotes.setText(selectedPatient.getLastConsultation().getNotes());
+        }
+
+        if (selectedPatient.getPrescriptions() != null) {
+            ObservableList<Prescription> currentPrescriptions = FXCollections.observableArrayList();
+            currentPrescriptions.setAll(selectedPatient.getPrescriptions());
+            doctorPatientInfoCurrentPrescriptions.setItems(currentPrescriptions);
+        }
+    }
+
+    @FXML
+    public void handlePopulateDoctorPatientList() {
+        doctorHomePatientList.setItems(getPatientList());
+
+        doctorHomePatientList.getSelectionModel().select(0);
+        handleUpdateDoctorPatientValues();
+    }
+
+    @FXML
+    public void handleUpdateDoctorPatientValues() {
+        //TODO: fetch the most recent consultation belonging to the specific patient, and fill in the corresponding TextFields with the relevant data
+
+        Patient selectedPatient = (Patient) doctorHomePatientList.getSelectionModel().getSelectedItem();
+        Main.setSelectedPatient(selectedPatient.getUsername());
+
+        doctorHomePatientListPatientAddress.setText(selectedPatient.getAddress());
+        doctorHomePatientListPatientPhoneNumber.setText(selectedPatient.getPhoneNumber());
+        doctorHomePatientListPatientBirthday.setValue(selectedPatient.getBirthday());
+        doctorHomePatientListPatientInsuranceID.setText(selectedPatient.getInsuranceID());
+        doctorHomePatientListPatientPharmacyAddress.setText(selectedPatient.getPharmacyAddress());
+
+        if (selectedPatient.getNextAppointment() != null) {
+            doctorHomePatientListPatientUpcomingAppointment.setText(selectedPatient.getNextAppointment().toString());
+        }
+
     }
 }

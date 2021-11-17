@@ -30,17 +30,21 @@ public class Patient extends Person {
     }
 
     public Patient(String username) throws ClassNotFoundException, SQLException {
-        super(PatientDatabase.getPatientFirstName(username), PatientDatabase.getPatientLastName(username), LocalDate.of(PatientDatabase.getPatientBirthDay(username), PatientDatabase.getPatientBirthMonth(username), PatientDatabase.getPatientBirthYear(username)), PatientDatabase.getPatientAddress(username), PatientDatabase.getPatientPhoneNumber(username), username, null);
+        //super(PatientDatabase.getPatientFirstName(username), PatientDatabase.getPatientLastName(username), LocalDate.of(PatientDatabase.getPatientBirthDay(username), PatientDatabase.getPatientBirthMonth(username), PatientDatabase.getPatientBirthYear(username)), PatientDatabase.getPatientAddress(username), PatientDatabase.getPatientPhoneNumber(username), username, null);
 
-        this.assignedDoctor = new Doctor(PatientDatabase.getPatientDoctorUsername(username));
+
+        //this.assignedDoctor = new Doctor(PatientDatabase.getPatientDoctorUsername(username));
+        if (!PatientDatabase.getPatientDoctorUsername(username) == "_") {
+            this.assignedDoctor = new Doctor(PatientDatabase.getPatientDoctorUsername(username));
+        }
         if (assignedDoctor.getAssignedNurse() != null) {
             this.assignedNurse = assignedDoctor.getAssignedNurse();
         } else {
             this.assignedNurse = null;
         }
 
-        this.insuranceID = PatientDatabase.getPatientInsuranceID(username);
-        this.pharmacyAddress = PatientDatabase.getPatientPharmacyAddress(username);
+        //this.insuranceID = PatientDatabase.getPatientInsuranceID(username);
+        //this.pharmacyAddress = PatientDatabase.getPatientPharmacyAddress(username);
     }
 
 	// Getters

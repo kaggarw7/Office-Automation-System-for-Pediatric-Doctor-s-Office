@@ -15,7 +15,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("fxml/NurseHome.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("fxml/DoctorHome.fxml"));
 
         primaryStage.setTitle("Group 12 Clinic Manager");
         primaryStage.setScene(new Scene(root, 700, 500));
