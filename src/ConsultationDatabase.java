@@ -78,7 +78,7 @@ public class ConsultationDatabase {
 		return temp;
 	}
 	
-	public static double getBloodPressure(String user_name) throws ClassNotFoundException, SQLException
+	public static String getBloodPressure(String user_name) throws ClassNotFoundException, SQLException
 	{
 		String query = "SELECT Blood_Pressure FROM Consultation WHERE Patient_Username = \"" + user_name + "\"";
 		Class.forName("com.mysql.cj.jdbc.Driver");
@@ -86,7 +86,7 @@ public class ConsultationDatabase {
 		Statement st = con.createStatement();
 		ResultSet rs = st.executeQuery(query);
 		rs.next();
-		double blood_pressure = rs.getDouble("Blood_Pressure");
+		String blood_pressure = rs.getString("Blood_Pressure");
 		st.close();
 		con.close();
 		return blood_pressure;
@@ -118,6 +118,20 @@ public class ConsultationDatabase {
 		st.close();
 		con.close();
 		return allergy;
+	}
+
+	public static Boolean checkExistance(String user_name) throws ClassNotFoundException, SQLException {
+		String query = "SELECT EXISTS(SELECT * FROM Consultation WHERE Patient_Username = \"" + user_name + "\"";
+		Class.forName("com.mysql.cj.jdbc.Driver");
+		Connection con = DriverManager.getConnection(url, uname, pass);
+		Statement st = con.createStatement();
+		ResultSet rs = st.executeQuery(query);
+		if (rs.next()) {
+			return true;
+		} else {
+			return false;
+		}
+
 	}
 	
 	// Setters
@@ -177,7 +191,7 @@ public class ConsultationDatabase {
 	    }	
 	}
 	
-	public static void setBloodPressure(String user_name, double blood_pressure) throws ClassNotFoundException, SQLException
+	public static void setBloodPressure(String user_name, String blood_pressure) throws ClassNotFoundException, SQLException
 	{
 		String query = "UPDATE Consultation SET Blood_Pressure = \"" + blood_pressure + "\"  WHERE Patient_Username = \"" + user_name + "\"";
 		Class.forName("com.mysql.cj.jdbc.Driver");
@@ -220,7 +234,7 @@ public class ConsultationDatabase {
 	}
 	
 	// Insert Nurse
-	public static void InsertConsultation(double weight, double height, String notes, double temp, double blood_pressure, String medication, String allergy, String patient_username) throws ClassNotFoundException, SQLException
+	public static void InsertConsultation(double weight, double height, String notes, double temp, String blood_pressure, String medication, String allergy, String patient_username) throws ClassNotFoundException, SQLException
 	{
 		String query = "INSERT INTO Consultation VALUES(?,?,?,?,?,?,?,?)";
 		Class.forName("com.mysql.cj.jdbc.Driver");
@@ -231,7 +245,7 @@ public class ConsultationDatabase {
 		st.setDouble(2, height);
 		st.setString(3, notes);
 		st.setDouble(4, temp);
-		st.setDouble(5, blood_pressure);
+		st.setString(5, blood_pressure);
 		st.setString(6, medication);
 		st.setString(7, allergy);
 		st.setString(8, patient_username);

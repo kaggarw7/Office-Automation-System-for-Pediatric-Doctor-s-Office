@@ -98,6 +98,7 @@ public class Controller {
     @FXML private TextField nursePatientInfoPatientUsername;
     @FXML private TextField nursePatientInfoWeight;
     @FXML private TextField nursePatientInfoHeight;
+    @FXML private TextField nursePatientInfoTemperature;
     @FXML private TextField nursePatientInfoBloodPressure;
     @FXML private TextArea nursePatientInfoNotes;
 
@@ -122,6 +123,7 @@ public class Controller {
     @FXML private TextField doctorPatientInfoPatientUsername;
     @FXML private TextField doctorPatientInfoWeight;
     @FXML private TextField doctorPatientInfoHeight;
+    @FXML private TextField doctorPatientInfoTemperature;
     @FXML private TextField doctorPatientInfoBloodPressure;
     @FXML private TextArea doctorPatientInfoNotes;
 
@@ -483,27 +485,34 @@ public class Controller {
     }
 
     @FXML
-    public void handleDoctorPatientInfoSave() {
+    public void handleDoctorPatientInfoSave() throws ClassNotFoundException, SQLException {
         String patientUsername = doctorPatientInfoPatientUsername.getText();
-
-        LocalDate today = LocalDate.now();
 
         double patientWeight = Double.parseDouble(doctorPatientInfoWeight.getText());
         double patientHeight = Double.parseDouble(doctorPatientInfoHeight.getText());
 
         String patientBloodPressure = doctorPatientInfoBloodPressure.getText();
 
+        double patientTemperature = Double.parseDouble(doctorPatientInfoTemperature.getText());
+
         String prescriptionName = doctorPatientInfoPrescriptionName.getText();
         String prescriptionDosageAmount = doctorPatientInfoPrescriptionDosageAmount.getText();
         int prescriptionTimesPerMonth = Integer.parseInt(doctorPatientInfoPrescriptionTimesPerMonth.getText());
-        Prescription prescription = new Prescription(prescriptionName, prescriptionDosageAmount, prescriptionTimesPerMonth);
 
         String doctorNotes = doctorPatientInfoNotes.getText();
 
         if (!prescriptionName.isEmpty() || !prescriptionDosageAmount.isEmpty()) {
-            Consultation consultation = new Consultation(patientUsername, today, patientWeight, patientHeight, patientBloodPressure, prescription, doctorNotes);
+            PrescriptionDatabase.InsertPrescription(prescriptionName, prescriptionTimesPerMonth, prescriptionDosageAmount, patientUsername);
+        }
+
+        if (ConsultationDatabase.checkExistance(patientUsername)) {
+            ConsultationDatabase.setWeight(patientUsername, patientWeight);
+            ConsultationDatabase.setHeight(patientUsername, patientHeight);
+            ConsultationDatabase.setBloodPressure(patientUsername, patientBloodPressure);
+            ConsultationDatabase.setTemperature(patientUsername, patientTemperature);
+            ConsultationDatabase.setNotes(patientUsername, doctorNotes);
         } else {
-            Consultation consultation = new Consultation(patientUsername, today, patientWeight, patientHeight, patientBloodPressure, null, doctorNotes);
+            ConsultationDatabase.InsertConsultation(patientWeight, patientHeight, doctorNotes, patientTemperature, patientBloodPressure, null, null, patientUsername);
         }
 
         Stage stage = (Stage) doctorPatientInfoSaveButton.getScene().getWindow();

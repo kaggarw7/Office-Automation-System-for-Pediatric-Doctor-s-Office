@@ -67,7 +67,7 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <TextField layoutX="133.0" promptText="98.6" />
+            <TextField fx:id="nursePatientInfoTemperature" layoutX="133.0" promptText="98.6" />
          </children>
       </Pane>
    </children>
