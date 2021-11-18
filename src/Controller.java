@@ -346,51 +346,29 @@ public class Controller {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        }
+        } else if (!NurseDatabase.getNursePassword(username).equals("_")) {
+            Main.setCurrentUser(username);
 
-        /*
-        if (PatientDatabase.checkExistence(username)) {
-            if (PatientDatabase.getPatientPassword(username).equals(password)) {
-                Main.setCurrentUser(username);
+            try {
+                Parent root = FXMLLoader.load(getClass().getResource("fxml/NurseHome.fxml"));
+                Stage primaryStage = (Stage) signInSignInButton.getScene().getWindow();
+                primaryStage.setScene(new Scene(root, 700, 500));
 
-                try {
-                    Parent root = FXMLLoader.load(getClass().getResource("fxml/PatientHome.fxml"));
-                    Stage primaryStage = (Stage) signInSignInButton.getScene().getWindow();
-                    primaryStage.setScene(new Scene(root, 700, 500));
-
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-        } else if (NurseDatabase.checkExistence(username)) {
-            if (NurseDatabase.getNursePassword(username).equals(password)) {
-                Main.setCurrentUser(username);
+        } else if (!DoctorDatabase.getDoctorPassword(username).equals("_")) {
+            Main.setCurrentUser(username);
 
-                try {
-                    Parent root = FXMLLoader.load(getClass().getResource("fxml/NurseHome.fxml"));
-                    Stage primaryStage = (Stage) signInSignInButton.getScene().getWindow();
-                    primaryStage.setScene(new Scene(root, 700, 500));
+            try {
+                Parent root = FXMLLoader.load(getClass().getResource("fxml/DoctorHome.fxml"));
+                Stage primaryStage = (Stage) signInSignInButton.getScene().getWindow();
+                primaryStage.setScene(new Scene(root, 700, 500));
 
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        } else if (DoctorDatabase.checkExistence(username)) {
-            if (DoctorDatabase.getDoctorPassword(username).equals(password)) {
-                Main.setCurrentUser(username);
-
-                try {
-                    Parent root = FXMLLoader.load(getClass().getResource("fxml/DoctorHome.fxml"));
-                    Stage primaryStage = (Stage) signInSignInButton.getScene().getWindow();
-                    primaryStage.setScene(new Scene(root, 700, 500));
-
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
-        */
-
 
         signInFail();
         signInUsername.clear();
@@ -592,12 +570,10 @@ public class Controller {
         PatientDatabase.setPatientAddress(Main.getCurrentUser(), newAddress);
 
         String newInsuranceID = editPersonalInformationInsuranceID.getText();
-        //PatientDatabase.setPatientInsuranceID(Main.getCurrentUser(), newInsuranceID);
-        // Need insuranceID variable in database
+        PatientDatabase.setInsuranceId(Main.getCurrentUser(), newInsuranceID);
 
         String newPharmacyAddress = editPersonalInformationPharmacyAddress.getText();
-        //PatientDatabase.setPatientPharmacyAddress(Main.getCurrentUser(), newPharmacyAddress);
-        // Need pharmacyAddress variable in database
+        PatientDatabase.setPharmacy(Main.getCurrentUser(), newPharmacyAddress);
 
         Stage stage = (Stage) editPersonalInformationConfirmButton.getScene().getWindow();
         stage.close();
