@@ -346,6 +346,7 @@ public class Controller {
             } catch (Exception e) {
                 e.printStackTrace();
             }
+            return;
         } else if (!NurseDatabase.getNursePassword(username).equals("_")) {
             Main.setCurrentUser(username);
 
@@ -357,6 +358,7 @@ public class Controller {
             } catch (Exception e) {
                 e.printStackTrace();
             }
+            return;
         } else if (!DoctorDatabase.getDoctorPassword(username).equals("_")) {
             Main.setCurrentUser(username);
 
@@ -368,6 +370,7 @@ public class Controller {
             } catch (Exception e) {
                 e.printStackTrace();
             }
+            return;
         }
 
         signInFail();
