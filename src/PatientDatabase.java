@@ -377,9 +377,40 @@ class PatientDatabase
         }
     }
 	
+	
+	
 	public static void setPatientPassword(String user_name, String password) throws ClassNotFoundException, SQLException
     {
         String query = "UPDATE OfficeAutomation.Patient SET patient_password = \"" + password + "\"  WHERE patient_username = \"" + user_name + "\"";
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        try(Connection con = DriverManager.getConnection(url, uname, pass);
+                Statement st = con.createStatement();) {
+
+             st.executeUpdate(query);
+             System.out.println("Database updated successfully ");
+        } catch (SQLException e) {
+              e.printStackTrace();
+        }
+    }
+	
+	
+	public static void setPharmacy(String user_name, String pharmacy) throws ClassNotFoundException, SQLException
+    {
+        String query = "UPDATE OfficeAutomation.Patient SET Pharmacy = \"" + pharmacy + "\"  WHERE patient_username = \"" + user_name + "\"";
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        try(Connection con = DriverManager.getConnection(url, uname, pass);
+                Statement st = con.createStatement();) {
+
+             st.executeUpdate(query);
+             System.out.println("Database updated successfully ");
+        } catch (SQLException e) {
+              e.printStackTrace();
+        }
+    }
+	
+	public static void setInsuranceId(String user_name, String insurance_id) throws ClassNotFoundException, SQLException
+    {
+        String query = "UPDATE OfficeAutomation.Patient SET Insurance_id = \"" + insurance_id + "\"  WHERE patient_username = \"" + user_name + "\"";
         Class.forName("com.mysql.cj.jdbc.Driver");
         try(Connection con = DriverManager.getConnection(url, uname, pass);
                 Statement st = con.createStatement();) {
