@@ -87,13 +87,13 @@ public class AppointmentDatabase {
 	
 	public static String getDoctorUserName(String user_name) throws ClassNotFoundException, SQLException
 	{
-		String query = "SELECT Doctor_username FROM OfficeAutomation.Appointment where patient_username = \"" + user_name + "\"";
+		String query = "SELECT DoctorUserName FROM OfficeAutomation.Appointment where patient_username = \"" + user_name + "\"";
 	    Class.forName("com.mysql.cj.jdbc.Driver");
 	    Connection con = DriverManager.getConnection(url, uname, pass);
 	    Statement st = con.createStatement();  
 	    ResultSet rs = st.executeQuery(query);
 	    rs.next();
-	    String dusername = rs.getString("Doctor_username"); 
+	    String dusername = rs.getString("DoctorUserName"); 
 	    st.close();
 	    con.close();
 	    return (dusername);
@@ -179,7 +179,7 @@ public class AppointmentDatabase {
 	
 	public static void setDoctorUserName(String user_name, String duser) throws ClassNotFoundException, SQLException
     {
-        String query = "UPDATE OfficeAutomation.Appointment SET Doctor_username = \"" + duser + "\"  WHERE patient_username = \"" + user_name + "\"";
+        String query = "UPDATE OfficeAutomation.Appointment SET DoctorUserName = \"" + duser + "\"  WHERE patient_username = \"" + user_name + "\"";
         Class.forName("com.mysql.cj.jdbc.Driver");
         try(Connection con = DriverManager.getConnection(url, uname, pass);
                 Statement st = con.createStatement();) {

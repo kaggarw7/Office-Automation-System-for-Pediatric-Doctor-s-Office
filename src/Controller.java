@@ -651,7 +651,7 @@ public class Controller {
             ConsultationDatabase.setTemperature(patientUsername, patientTemperature);
             ConsultationDatabase.setNotes(patientUsername, doctorNotes);
         } else {
-            ConsultationDatabase.InsertConsultation(patientWeight, patientHeight, doctorNotes, patientTemperature, patientBloodPressure, null, null, patientUsername);
+            ConsultationDatabase.InsertConsultation(patientWeight, patientHeight, doctorNotes, patientTemperature, patientBloodPressure, patientUsername);
         }
 
         Stage stage = (Stage) doctorPatientInfoSaveButton.getScene().getWindow();
