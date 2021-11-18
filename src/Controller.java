@@ -282,7 +282,7 @@ public class Controller {
                 if (NurseDatabase.checkExistence(username)) {
                     throw new ArithmeticException();
                 } else {
-                    NurseDatabase.InsertNurse(firstName, lastName, birthDay, birthMonth, birthYear, address, phoneNumber, username, password);
+                    NurseDatabase.InsertNurse(firstName, lastName, birthDay, birthMonth, birthYear, address, phoneNumber, username, password, doctorUsername);
                 }
             } else if (signUpDoctorRadio.isSelected()) {
                 if (DoctorDatabase.checkExistence(username)) {
