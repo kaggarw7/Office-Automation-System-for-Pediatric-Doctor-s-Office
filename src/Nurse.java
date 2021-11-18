@@ -16,7 +16,7 @@ public class Nurse extends Person {
     public Nurse(String username) throws ClassNotFoundException, SQLException {
         super(NurseDatabase.getNurseFirstName(username), NurseDatabase.getNurseLastName(username), LocalDate.of(NurseDatabase.getNurseBirthYear(username), NurseDatabase.getNurseBirthMonth(username), NurseDatabase.getNurseBirthDay(username)), NurseDatabase.getNurseAddress(username), NurseDatabase.getNursePhoneNumber(username), username, null);
 
-        //this.assignedDoctor = new Doctor(NurseDatabase.getNurseDoctorUsername);
+        this.assignedDoctor = new Doctor(NurseDatabase.getNurseDoctorUsername(username));
     }
 
     // Getters
