@@ -335,6 +335,20 @@ public class Controller {
         String username = signInUsername.getText();
         String password = signInPassword.getText();
 
+        if (!PatientDatabase.getPatientPassword(username).equals("_")) {
+            Main.setCurrentUser(username);
+
+            try {
+                Parent root = FXMLLoader.load(getClass().getResource("fxml/PatientHome.fxml"));
+                Stage primaryStage = (Stage) signInSignInButton.getScene().getWindow();
+                primaryStage.setScene(new Scene(root, 700, 500));
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        /*
         if (PatientDatabase.checkExistence(username)) {
             if (PatientDatabase.getPatientPassword(username).equals(password)) {
                 Main.setCurrentUser(username);
@@ -375,6 +389,8 @@ public class Controller {
                 }
             }
         }
+        */
+
 
         signInFail();
         signInUsername.clear();
