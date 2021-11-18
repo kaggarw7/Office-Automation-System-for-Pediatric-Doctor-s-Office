@@ -498,16 +498,27 @@ public class Controller {
     @FXML
     public void handlePopulatePersonalInformation() throws ClassNotFoundException, SQLException {
         Patient user = new Patient(Main.getCurrentUser());
+        String username = Main.getCurrentUser();
 
-        patientHomePatientFirstName.setText(user.getFirstName());
-        patientHomePatientLastName.setText(user.getLastName());
-        patientHomePatientBirthday.setValue(user.getBirthday());
-        patientHomePatientAddress.setText(user.getAddress());
-        patientHomePatientPhoneNumber.setText(user.getPhoneNumber());
-        patientHomePatientInsuranceID.setText(user.getInsuranceID());
-        patientHomePatientPharmacyAddress.setText(user.getPharmacyAddress());
+        //patientHomePatientFirstName.setText(user.getFirstName());
+        patientHomePatientFirstName.setText(PatientDatabase.getPatientFirstName(username));
+        //patientHomePatientLastName.setText(user.getLastName());
+        patientHomePatientLastName.setText(PatientDatabase.getPatientLastName(username));
+        //patientHomePatientBirthday.setValue(user.getBirthday());
+        patientHomePatientBirthday.setValue(LocalDate.of(PatientDatabase.getPatientBirthYear(username), PatientDatabase.getPatientBirthMonth(username), PatientDatabase.getPatientBirthDay(username)));
+        //patientHomePatientAddress.setText(user.getAddress());
+        patientHomePatientAddress.setText(PatientDatabase.getPatientAddress(username));
+        //patientHomePatientPhoneNumber.setText(user.getPhoneNumber());
+        patientHomePatientPhoneNumber.setText(PatientDatabase.getPatientPhoneNumber(username));
+        //patientHomePatientInsuranceID.setText(user.getInsuranceID());
+        patientHomePatientInsuranceID.setText(PatientDatabase.getInsuranceId(username));
+        //patientHomePatientPharmacyAddress.setText(user.getPharmacyAddress());
+        patientHomePatientPharmacyAddress.setText(PatientDatabase.getPharmacy(username));
 
         patientHomeUpcomingAppointment.setText(user.getNextAppointment().toString());
+        LocalDate date = LocalDate.of(AppointmentDatabase.getYear(username), AppointmentDatabase.getMonth(username), AppointmentDatabase.getDay(username));
+        Appointment nextAppointment = new Appointment(date, AppointmentDatabase.getHour(username), AppointmentDatabase.getMinute(username), username, PatientDatabase.getPatientDoctorUsername(username));
+        patientHomeUpcomingAppointment.setText(nextAppointment.toString());
 
         if (user.getAssignedDoctor().toString() != null) {
             patientHomeDoctorName.setText(user.getAssignedDoctor().toString());
