@@ -20,7 +20,7 @@ public class NurseDatabase {
 	// Getters
 	public static String getNurseFirstName(String user_name) throws ClassNotFoundException, SQLException
 	{
-		String query = "SELECT First_name FROM Nurse WHERE Nurse_username = \"" + user_name + "\"";
+		String query = "SELECT First_name FROM OfficeAutomation.Nurse WHERE Nurse_username = \"" + user_name + "\"";
 		Class.forName("com.mysql.cj.jdbc.Driver");
 		Connection con = DriverManager.getConnection(url, uname, pass);
 		Statement st = con.createStatement();
@@ -34,7 +34,7 @@ public class NurseDatabase {
 	
 	public static String getNurseLastName(String user_name) throws ClassNotFoundException, SQLException
 	{
-		String query = "SELECT Last_name FROM Nurse WHERE Nurse_username = \"" + user_name + "\"";
+		String query = "SELECT Last_name FROM OfficeAutomation.Nurse WHERE Nurse_username = \"" + user_name + "\"";
 		Class.forName("com.mysql.cj.jdbc.Driver");
 		Connection con = DriverManager.getConnection(url, uname, pass);
 		Statement st = con.createStatement();
@@ -48,7 +48,7 @@ public class NurseDatabase {
 	
 	public static int getNurseBirthDay(String user_name) throws ClassNotFoundException, SQLException
 	{
-		String query = "SELECT Birth_day FROM Nurse WHERE Nurse_username = \"" + user_name + "\"";
+		String query = "SELECT Birth_day FROM OfficeAutomation.Nurse WHERE Nurse_username = \"" + user_name + "\"";
 		Class.forName("com.mysql.cj.jdbc.Driver");
 		Connection con = DriverManager.getConnection(url, uname, pass);
 		Statement st = con.createStatement();
@@ -62,7 +62,7 @@ public class NurseDatabase {
 	
 	public static int getNurseBirthMonth(String user_name) throws ClassNotFoundException, SQLException
 	{
-		String query = "SELECT Birth_month FROM Nurse WHERE Nurse_username = \"" + user_name + "\"";
+		String query = "SELECT Birth_month FROM OfficeAutomation.Nurse WHERE Nurse_username = \"" + user_name + "\"";
 		Class.forName("com.mysql.cj.jdbc.Driver");
 		Connection con = DriverManager.getConnection(url, uname, pass);
 		Statement st = con.createStatement();
@@ -76,7 +76,7 @@ public class NurseDatabase {
 	
 	public static int getNurseBirthYear(String user_name) throws ClassNotFoundException, SQLException
 	{
-		String query = "SELECT Birth_year FROM Nurse WHERE Nurse_username = \"" + user_name + "\"";
+		String query = "SELECT Birth_year FROM OfficeAutomation.Nurse WHERE Nurse_username = \"" + user_name + "\"";
 		Class.forName("com.mysql.cj.jdbc.Driver");
 		Connection con = DriverManager.getConnection(url, uname, pass);
 		Statement st = con.createStatement();
@@ -90,7 +90,7 @@ public class NurseDatabase {
 	
 	public static String getNurseAddress(String user_name) throws ClassNotFoundException, SQLException
 	{
-		String query = "SELECT Address FROM Nurse WHERE Nurse_username = \"" + user_name + "\"";
+		String query = "SELECT Address FROM OfficeAutomation.Nurse WHERE Nurse_username = \"" + user_name + "\"";
 		Class.forName("com.mysql.cj.jdbc.Driver");
 		Connection con = DriverManager.getConnection(url, uname, pass);
 		Statement st = con.createStatement();
@@ -104,7 +104,7 @@ public class NurseDatabase {
 	
 	public static String getNursePhoneNumber(String user_name) throws ClassNotFoundException, SQLException
 	{
-		String query = "SELECT Phone_number FROM Nurse WHERE Nurse_username = \"" + user_name + "\"";
+		String query = "SELECT Phone_number FROM OfficeAutomation.Nurse WHERE Nurse_username = \"" + user_name + "\"";
 		Class.forName("com.mysql.cj.jdbc.Driver");
 		Connection con = DriverManager.getConnection(url, uname, pass);
 		Statement st = con.createStatement();
@@ -118,21 +118,31 @@ public class NurseDatabase {
 	
 	public static String getNursePassword(String user_name) throws ClassNotFoundException, SQLException
 	{
-		String query = "SELECT Nurse_password FROM Nurse WHERE Nurse_username = \"" + user_name + "\"";
+		String query = "SELECT Nurse_password FROM OfficeAutomation.Nurse WHERE Nurse_username = \"" + user_name + "\"";
 		Class.forName("com.mysql.cj.jdbc.Driver");
 		Connection con = DriverManager.getConnection(url, uname, pass);
 		Statement st = con.createStatement();
-		ResultSet rs = st.executeQuery(query);
-		rs.next();
-		String password = rs.getString("Nurse_password");
-		st.close();
-		con.close();
-		return password;
+		
+		try
+		{
+			ResultSet rs = st.executeQuery(query);
+			rs.next();
+			String password = rs.getString("Nurse_password");
+			st.close();
+			con.close();
+			return password;
+		}
+		catch(Exception e)
+		{
+			st.close();
+			con.close();
+			return "_";
+		}
 	}
 	
 	public static String getNurseDoctorUsername(String user_name) throws ClassNotFoundException, SQLException
 	{
-		String query = "SELECT Nurse_DoctorUsername FROM NURSE WHERE Nurse_username = \"" + user_name + "\"";
+		String query = "SELECT Nurse_DoctorUsername FROM OfficeAutomation.NURSE WHERE Nurse_username = \"" + user_name + "\"";
 		Class.forName("com.mysql.cj.jdbc.Driver");
 		Connection con = DriverManager.getConnection(url, uname, pass);
 		Statement st = con.createStatement();
@@ -145,7 +155,7 @@ public class NurseDatabase {
 	}
 
 	public static Boolean checkExistence(String user_name) throws ClassNotFoundException, SQLException {
-		String query = "SELECT EXISTS(SELECT * FROM Nurse WHERE Nurse_username = \"" + user_name + "\"";
+		String query = "SELECT EXISTS(SELECT * FROM OfficeAutomation.Nurse WHERE Nurse_username = \"" + user_name + "\"";
 		Class.forName("com.mysql.cj.jdbc.Driver");
 		Connection con = DriverManager.getConnection(url, uname, pass);
 		Statement st = con.createStatement();
@@ -160,7 +170,7 @@ public class NurseDatabase {
 	// Setters
 	public static void setNurseFirstName(String user_name, String first_name) throws ClassNotFoundException, SQLException
 	{
-		String query = "UPDATE NURSE SET First_name = \"" + first_name + "\"  WHERE Nurse_username = \"" + user_name + "\"";
+		String query = "UPDATE OfficeAutomation.Nurse SET First_name = \"" + first_name + "\"  WHERE Nurse_username = \"" + user_name + "\"";
 		Class.forName("com.mysql.cj.jdbc.Driver");
 		try(Connection con = DriverManager.getConnection(url, uname, pass);
 				Statement st = con.createStatement();) {
@@ -174,7 +184,7 @@ public class NurseDatabase {
 	
 	public static void setNurseLastName(String user_name, String last_name) throws ClassNotFoundException, SQLException
 	{
-		String query = "UPDATE NURSE SET Last_name = \"" + last_name + "\"  WHERE Nurse_username = \"" + user_name + "\"";
+		String query = "UPDATE OfficeAutomation.Nurse SET Last_name = \"" + last_name + "\"  WHERE Nurse_username = \"" + user_name + "\"";
 		Class.forName("com.mysql.cj.jdbc.Driver");
 		try(Connection con = DriverManager.getConnection(url, uname, pass);
 				Statement st = con.createStatement();) {
@@ -188,7 +198,7 @@ public class NurseDatabase {
 	
 	public static void setNurseBirthDay(String user_name, int birth_day) throws ClassNotFoundException, SQLException
 	{
-		String query = "UPDATE NURSE SET Birth_day = \"" + birth_day + "\"  WHERE Nurse_username = \"" + user_name + "\"";
+		String query = "UPDATE OfficeAutomation.Nurse SET Birth_day = \"" + birth_day + "\"  WHERE Nurse_username = \"" + user_name + "\"";
 		Class.forName("com.mysql.cj.jdbc.Driver");
 		try(Connection con = DriverManager.getConnection(url, uname, pass);
 				Statement st = con.createStatement();) {
@@ -202,7 +212,7 @@ public class NurseDatabase {
 	
 	public static void setNurseBirthMonth(String user_name, int birth_month) throws ClassNotFoundException, SQLException
 	{
-		String query = "UPDATE NURSE SET Birth_month = \"" + birth_month + "\"  WHERE Nurse_username = \"" + user_name + "\"";
+		String query = "UPDATE OfficeAutomation.Nurse SET Birth_month = \"" + birth_month + "\"  WHERE Nurse_username = \"" + user_name + "\"";
 		Class.forName("com.mysql.cj.jdbc.Driver");
 		try(Connection con = DriverManager.getConnection(url, uname, pass);
 				Statement st = con.createStatement();) {
@@ -216,7 +226,7 @@ public class NurseDatabase {
 	
 	public static void setNurseBirthYear(String user_name, int birth_year) throws ClassNotFoundException, SQLException
 	{
-		String query = "UPDATE NURSE SET Birth_year = \"" + birth_year + "\"  WHERE Nurse_username = \"" + user_name + "\"";
+		String query = "UPDATE OfficeAutomation.Nurse SET Birth_year = \"" + birth_year + "\"  WHERE Nurse_username = \"" + user_name + "\"";
 		Class.forName("com.mysql.cj.jdbc.Driver");
 		try(Connection con = DriverManager.getConnection(url, uname, pass);
 				Statement st = con.createStatement();) {
@@ -230,7 +240,7 @@ public class NurseDatabase {
 	
 	public static void setNurseAddress(String user_name, String address) throws ClassNotFoundException, SQLException
 	{
-		String query = "UPDATE NURSE SET Address = \"" + address + "\"  WHERE Nurse_username = \"" + user_name + "\"";
+		String query = "UPDATE OfficeAutomation.Nurse SET Address = \"" + address + "\"  WHERE Nurse_username = \"" + user_name + "\"";
 		Class.forName("com.mysql.cj.jdbc.Driver");
 		try(Connection con = DriverManager.getConnection(url, uname, pass);
 				Statement st = con.createStatement();) {
@@ -244,7 +254,7 @@ public class NurseDatabase {
 	
 	public static void setNursePhoneNumber(String user_name, String phone_number) throws ClassNotFoundException, SQLException
 	{
-		String query = "UPDATE NURSE SET Phone_number = \"" + phone_number + "\"  WHERE Nurse_username = \"" + user_name + "\"";
+		String query = "UPDATE OfficeAutomation.Nurse SET Phone_number = \"" + phone_number + "\"  WHERE Nurse_username = \"" + user_name + "\"";
 		Class.forName("com.mysql.cj.jdbc.Driver");
 		try(Connection con = DriverManager.getConnection(url, uname, pass);
 				Statement st = con.createStatement();) {
@@ -258,7 +268,7 @@ public class NurseDatabase {
 	
 	public static void setNursePassword(String user_name, String password) throws ClassNotFoundException, SQLException
 	{
-		String query = "UPDATE NURSE SET Nurse_password = \"" + password + "\"  WHERE Nurse_username = \"" + user_name + "\"";
+		String query = "UPDATE OfficeAutomation.Nurse SET Nurse_password = \"" + password + "\"  WHERE Nurse_username = \"" + user_name + "\"";
 		Class.forName("com.mysql.cj.jdbc.Driver");
 		try(Connection con = DriverManager.getConnection(url, uname, pass);
 				Statement st = con.createStatement();) {
@@ -272,7 +282,7 @@ public class NurseDatabase {
 	
 	public static void setNurseDoctorUsername(String user_name, String doctor_username) throws ClassNotFoundException, SQLException
 	{
-		String query = "UPDATE NURSE SET Nurse_DoctorUsername = \"" + doctor_username + "\"  WHERE Nurse_username = \"" + user_name + "\"";
+		String query = "UPDATE OfficeAutomation.Nurse SET Nurse_DoctorUsername = \"" + doctor_username + "\"  WHERE Nurse_username = \"" + user_name + "\"";
 		Class.forName("com.mysql.cj.jdbc.Driver");
 		try(Connection con = DriverManager.getConnection(url, uname, pass);
 				Statement st = con.createStatement();) {
@@ -287,7 +297,7 @@ public class NurseDatabase {
 	// Insert Nurse
 	public static void InsertNurse(String first_name, String last_name, int birth_day, int birth_month, int birth_year, String address, String phone_number, String username, String password, String doctor_username) throws ClassNotFoundException, SQLException
 	{
-		String query = "INSERT INTO NURSE VALUES(?,?,?,?,?,?,?,?,?,?)";
+		String query = "INSERT INTO OfficeAutomation.Nurse VALUES(?,?,?,?,?,?,?,?,?,?)";
 		Class.forName("com.mysql.cj.jdbc.Driver");
 		Connection con = DriverManager.getConnection(url, uname, pass);
 		PreparedStatement st = con.prepareStatement(query);
