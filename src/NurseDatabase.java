@@ -17,6 +17,21 @@ public class NurseDatabase {
 		//NurseDatabase.InsertNurse("Aryan", "Aggarwal", 20, 96, 2021, "CITY", 789456123, "kagg", "123456");
 	}
 	
+	public static String getRandomNurse() throws ClassNotFoundException, SQLException
+	{
+		String query = "SELECT Nurse_username FROM OfficeAutomation.Nurse ORDER BY RANDOM() LIMIT 1";
+		Class.forName("com.mysql.cj.jdbc.Driver");
+		Connection con = DriverManager.getConnection(url, uname, pass);
+		Statement st = con.createStatement();
+		ResultSet rs = st.executeQuery(query);
+		rs.next();
+		String randomNurse = rs.getString("Nurse_username");
+		st.close();
+		con.close();
+		return randomNurse;
+		
+	}
+	
 	// Getters
 	public static String getNurseFirstName(String user_name) throws ClassNotFoundException, SQLException
 	{

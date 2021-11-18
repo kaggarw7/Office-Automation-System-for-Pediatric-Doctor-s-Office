@@ -22,6 +22,21 @@ public class DoctorDatabase {
 		//DoctorDatabase.setDoctorNurseUsername("Kagg", "hhhhhh");
 	}
 	
+	public static String getRandomDoctor() throws ClassNotFoundException, SQLException
+	{
+		String query = "SELECT Doctor_username FROM OfficeAutomation.Doctor ORDER BY RANDOM() LIMIT 1";
+		Class.forName("com.mysql.cj.jdbc.Driver");
+		Connection con = DriverManager.getConnection(url, uname, pass);
+		Statement st = con.createStatement();
+		ResultSet rs = st.executeQuery(query);
+		rs.next();
+		String randomDoctor = rs.getString("Doctor_username");
+		st.close();
+		con.close();
+		return randomDoctor;
+		
+	}
+	
 	// Getters
 	public static String getDoctorFirstName(String user_name) throws ClassNotFoundException, SQLException
 	{
