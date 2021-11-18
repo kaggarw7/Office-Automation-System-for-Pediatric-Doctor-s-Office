@@ -530,7 +530,9 @@ public class Controller {
 
     @FXML
     public void handlePopulateMedicalInformation() throws ClassNotFoundException, SQLException {
-        Patient user = new Patient(Main.getCurrentUser());
+        System.out.println(PatientDatabase.getPatientNurseUsername(Main.getCurrentUser()));
+        System.out.println(NurseDatabase.getNurseFirstName("janeSmith88"));
+    	Patient user = new Patient(Main.getCurrentUser());
 
         try {
             patientHomePatientMedicalInfo.appendText("Weight (lb): " + user.getLastConsultation().getWeight());

@@ -13,7 +13,11 @@ public class Main extends Application {
 
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
         //NurseDatabase.InsertNurse("Jane", "Smith", 3, 6, 1988, "201 Nurse Drive.", "5559123999", "janeSmith88", "janeSmith88", "jamesMoriarty66");
+<<<<<<< HEAD
         //DoctorDatabase.InsertDoctor("James", "Moriarty", 6, 6, 1966, "222A Baker Street", "5555555555", "jamesMoriarty66", "jamesMoriarty66", "janeSmith88");
+=======
+        //DoctorDatabase.InsertDoctor("James", "Moriarty", 6, 6, 1966, "222A Baker Street", "5555555555", "janeSmith88", "jamesMoriarty66", "jamesMoriarty66");
+>>>>>>> 8527b81bc7f4f1e7be6310f9f0cce7a36d5032d9
         //PatientDatabase.InsertPatient("John", "Doe", 1, 1, 2001, "521 Normal Street", "5551231234", "jamesMoriarty66", "janeSmith88", "ABCFakeInsurance", "123 Pharmacy Road", "johnDoe01", "johnDoe01");
 
         launch(args);

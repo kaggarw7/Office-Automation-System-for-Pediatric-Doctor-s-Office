@@ -17,6 +17,7 @@ public class Doctor extends Person {
     public Doctor(String username) throws ClassNotFoundException, SQLException {
         super(DoctorDatabase.getDoctorFirstName(username), DoctorDatabase.getDoctorLastName(username), LocalDate.of(DoctorDatabase.getDoctorBirthYear(username), DoctorDatabase.getDoctorBirthMonth(username), DoctorDatabase.getDoctorBirthDay(username)), DoctorDatabase.getDoctorAddress(username), DoctorDatabase.getDoctorPhoneNumber(username), username, null);
 
+        System.out.println("DoctrNurseUsername: " + DoctorDatabase.getDoctorNurseUsername(username));
         this.assignedNurse = new Nurse(DoctorDatabase.getDoctorNurseUsername(username));
     }
 

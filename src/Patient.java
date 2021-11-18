@@ -32,6 +32,7 @@ public class Patient extends Person {
     public Patient(String username) throws ClassNotFoundException, SQLException {
         super(PatientDatabase.getPatientFirstName(username), PatientDatabase.getPatientLastName(username), LocalDate.of(PatientDatabase.getPatientBirthYear(username), PatientDatabase.getPatientBirthMonth(username), PatientDatabase.getPatientBirthDay(username)), PatientDatabase.getPatientAddress(username), PatientDatabase.getPatientPhoneNumber(username), username, null);
 
+        System.out.println(PatientDatabase.getPatientDoctorUsername(username));
         this.assignedDoctor = new Doctor(PatientDatabase.getPatientDoctorUsername(username));
         this.assignedNurse = new Nurse(PatientDatabase.getPatientNurseUsername(username));
 
