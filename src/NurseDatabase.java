@@ -41,6 +41,7 @@ public class NurseDatabase {
 		Statement st = con.createStatement();
 		ResultSet rs = st.executeQuery(query);
 		rs.next();
+		System.out.println(user_name);
 		String first_name = rs.getString("First_name");
 		st.close();
 		con.close();
