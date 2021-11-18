@@ -30,9 +30,8 @@ public class Patient extends Person {
     }
 
     public Patient(String username) throws ClassNotFoundException, SQLException {
-        super(PatientDatabase.getPatientFirstName(username), PatientDatabase.getPatientLastName(username), LocalDate.of(PatientDatabase.getPatientBirthDay(username), PatientDatabase.getPatientBirthMonth(username), PatientDatabase.getPatientBirthYear(username)), PatientDatabase.getPatientAddress(username), PatientDatabase.getPatientPhoneNumber(username), username, null);
-
-
+        super(PatientDatabase.getPatientFirstName(username), PatientDatabase.getPatientLastName(username), LocalDate.of(PatientDatabase.getPatientBirthYear(username), PatientDatabase.getPatientBirthMonth(username), PatientDatabase.getPatientBirthDay(username)), PatientDatabase.getPatientAddress(username), PatientDatabase.getPatientPhoneNumber(username), username, null);
+        
         //this.assignedDoctor = new Doctor(PatientDatabase.getPatientDoctorUsername(username));
         if (!PatientDatabase.getPatientDoctorUsername(username).equals("_")) {
             this.assignedDoctor = new Doctor(PatientDatabase.getPatientDoctorUsername(username));
