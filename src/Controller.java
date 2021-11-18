@@ -269,8 +269,8 @@ public class Controller {
 
             // TODO: Someway of selecting a doctor username when creating a patient, and a way of selecting a nurse when creating a doctor
 
-            String doctorUsername = "";
-            String nurseUsername = "";
+            String doctorUsername = DoctorDatabase.getRandomDoctor();
+            String nurseUsername = NurseDatabase.getRandomNurse();
 
             if (signUpPatientRadio.isSelected()) {
                 if (PatientDatabase.checkExistence(username)) {
