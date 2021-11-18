@@ -521,7 +521,7 @@ public class Controller {
     public void handlePopulateMedicalInformation() throws ClassNotFoundException, SQLException {
         Patient user = new Patient(Main.getCurrentUser());
 
-        if (!user.getLastConsultation().equals(null)) {
+        try {
             patientHomePatientMedicalInfo.appendText("Weight (lb): " + user.getLastConsultation().getWeight());
             patientHomePatientMedicalInfo.appendText("Height (cm): " + user.getLastConsultation().getHeight());
             patientHomePatientMedicalInfo.appendText("Blood Pressure: " + user.getLastConsultation().getBloodPressure());
@@ -535,6 +535,8 @@ public class Controller {
             for (Prescription prescription : user.getPrescriptions()) {
                 patientHomePatientInstructions.appendText("Take a " + prescription.getDosageAmount() + " tablet " + prescription.getTimesPerMonth() + " times per month.\n");
             }
+        } catch (Exception e) {
+            System.out.println("Consultation does not exist.");
         }
     }
 
